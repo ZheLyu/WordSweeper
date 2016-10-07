@@ -1,24 +1,23 @@
 package client.controller;
 
-
-import javax.swing.JFrame;
-
-import client.model.Model;
-import client.view.TryApplication;
+import client.model.*;
+import client.view.*;
 
 public class StartPraticeController {
 	TryApplication app;
 	Model model;
+	BoardCreater boardCreater;
 	
 	public  StartPraticeController(TryApplication app, Model model) {
 		this.app = app;
 		this.model = model;
+		boardCreater = new BoardCreater();
 	}
 	
 	public void process() {
-		 JFrame frame = new JFrame("title2");
-		    frame.setLayout(null);
-		    frame.setBounds(20, 20, 300, 100);
+		BoardDisplay frame = new BoardDisplay(boardCreater);
+		    //frame.setLayout(null);
+		    frame.setBounds(500, 100, 800, 800);
 		    frame.setVisible(true);
 	}
 }
