@@ -2,7 +2,7 @@ package client;
 import client.ServerAccess;
 import client.controller.SampleClientMessageHandler;
 import client.model.Model;
-import client.view.TryApplication;
+import client.view.Application;
 import xml.Message;
 
 /** Launch command-line Client to show minimal access needs. */
@@ -30,7 +30,7 @@ public class ClientLauncher {
 		
 		// Initialize the client application and its corresponding model
 		Model model = new Model();
-		TryApplication app = new TryApplication(model);
+		Application app = new Application(model);
 				
 		// try to connect to the server. Once connected, messages are going to be processed by 
 		// SampleClientMessageHandler. For now we just continue on with the initialization because

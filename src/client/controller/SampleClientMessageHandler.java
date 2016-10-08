@@ -1,7 +1,7 @@
 package client.controller;
 import xml.Message;
 import client.IMessageHandler;
-import client.view.TryApplication;
+import client.view.Application;
 
 /**
  * Sample implementation of a protocol handler to respond to messages received from the server.
@@ -11,9 +11,9 @@ import client.view.TryApplication;
  */
 public class SampleClientMessageHandler implements IMessageHandler {
 
-	TryApplication app;
+	Application app;
 	
-	public SampleClientMessageHandler(TryApplication app) {
+	public SampleClientMessageHandler(Application app) {
 		this.app = app;
 	}
 	

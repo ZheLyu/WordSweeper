@@ -3,14 +3,14 @@ package client.controller;
 
 import xml.Message;
 import client.model.Model;
-import client.view.TryApplication;
+import client.view.Application;
 
 public class JoinGameController {
 
-	TryApplication app;
+	Application app;
 	Model model;
 
-	public JoinGameController(TryApplication app, Model model) {
+	public JoinGameController(Application app, Model model) {
 		this.app = app;
 		this.model = model;
 	}

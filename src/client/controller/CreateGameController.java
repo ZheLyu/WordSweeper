@@ -3,15 +3,14 @@ package client.controller;
 
 import xml.Message;
 import client.model.Model;
-import client.view.TryApplication;
-import client.view.TryApplication;
+import client.view.Application;
 
 public class CreateGameController {
 
-	TryApplication app;
+	Application app;
 	Model model;
 
-	public CreateGameController(TryApplication app , Model model) {
+	public CreateGameController(Application app , Model model) {
 		this.app =app;
 		this.model = model;
 	}

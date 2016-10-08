@@ -4,11 +4,11 @@ import client.model.*;
 import client.view.*;
 
 public class StartPraticeController {
-	TryApplication app;
+	Application app;
 	Model model;
 	BoardCreater boardCreater;
 	
-	public  StartPraticeController(TryApplication app, Model model) {
+	public  StartPraticeController(Application app, Model model) {
 		this.app = app;
 		this.model = model;
 		boardCreater = new BoardCreater();
