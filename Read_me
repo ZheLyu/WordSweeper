@@ -7,5 +7,10 @@ This file contains a summary of what you will find in each of the files that
 make up  the application.
 
 BoardDisplay.java
-   This is a view class for creating the game board page. It contains the panel of board.
+This is a view class for creating the game board page. It contains the panel of board.
+
+SweeperPanel.java : implementation file
+This is a view class for creating the game board panel control
    
+DragControl.java : implementation file
+This is a control class for handling the mouse event on the board panel
