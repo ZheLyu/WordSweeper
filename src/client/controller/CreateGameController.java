@@ -11,11 +11,10 @@ public class CreateGameController {
 	Model model;
 
 	public CreateGameController(Application app , Model model) {
-<<<<<<< Upstream, based on branch 'master' of https://bzhao@fusion.wpi.edu/git/wordsweepvirgo/wordsweepvirgo.git
-		this.app =app;
-=======
+
+
 		this.app = app;
->>>>>>> 252d0a7 each cell contains a random letter or "qu" as a pair
+
 		this.model = model;
 	}
 
