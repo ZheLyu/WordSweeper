@@ -12,8 +12,9 @@ public class CreateGameController {
 
 	public CreateGameController(Application app , Model model) {
 
-
 		this.app = app;
+
+		this.app =app;
 
 		this.model = model;
 	}

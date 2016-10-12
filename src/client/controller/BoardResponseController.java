@@ -24,26 +24,8 @@ public class BoardResponseController {
 	
 	
 	public void process(Message response) {
-		// this refers to the outer node of the Message DOM (in this case, updateResponse).
-	//	Node boardResponse = response.contents.getFirstChild();
-		//NamedNodeMap map = boardResponse.getAttributes();
-		
-		//String gameId = map.getNamedItem("gameId").getNodeValue();
-		//app.getResponseArea().append("Board Message received for game:" + gameId + "\n");
-		//app.getResponseArea().append("Players:\n");
-		//NodeList list = boardResponse.getChildNodes();
-		//for (int i = 0; i < list.getLength(); i++) {
-		//	Node n = list.item(i);
-			//String pname = n.getAttributes().getNamedItem("name").getNodeValue();
-			//app.getResponseArea().append("  " + pname  + "\n");
-	//	}
-		
-		
-
-		// at this point, you would normally start processing this...
-		//.getResponseArea().append(response.toString());
-		//app.getResponseArea().append("\n");
 		
 	}
+		
 
 }

@@ -1,15 +1,16 @@
 package client.model;
 
 import java.util.*;
+
 import client.model.Cell;
 import client.model.Position;
 import client.model.Word;
 
 public class TestWord {
 
-	public static final String[] ALPHABET = {"a", "b", "c", "d", "e", "f", "g", "h", "i", 
-            								"j", "k", "l", "m", "n", "o", "p", "q", "r", 
-                                             "s", "t", "u", "v", "w", "x", "y", "z"};
+	private static final String[] ALPHABET = {"A", "B", "C", "D", "E", "F", "G", "H", "I", 
+		                                      "J", "K", "L", "M", "N", "O", "P", "Qu", "R", 
+		                                      "S", "T", "U", "V", "W", "X", "Y", "Z"};
  
 	public static void main(String[] args) {
 		

@@ -9,20 +9,12 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
-import javax.swing.JTextArea;
-import javax.swing.LayoutStyle.ComponentPlacement;
-import javax.swing.JScrollPane;
 
 import client.ServerAccess;
 import client.controller.CreateGameController;
 import client.controller.JoinGameController;
 import client.controller.StartPraticeController;
 import client.model.Model;
-
-import javax.swing.JLabel;
-
-
-
 
 public class Application extends JFrame {
 
@@ -95,7 +87,7 @@ public class Application extends JFrame {
 		contentPane.setLayout(gl_contentPane);
 	}
 
-	/** Record the means to communicate with server. */
+
 	public void setServerAccess(ServerAccess access) {
 		this.serverAccess = access;
 	}
@@ -105,7 +97,7 @@ public class Application extends JFrame {
 		return serverAccess;
 	}
 	
-	/** Navigation access to actionable elements in the GUI. */
+
 	
 }
 
