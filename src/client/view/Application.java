@@ -35,6 +35,7 @@ import client.model.Model;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JLabel;
 import java.awt.Font;
+import javax.swing.SwingConstants;
 
 public class Application extends JFrame {
     
@@ -83,7 +84,8 @@ public class Application extends JFrame {
 			}
 		});
 		
-		JLabel lblNewLabel = new JLabel("     Word   Sweeper");
+		JLabel lblNewLabel = new JLabel("Word   Sweeper");
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Arial", Font.PLAIN, 21));
 		
 		JLabel lblNewLabel_1 = new JLabel(Version);
@@ -91,37 +93,34 @@ public class Application extends JFrame {
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addContainerGap(96, Short.MAX_VALUE)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
-						.addComponent(btnStartPratice, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-						.addComponent(btnCreateGame, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-						.addComponent(btnJoinGame, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 291, Short.MAX_VALUE))
-					.addGap(76))
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGap(143)
-					.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 199, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(lblNewLabel_1)
-					.addContainerGap(124, Short.MAX_VALUE))
+				.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addContainerGap(299, Short.MAX_VALUE)
+							.addComponent(lblNewLabel_1))
+						.addGroup(Alignment.LEADING, gl_contentPane.createSequentialGroup()
+							.addGap(65)
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+								.addComponent(btnStartPratice, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE)
+								.addComponent(btnJoinGame, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE)
+								.addComponent(btnCreateGame, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE)
+								.addComponent(lblNewLabel, GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE))))
+					.addGap(90))
 		);
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGap(55)
-							.addComponent(lblNewLabel_1))
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addContainerGap()
-							.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 83, GroupLayout.PREFERRED_SIZE)))
-					.addGap(18)
+					.addGap(12)
+					.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(lblNewLabel_1)
+					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addComponent(btnCreateGame)
-					.addGap(36)
-					.addComponent(btnJoinGame)
 					.addGap(35)
+					.addComponent(btnJoinGame)
+					.addGap(36)
 					.addComponent(btnStartPratice)
-					.addContainerGap(77, Short.MAX_VALUE))
+					.addContainerGap(66, Short.MAX_VALUE))
 		);
 		contentPane.setLayout(gl_contentPane);
 	}
