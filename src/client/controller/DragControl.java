@@ -12,26 +12,21 @@ import client.view.*;
 
 public class DragControl implements MouseInputListener{
 	
-	SweeperPanel panel; 
-	BoardCreater model;
-	Point point;
+	private SweeperPanel panel; 
+	private BoardCreater model;
+	private Point point;
 	
 	
-	 int x0 = 0;     
-     int y0 = 0; 
+	// int x0 = 0;     
+    // int y0 = 0; 
 	
-
-	
-	public DragControl(SweeperPanel panel2, BoardCreater m) {
+	public DragControl(SweeperPanel panel, BoardCreater m) {
 		// TODO Auto-generated constructor stub
-		this.panel=panel2;
-		model=m;
-		
+		this.panel = panel;
+		model = m;
 		
 	}
 	
-	
-
 	public void mouseDragged(MouseEvent arg0){
 	      
 		model.addDragCellLIst(arg0.getPoint());

@@ -5,17 +5,17 @@ package client.model;
 public class Cell {
 
 	private Position position;
-	private char letter;
+	private String letter;
 	private int bonus;
 	
 	// Constructs a cell using position and letter
-	public Cell(Position position, char letter) {
+	public Cell(Position position, String letter) {
 		
 		this(position, letter, 0);
 	}
 	
 	// Constructs a cell using position, leter and bonus
-	public Cell(Position position, char letter, int bonus) {
+	public Cell(Position position, String letter, int bonus) {
 		
 		this.position = position;
 		this.letter = letter;
@@ -29,7 +29,7 @@ public class Cell {
 	}
 	
 	// Returns the letter in the cell
-	public char getLetter() {
+	public String getLetter() {
 		
 		return letter;
 	}

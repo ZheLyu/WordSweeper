@@ -22,6 +22,7 @@ public class BoardResponseController {
 		this.model = m;
 	}
 	
+	
 	public void process(Message response) {
 		// this refers to the outer node of the Message DOM (in this case, updateResponse).
 	//	Node boardResponse = response.contents.getFirstChild();

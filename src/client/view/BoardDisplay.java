@@ -17,7 +17,6 @@ public class BoardDisplay extends JFrame{
 		//setBounds(100, 100, 577, 499);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		model = m;
-		
 		panel = new SweeperPanel(m);
 		//getContentPane().add(panel, BorderLayout.WEST);
 		//panel.setLayout(null);
