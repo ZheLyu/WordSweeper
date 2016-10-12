@@ -1,16 +1,83 @@
 ================================================================================
-    CS509-WORD SWEEPER-VIRGO TEAM : Project Overview
+    CS509-WORD SWEEPER_Client-VIRGO TEAM : Project Overview
 ===============================================================================
+The project is designed as the class project task of CS509, which we implement a on-line
+game named Word Sweeper. All right reserved by members of Virgo team and Prof.Heinemen
 
 
-This file contains a summary of what you will find in each of the files that
-make up  the application.
+Below files contain a summary of what you will find in each of the files that
+make up the application.
 
-BoardDisplay.java
+ClientLauncher.java : implementation file
+This is a entry class of the application, main() function contains
+
+Application.java : 
+This is a view class to create a frame for player to create game, 
+join game or practice.
+
+BoardDisplay.java:
 This is a view class for creating the game board page. It contains the panel of board.
 
-SweeperPanel.java : implementation file
+SweeperPanel.java : 
 This is a view class for creating the game board panel control
    
-DragControl.java : implementation file
+DragControl.java : 
 This is a control class for handling the mouse event on the board panel
+
+BoardResponseController.java : 
+This is a controller class for checking whether the game has been locked or not.
+
+CreateGameController.java : 
+This is a controller class for sending request to server. 
+If the client creates a game the system will make sure that the client has gotten touch with the server     
+
+DragControl.java : 
+This is a control class for handling the mouse event on the board panel
+
+JoinGameController.java : 
+This is a controller class for sending request to server. 
+If the client requests to join a game the system will connect to server and get response.
+
+SampleClientMessageHandler.java : 
+This is a controller class template for message handler.   
+
+StartPratice.java : 
+This is a control class to practice.
+
+Board.java : 
+This is a model class, which stores all the information related to 
+a board using HashMap. Position and cell are included.
+
+Cell.java : 
+This is a model class and stores info of a cell. private state 
+position, letter, and bonus are included.
+
+GameRoom.java : 
+This is a model class for future use. It records information related
+to a game room. It includes password, locked info, the board and 
+players playing the game.  
+
+Model.java : 
+This is a model class for drawing information of client board GUI
+
+Player.java : 
+This is a model class for store player message and get the player's 
+position from server.
+
+Position.java : 
+This is a model class. It records the column and row number, and 
+implements hashCode and equal method used for realizing hashMap
+
+Word.java : 
+This is a model class. It records the cell user selected and pass
+those information to Player class. Not useful for task 2 
+right now.  
+
+
+
+
+
+
+
+
+            
