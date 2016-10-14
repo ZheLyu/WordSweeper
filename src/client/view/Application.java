@@ -39,7 +39,7 @@ import javax.swing.SwingConstants;
 
 public class Application extends JFrame {
     
-	static String Version ="V 1.0.4"; 
+	static String Version ="V 1.0.5"; 
 
 	/** GUI application maintains reference to Model for ease of navigation. */
 	public final Model model;
@@ -47,7 +47,7 @@ public class Application extends JFrame {
 	JPanel contentPane;
 	ServerAccess serverAccess;
 	
-	JButton btnCreateGme;
+	JButton btnCreateGame;
 	JButton btnJoinGame;
 	JButton btnStartPratice;
 	
@@ -63,7 +63,7 @@ public class Application extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		
-		JButton btnCreateGame = new JButton("Create Game");
+		btnCreateGame = new JButton("Create Game");
 		btnCreateGame.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				new CreateGameController(Application.this, model).process();
