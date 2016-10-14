@@ -20,6 +20,8 @@ import java.util.ArrayList;
 public class Model {
 	
 	
+	
+
 	private Point origin;     // The origin point of the 4 by 4 board
 	//private Point cellLt;
 	
@@ -61,6 +63,10 @@ public class Model {
     public void clearSelCellList() {
     	
     	selCellList.clear();
+    }
+    
+    public int getSelCellListSize(){
+    	return selCellList.size();
     }
 
     
