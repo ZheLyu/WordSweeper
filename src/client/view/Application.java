@@ -29,17 +29,21 @@ import javax.swing.JButton;
 
 import client.ServerAccess;
 import client.controller.CreateGameController;
+import client.controller.ExitGameController;
 import client.controller.JoinGameController;
 import client.controller.StartPraticeController;
 import client.model.Model;
+
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JLabel;
+
 import java.awt.Font;
+
 import javax.swing.SwingConstants;
 
 public class Application extends JFrame {
     
-	static String Version ="V 1.0.7"; 
+	static String Version ="V 1.0.8"; 
 
 	/** GUI application maintains reference to Model for ease of navigation. */
 	public final Model model;
@@ -90,21 +94,31 @@ public class Application extends JFrame {
 		
 		JLabel lblNewLabel_1 = new JLabel(Version);
 		
+		JButton btnExitGame= new JButton("Exit Game");
+		btnExitGame.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new ExitGameController(Application.this,model).process();
+			}
+		});
+		
+		
+		
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
-			gl_contentPane.createParallelGroup(Alignment.LEADING)
-				.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+			gl_contentPane.createParallelGroup(Alignment.TRAILING)
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_contentPane.createSequentialGroup()
 							.addContainerGap(299, Short.MAX_VALUE)
 							.addComponent(lblNewLabel_1))
-						.addGroup(Alignment.LEADING, gl_contentPane.createSequentialGroup()
+						.addGroup(gl_contentPane.createSequentialGroup()
 							.addGap(65)
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-								.addComponent(btnStartPratice, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE)
 								.addComponent(btnJoinGame, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE)
 								.addComponent(btnCreateGame, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE)
-								.addComponent(lblNewLabel, GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE))))
+								.addComponent(lblNewLabel, GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE)
+								.addComponent(btnExitGame, GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE)
+								.addComponent(btnStartPratice, GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE))))
 					.addGap(90))
 		);
 		gl_contentPane.setVerticalGroup(
@@ -118,9 +132,11 @@ public class Application extends JFrame {
 					.addComponent(btnCreateGame)
 					.addGap(35)
 					.addComponent(btnJoinGame)
-					.addGap(36)
+					.addGap(29)
 					.addComponent(btnStartPratice)
-					.addContainerGap(66, Short.MAX_VALUE))
+					.addPreferredGap(ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+					.addComponent(btnExitGame)
+					.addContainerGap())
 		);
 		contentPane.setLayout(gl_contentPane);
 	}
