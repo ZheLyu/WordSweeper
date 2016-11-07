@@ -11,8 +11,6 @@ public class ExitGameController {
 
 		this.app = app;
 
-		this.app =app;
-
 		this.model = model;
 	}
 
@@ -28,4 +26,4 @@ public class ExitGameController {
 	}
 
 
-	}
+}

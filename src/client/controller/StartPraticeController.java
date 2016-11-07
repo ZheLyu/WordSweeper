@@ -24,14 +24,14 @@ public class StartPraticeController {
     public StartPraticeController(Application app, Model model) {
 		
 		this.app = app;
-		this.model=model;
-		m=new Model();
+		this.model = model;
+		m = new Model();
 	}
 	
 	// Creates a flame when user press practice button 
 	public void process() {
 		
-		BoardDisplay frame = new BoardDisplay(m);
+		BoardDisplay frame = new BoardDisplay(app, m);
 		    //frame.setLayout(null);
 		    frame.setBounds(500, 100, 800, 800);
 		    frame.setVisible(true);
