@@ -15,28 +15,61 @@ History:
 
 package client.view;
 
-import javax.swing.JFrame;
+import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+import client.controller.ExitGameController;
+import client.controller.LockGameController;
+import client.controller.RepositionController;
 import client.model.Model;
 
 public class BoardDisplay extends JFrame {
 	
 	 SweeperPanel panel;
      Model model;
-     
+     JButton btnLockGame;
+     JPanel buttons;
+     JButton btnReposition;
+     Application app;
 	/**
 	 * Create the frame.
 	 */
-	public BoardDisplay(Model m) {
+	public BoardDisplay(final Application app, final Model m) {
 		//getContentPane().setBackground(Color.YELLOW);
-		//setBounds(100, 100, 577, 499);
+		setBounds(100, 100, 300, 400);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		model = m;
+		this.model = m;
+		this.app = app;
 		panel = new SweeperPanel(m);
-		//getContentPane().add(panel, BorderLayout.WEST);
-		//panel.setLayout(null);
-		this.add(panel);
 		
+		btnLockGame = new JButton("lock");
+//		btnReposition.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				new LockGameController(app, model).process();
+//			}
+//		});
+		
+		btnReposition = new JButton("reposition");
+		btnReposition.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new RepositionController(app, model).process();
+			}
+		});
+		
+		buttons = new JPanel();
+		buttons.add(btnLockGame);
+		buttons.add(btnReposition);
+		
+		add(panel, BorderLayout.CENTER);
+
+		add(buttons, BorderLayout.EAST);
+		pack();
+		         
 	}
 	
 
