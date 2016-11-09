@@ -23,13 +23,17 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import client.controller.ExitGameController;
-import client.controller.LockGameController;
-import client.controller.RepositionController;
+import client.controller.*;
+
+
 import client.model.Model;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.SwingConstants;
+import java.awt.Component;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class BoardDisplay extends JFrame {
 	
@@ -57,33 +61,90 @@ public class BoardDisplay extends JFrame {
 		buttons = new JPanel();
 		
 		btnLeft = new JButton("LEFT");
+		btnLeft.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				RepositionController reposition=new RepositionController(app,m);
+				reposition.process();
+			}
+		});
 		
 		btnRight = new JButton("RIGHT");
+		btnRight.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				RepositionController reposition=new RepositionController(app,m);
+				reposition.process();
+			}
+		});
 		
 		btnUp = new JButton("UP");
+		btnUp.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				RepositionController reposition=new RepositionController(app,m);
+				reposition.process();
+			}
+		});
 		
 		btnDown = new JButton("DOWN");
+		btnDown.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				RepositionController reposition=new RepositionController(app,m);
+				reposition.process();
+			}
+		});
 		
 		btnLock = new JButton("LOCK");
+		btnLock.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				LockGameController reposition=new LockGameController(app,m);
+				reposition.process();
+			}
+		});
+		
 		
 		btnReset = new JButton("RESET");
+		btnReset.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				ResetGameController reset=new ResetGameController(app,m);
+				reset.process();
+			}
+		});
+		
+		JButton btnExit = new JButton("EXIT");
+		btnExit.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				ExitGameController reset=new ExitGameController(app,m);
+				reset.process();
+			}
+		});
+		
+		
+		
 	//	GroupLayout gl_sweeperPanel = new GroupLayout(sweeperPanel);
 		GroupLayout gl_buttons = new GroupLayout(buttons);
 		gl_buttons.setHorizontalGroup(
-			gl_buttons.createParallelGroup(Alignment.TRAILING)
-				.addGroup(Alignment.LEADING, gl_buttons.createSequentialGroup()
+			gl_buttons.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_buttons.createSequentialGroup()
 					.addContainerGap()
-					.addComponent(btnReset, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE)
+					.addComponent(btnReset, GroupLayout.PREFERRED_SIZE, 128, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(btnLock, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(btnLeft)
 					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(btnRight, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addComponent(btnRight, GroupLayout.PREFERRED_SIZE, 131, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(btnUp, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addComponent(btnDown, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(btnExit, GroupLayout.PREFERRED_SIZE, 131, GroupLayout.PREFERRED_SIZE)
 					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 		);
 		gl_buttons.setVerticalGroup(
@@ -96,9 +157,11 @@ public class BoardDisplay extends JFrame {
 						.addComponent(btnLeft)
 						.addComponent(btnRight)
 						.addComponent(btnUp)
-						.addComponent(btnDown))
+						.addComponent(btnDown)
+						.addComponent(btnExit))
 					.addGap(41))
 		);
+		gl_buttons.linkSize(SwingConstants.HORIZONTAL, new Component[] {btnLeft, btnRight, btnUp, btnDown, btnLock});
 		buttons.setLayout(gl_buttons);
 	//	panel
     	getContentPane().add(sweeperPanel, BorderLayout.CENTER);
@@ -108,6 +171,4 @@ public class BoardDisplay extends JFrame {
 		pack();
 		         
 	}
-	
-
 }
