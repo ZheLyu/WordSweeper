@@ -49,7 +49,7 @@ public class BoardDisplay extends JFrame {
 	 */
 	public BoardDisplay(final Application app, final Model m) {
 		//getContentPane().setBackground(Color.YELLOW);
-		setBounds(100, 100, 300, 400);
+		setBounds(100, 100, 627, 479);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		this.model = m;
 		this.app = app;
