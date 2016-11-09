@@ -13,15 +13,15 @@ package client.controller;
 
 
 import xml.Message;
-import client.model.Model;
+import client.model.GameRoom;
 import client.view.Application;
 
 public class CreateGameController {
 
 	Application app;
-	Model model;
+	GameRoom model;
 
-	public CreateGameController(Application app , Model model) {
+	public CreateGameController(Application app , GameRoom model) {
 
 		this.app = app;
 

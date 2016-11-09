@@ -1,14 +1,14 @@
 package client.controller;
 
 import xml.Message;
-import client.model.Model;
+import client.model.GameRoom;
 import client.view.Application;
 
 public class LockGameController {
 	Application app;
-	Model model;
+	GameRoom model;
 
-	public LockGameController(Application app , Model model) {
+	public LockGameController(Application app , GameRoom model) {
 
 		this.app = app;
 

@@ -1,18 +1,14 @@
 package client.view;
 
-import javax.swing.JFrame;
+import javax.swing.*;
 
-import client.model.Model;
-import javax.swing.JTextField;
-import java.awt.BorderLayout;
-import javax.swing.JLabel;
-import javax.swing.JButton;
+import client.model.GameRoom;
 
 public class CreateRoomPage extends JFrame{
 	private JTextField textField;
 	private JTextField textField_1;
 	
-	public CreateRoomPage(final Application app, final Model m) 
+	public CreateRoomPage(final Application app, final GameRoom m) 
 	{
 		setTitle("Create Room");
 		setBounds(100, 100, 464, 281);

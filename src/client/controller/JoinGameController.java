@@ -15,15 +15,15 @@ package client.controller;
 
 
 import xml.Message;
-import client.model.Model;
+import client.model.GameRoom;
 import client.view.Application;
 
 public class JoinGameController {
 
 	Application app;
-	Model model;
+	GameRoom model;
 
-	public JoinGameController(Application app, Model model) {
+	public JoinGameController(Application app, GameRoom model) {
 		this.app = app;
 		this.model = model;
 	}

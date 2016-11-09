@@ -1,13 +1,13 @@
 package client.controller;
 
 import xml.Message;
-import client.model.Model;
+import client.model.GameRoom;
 import client.view.Application;
 public class ExitGameController {
 	Application app;
-	Model model;
+	GameRoom model;
 
-	public ExitGameController(Application app , Model model) {
+	public ExitGameController(Application app , GameRoom model) {
 
 		this.app = app;
 

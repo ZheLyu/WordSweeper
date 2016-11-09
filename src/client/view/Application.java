@@ -32,7 +32,8 @@ import client.controller.CreateGameController;
 import client.controller.ExitGameController;
 import client.controller.JoinGameController;
 import client.controller.StartPraticeController;
-import client.model.Model;
+import client.model.GameRoom;
+
 
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JLabel;
@@ -43,11 +44,11 @@ import javax.swing.SwingConstants;
 
 public class Application extends JFrame {
     
-	static String Version ="V 1.0.16"; 
+	static String Version ="V 1.0.17"; 
 	
 
 	/** GUI application maintains reference to Model for ease of navigation. */
-	public final Model model;
+	public final GameRoom model;
 	
 	JPanel contentPane;
 	ServerAccess serverAccess;
@@ -59,7 +60,7 @@ public class Application extends JFrame {
 	/**
 	 * Create the Application frame.
 	 */
-	public Application(final Model model) {
+	public Application(final GameRoom model) {
 		this.model = model;
 		setTitle("Skeleton Application");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

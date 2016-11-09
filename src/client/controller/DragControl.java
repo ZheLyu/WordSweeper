@@ -19,22 +19,21 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.event.MouseInputListener;
 
-
-import client.model.Model;
+import client.model.DrawBoardModel;
 import client.view.*;
 
 
 public class DragControl implements MouseInputListener{
 	
 	private SweeperPanel panel; 
-	private Model model;
+	private DrawBoardModel model;
 
 	
 	
 	// int x0 = 0;     
     // int y0 = 0; 
 	
-	public DragControl(SweeperPanel panel, Model m) {
+	public DragControl(SweeperPanel panel, DrawBoardModel m) {
 		// TODO Auto-generated constructor stub
 		this.panel = panel;
 		model = m;

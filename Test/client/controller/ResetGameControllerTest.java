@@ -3,7 +3,7 @@ package client.controller;
 import java.util.ArrayList;
 
 import client.MockServerAccess;
-import client.model.Model;
+import client.model.GameRoom;
 import client.view.Application;
 import xml.Message;
 import junit.framework.TestCase;
@@ -17,7 +17,7 @@ public class ResetGameControllerTest extends TestCase {
 		Application client;
 		
 		// model being maintained by client.
-		Model model;
+		GameRoom model;
 
 	protected void setUp() throws Exception {
 		//super.setUp();
@@ -26,7 +26,7 @@ public class ResetGameControllerTest extends TestCase {
 		}
 		
 		// prepare client and connect to server.
-		model = new Model();
+		model = new GameRoom("123");
 		client = new Application (model);
 		client.setVisible(true);
 		

@@ -17,19 +17,21 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Point;
 import java.util.ArrayList;
+
 import javax.swing.JPanel;
 
 import client.controller.DragControl;
-import client.model.Model;
+import client.model.DrawBoardModel;
+
 
 public class SweeperPanel extends JPanel{
 	
 	private static final int SIZE = 4;
-	private Model model;
+	private DrawBoardModel model;
 	private DragControl control;
 	
 	
-	public SweeperPanel(Model m) {
+	public SweeperPanel(DrawBoardModel m) {
 		
 		model = m;
         control = new DragControl(this, model);

@@ -19,18 +19,21 @@ import java.util.*;
 public class GameRoom {
 	
  // practice model or team model
+	private DrawBoardModel drawModel;
 	private boolean locked; 
 	private List<Player> players; 
 	private String password; 
 	private Board board;
 	
-	public GameRoom(List<Player> players, String password) {
+	public GameRoom(String password) {
 		
 		this.password = password;
 		this.players = new ArrayList<Player>();
-		for (int i = 0; i < players.size(); i++) {
+		/*for (int i = 0; i < players.size(); i++) {
 			this.players.add(players.get(i));
 		}
+		*/
+		drawModel = new DrawBoardModel();
 	}
 	
 	// Returns the managing player
@@ -49,5 +52,9 @@ public class GameRoom {
 	public void updateBoard(Board board, List<Player> players) {
 		
 		
+	}
+	
+	public DrawBoardModel getDrawModel(){
+		return drawModel;
 	}
 }

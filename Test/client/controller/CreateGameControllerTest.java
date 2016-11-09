@@ -3,9 +3,9 @@ package client.controller;
 import java.util.ArrayList;
 
 import xml.Message;
+import client.model.GameRoom;
 import client.view.Application;
 import client.MockServerAccess;
-import client.model.Model;
 import junit.framework.TestCase;
 
 public class CreateGameControllerTest extends TestCase {
@@ -16,7 +16,7 @@ public class CreateGameControllerTest extends TestCase {
 	Application client;
 	
 	// model being maintained by client.
-	Model model;
+	GameRoom model;
 	
 
 	protected void setUp() throws Exception {
@@ -26,7 +26,7 @@ public class CreateGameControllerTest extends TestCase {
 		}
 		
 		// prepare client and connect to server.
-		model = new Model();
+		model = new GameRoom("123");
 		client = new Application (model);
 		client.setVisible(true);
 		

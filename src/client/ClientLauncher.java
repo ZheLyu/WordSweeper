@@ -17,7 +17,7 @@ History:
 package client;
 import client.ServerAccess;
 import client.controller.SampleClientMessageHandler;
-import client.model.Model;
+import client.model.GameRoom;
 import client.view.Application;
 import xml.Message;
 
@@ -45,7 +45,7 @@ public class ClientLauncher {
 		}
 		
 		// Initialize the client application and its corresponding model
-		Model model = new Model();
+		GameRoom model = new GameRoom("123");
 		Application app = new Application(model);
 				
 		// try to connect to the server. Once connected, messages are going to be processed by 

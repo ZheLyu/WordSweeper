@@ -18,20 +18,19 @@ import client.view.*;
 
 public class StartPraticeController {
 	Application app;
-	Model model;
-    Model m;
-	
-    public StartPraticeController(Application app, Model model) {
+	GameRoom model;
+    
+    public StartPraticeController(Application app, GameRoom model) {
 		
 		this.app = app;
 		this.model = model;
-		m = new Model();
+		
 	}
 	
 	// Creates a flame when user press practice button 
 	public void process() {
 		
-		BoardDisplay frame = new BoardDisplay(app, m);
+		BoardDisplay frame = new BoardDisplay(app, model);
 		    //frame.setLayout(null);
 		    frame.setBounds(500, 100, 800, 800);
 		    frame.setVisible(true);

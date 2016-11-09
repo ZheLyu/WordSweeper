@@ -15,7 +15,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import xml.Message;
-import client.model.Model;
+import client.model.GameRoom;
 import client.view.Application;
 
 /**
@@ -25,9 +25,9 @@ import client.view.Application;
 public class BoardResponseController extends ControllerChain {
 
 	public Application app;
-	public Model model;
+	public GameRoom model;
 	
-	public BoardResponseController(Application a, Model m) {
+	public BoardResponseController(Application a, GameRoom m) {
 		super();
 		this.app = a;
 		this.model = m;

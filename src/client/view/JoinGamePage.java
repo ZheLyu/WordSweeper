@@ -5,7 +5,9 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-import client.model.Model;
+import client.model.GameRoom;
+
+
 
 public class JoinGamePage extends JFrame
 {
@@ -13,7 +15,7 @@ public class JoinGamePage extends JFrame
 	private JTextField textField;
 	private JTextField textField_1;
 	
-	public JoinGamePage(final Application app, final Model m) 
+	public JoinGamePage(final Application app, final GameRoom m) 
 	{
 		setTitle("Join Game");
 		setBounds(100, 100, 464, 281);

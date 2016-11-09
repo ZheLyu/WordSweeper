@@ -1,15 +1,15 @@
 package client.controller;
 
 import xml.Message;
-import client.model.Model;
+import client.model.GameRoom;
 import client.view.Application;
 
 public class ResetGameController {
 	
 	Application app;
-	Model model;
+	GameRoom model;
 	
-	public ResetGameController(Application app, Model model){
+	public ResetGameController(Application app, GameRoom model){
 		
 		this.app = app;
 		this.model = model;

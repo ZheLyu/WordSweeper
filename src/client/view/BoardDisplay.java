@@ -24,40 +24,44 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import client.controller.*;
+import client.model.GameRoom;
 
 
-import client.model.Model;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.SwingConstants;
+
 import java.awt.Component;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class BoardDisplay extends JFrame {
 	
-	 SweeperPanel sweeperPanel;
-     Model model;
-     JPanel buttons;
-
+	 
+	 GameRoom model;
      Application app;
+     
+     SweeperPanel sweeperPanel;
+     
+     JPanel buttons;
      private JButton btnLeft;
      private JButton btnRight;
      private JButton btnUp;
      private JButton btnDown;
      private JButton btnLock;
      private JButton btnReset;
+	
 	/**
 	 * Create the frame.
 	 */
-	public BoardDisplay(final Application app, final Model m) {
+	public BoardDisplay(final Application app, final GameRoom m) {
 		//getContentPane().setBackground(Color.YELLOW);
-		setBounds(100, 100, 627, 479);
+		setBounds(100, 100, 1079, 458);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		this.model = m;
 		this.app = app;
-		sweeperPanel = new SweeperPanel(m);
+		sweeperPanel = new SweeperPanel(m.getDrawModel());
 		buttons = new JPanel();
 		
 		btnLeft = new JButton("LEFT");
@@ -163,7 +167,8 @@ public class BoardDisplay extends JFrame {
 		);
 		gl_buttons.linkSize(SwingConstants.HORIZONTAL, new Component[] {btnLeft, btnRight, btnUp, btnDown, btnLock});
 		buttons.setLayout(gl_buttons);
-	//	panel
+
+		
     	getContentPane().add(sweeperPanel, BorderLayout.CENTER);
 	
 		getContentPane().add(buttons, BorderLayout.SOUTH);
