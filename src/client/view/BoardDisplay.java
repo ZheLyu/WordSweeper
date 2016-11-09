@@ -69,7 +69,7 @@ public class BoardDisplay extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				RepositionController reposition=new RepositionController(app,m);
-				reposition.process();
+				reposition.lprocess();
 			}
 		});
 		
@@ -78,7 +78,7 @@ public class BoardDisplay extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				RepositionController reposition=new RepositionController(app,m);
-				reposition.process();
+				reposition.rprocess();
 			}
 		});
 		
@@ -87,7 +87,7 @@ public class BoardDisplay extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				RepositionController reposition=new RepositionController(app,m);
-				reposition.process();
+				reposition.uprocess();
 			}
 		});
 		
@@ -96,7 +96,7 @@ public class BoardDisplay extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				RepositionController reposition=new RepositionController(app,m);
-				reposition.process();
+				reposition.dprocess();
 			}
 		});
 		
@@ -104,8 +104,8 @@ public class BoardDisplay extends JFrame {
 		btnLock.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				LockGameController reposition=new LockGameController(app,m);
-				reposition.process();
+				LockGameController lock=new LockGameController(app,m);
+				lock.process();
 			}
 		});
 		

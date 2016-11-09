@@ -17,13 +17,37 @@ public class RepositionController {
 	}
 
 	/** Make the request on the server and wait for response. */
-	public void process() {
+	public void lprocess() {
 		
-		String xmlString = Message.requestHeader() + "<repositionBoardRequest gameId='somePlace' name='nextOne'/></request>";
+		String xmlString = Message.requestHeader() + "<repositionBoardRequest gameId='somePlace' name='nextOne' rowChange='-1' /></request>";
 		Message m = new Message (xmlString);
 		
+		app.getServerAccess().sendRequest(m);
 	
 	}
 
-
+    public void rprocess() {
+		
+		String xmlString = Message.requestHeader() + "<repositionBoardRequest gameId='somePlace' name='nextOne' rowChange='1' /></request>";
+		Message m = new Message (xmlString);
+		
+		app.getServerAccess().sendRequest(m);
+	
+	}
+    public void uprocess() {
+		
+		String xmlString = Message.requestHeader() + "<repositionBoardRequest gameId='somePlace' name='nextOne' colChange='1'/></request>";
+		Message m = new Message (xmlString);
+		
+		app.getServerAccess().sendRequest(m);
+	
+	}
+    public void dprocess() {
+		
+		String xmlString = Message.requestHeader() + "<repositionBoardRequest gameId='somePlace' name='nextOne' colChange='-1' /></request>";
+		Message m = new Message (xmlString);
+		
+		app.getServerAccess().sendRequest(m);
+	
+	}
 }

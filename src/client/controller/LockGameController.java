@@ -18,7 +18,7 @@ public class LockGameController {
 	/** Make the request on the server and wait for response. */
 	public void process() {
 		// send the request to lock the game.
-		String xmlString = Message.requestHeader() + "<lockGameRequest name='samplePlayer'/></request>";
+		String xmlString = Message.requestHeader() + "<lockGameRequest gameId='sample'/></request>";
 		Message m = new Message (xmlString);
 
 		// Request the lock (this might not succeed).
