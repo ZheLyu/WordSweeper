@@ -38,5 +38,7 @@ public class CreateGameController {
 
 		// Request the lock (this might not succeed).
 		app.getServerAccess().sendRequest(m);
+		
+				
 	}
 }
