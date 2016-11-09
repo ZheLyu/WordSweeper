@@ -32,7 +32,7 @@ public class StartPraticeController {
 		
 		BoardDisplay frame = new BoardDisplay(app, model);
 		    //frame.setLayout(null);
-		    frame.setBounds(500, 100, 800, 800);
+		    //frame.setBounds(500, 100, 800, 800);
 		    frame.setVisible(true);
 	}
 }

@@ -16,8 +16,6 @@ History:
 package client.view;
 
 import java.awt.BorderLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -35,6 +33,7 @@ import javax.swing.SwingConstants;
 import java.awt.Component;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.Window.Type;
 
 public class BoardDisplay extends JFrame {
 	
@@ -44,27 +43,38 @@ public class BoardDisplay extends JFrame {
      
      SweeperPanel sweeperPanel;
      
-     JPanel buttons;
+    
      private JButton btnLeft;
      private JButton btnRight;
      private JButton btnUp;
      private JButton btnDown;
      private JButton btnLock;
      private JButton btnReset;
+     private JButton btnExit;
+     private JPanel panel;
 	
 	/**
 	 * Create the frame.
 	 */
 	public BoardDisplay(final Application app, final GameRoom m) {
-		//getContentPane().setBackground(Color.YELLOW);
-		setBounds(100, 100, 1079, 458);
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		
+		
 		this.model = m;
 		this.app = app;
-		sweeperPanel = new SweeperPanel(m.getDrawModel());
-		buttons = new JPanel();
 		
+		//setSize(1024, 768);
+		setBounds(0, 0, 1024, 768);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		
+		panel = new JPanel();
+		panel.setBounds(0, 0, 1024, 768);
+		
+		
+		sweeperPanel = new SweeperPanel(m.getDrawModel());
+		sweeperPanel.setBounds(0, 0, 600, 700);
+	
 		btnLeft = new JButton("LEFT");
+		btnLeft.setBounds(809, 33, 150, 63);
 		btnLeft.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
@@ -74,6 +84,7 @@ public class BoardDisplay extends JFrame {
 		});
 		
 		btnRight = new JButton("RIGHT");
+		btnRight.setBounds(809, 129, 150, 63);
 		btnRight.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
@@ -83,6 +94,7 @@ public class BoardDisplay extends JFrame {
 		});
 		
 		btnUp = new JButton("UP");
+		btnUp.setBounds(809, 225, 150, 63);
 		btnUp.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
@@ -92,6 +104,7 @@ public class BoardDisplay extends JFrame {
 		});
 		
 		btnDown = new JButton("DOWN");
+		btnDown.setBounds(809, 321, 150, 63);
 		btnDown.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
@@ -101,6 +114,7 @@ public class BoardDisplay extends JFrame {
 		});
 		
 		btnLock = new JButton("LOCK");
+		btnLock.setBounds(809, 417, 150, 63);
 		btnLock.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
@@ -111,6 +125,7 @@ public class BoardDisplay extends JFrame {
 		
 		
 		btnReset = new JButton("RESET");
+		btnReset.setBounds(809, 513, 150, 63);
 		btnReset.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
@@ -119,7 +134,8 @@ public class BoardDisplay extends JFrame {
 			}
 		});
 		
-		JButton btnExit = new JButton("EXIT");
+		btnExit = new JButton("EXIT");
+		btnExit.setBounds(809, 609, 150, 63);
 		btnExit.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
@@ -128,52 +144,22 @@ public class BoardDisplay extends JFrame {
 			}
 		});
 		
-		
-		
-	//	GroupLayout gl_sweeperPanel = new GroupLayout(sweeperPanel);
-		GroupLayout gl_buttons = new GroupLayout(buttons);
-		gl_buttons.setHorizontalGroup(
-			gl_buttons.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_buttons.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(btnReset, GroupLayout.PREFERRED_SIZE, 128, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(btnLock, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(btnLeft)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(btnRight, GroupLayout.PREFERRED_SIZE, 131, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(btnUp, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addComponent(btnDown, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(btnExit, GroupLayout.PREFERRED_SIZE, 131, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-		);
-		gl_buttons.setVerticalGroup(
-			gl_buttons.createParallelGroup(Alignment.TRAILING)
-				.addGroup(gl_buttons.createSequentialGroup()
-					.addContainerGap(253, Short.MAX_VALUE)
-					.addGroup(gl_buttons.createParallelGroup(Alignment.BASELINE)
-						.addComponent(btnReset)
-						.addComponent(btnLock)
-						.addComponent(btnLeft)
-						.addComponent(btnRight)
-						.addComponent(btnUp)
-						.addComponent(btnDown)
-						.addComponent(btnExit))
-					.addGap(41))
-		);
-		gl_buttons.linkSize(SwingConstants.HORIZONTAL, new Component[] {btnLeft, btnRight, btnUp, btnDown, btnLock});
-		buttons.setLayout(gl_buttons);
-
-		
-    	getContentPane().add(sweeperPanel, BorderLayout.CENTER);
 	
-		getContentPane().add(buttons, BorderLayout.SOUTH);
+		
+		
+		getContentPane().setLayout(null);  
 	
-		pack();
-		         
+    	getContentPane().add(sweeperPanel);
+		getContentPane().add(btnLeft);
+		getContentPane().add(btnRight);
+		getContentPane().add(btnUp);
+		getContentPane().add(btnDown);
+		getContentPane().add(btnLock);
+		getContentPane().add(btnReset);
+		getContentPane().add(btnExit);
+		getContentPane().add(panel);
+		
+		setVisible(true);
+			         
 	}
 }

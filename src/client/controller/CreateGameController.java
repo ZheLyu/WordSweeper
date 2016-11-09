@@ -25,8 +25,6 @@ public class CreateGameController {
 
 		this.app = app;
 
-		this.app =app;
-
 		this.model = model;
 	}
 
