@@ -27,15 +27,23 @@ import client.controller.ExitGameController;
 import client.controller.LockGameController;
 import client.controller.RepositionController;
 import client.model.Model;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.LayoutStyle.ComponentPlacement;
 
 public class BoardDisplay extends JFrame {
 	
-	 SweeperPanel panel;
+	 SweeperPanel sweeperPanel;
      Model model;
-     JButton btnLockGame;
      JPanel buttons;
-     JButton btnReposition;
+
      Application app;
+     private JButton btnLeft;
+     private JButton btnRight;
+     private JButton btnUp;
+     private JButton btnDown;
+     private JButton btnLock;
+     private JButton btnReset;
 	/**
 	 * Create the frame.
 	 */
@@ -45,29 +53,58 @@ public class BoardDisplay extends JFrame {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		this.model = m;
 		this.app = app;
-		panel = new SweeperPanel(m);
-		
-		btnLockGame = new JButton("lock");
-//		btnReposition.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				new LockGameController(app, model).process();
-//			}
-//		});
-		
-		btnReposition = new JButton("reposition");
-		btnReposition.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				new RepositionController(app, model).process();
-			}
-		});
-		
+		sweeperPanel = new SweeperPanel(m);
 		buttons = new JPanel();
-		buttons.add(btnLockGame);
-		buttons.add(btnReposition);
 		
-		add(panel, BorderLayout.CENTER);
-
-		add(buttons, BorderLayout.EAST);
+		btnLeft = new JButton("LEFT");
+		
+		btnRight = new JButton("RIGHT");
+		
+		btnUp = new JButton("UP");
+		
+		btnDown = new JButton("DOWN");
+		
+		btnLock = new JButton("LOCK");
+		
+		btnReset = new JButton("RESET");
+	//	GroupLayout gl_sweeperPanel = new GroupLayout(sweeperPanel);
+		GroupLayout gl_buttons = new GroupLayout(buttons);
+		gl_buttons.setHorizontalGroup(
+			gl_buttons.createParallelGroup(Alignment.TRAILING)
+				.addGroup(Alignment.LEADING, gl_buttons.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(btnReset, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(btnLock, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(btnLeft)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(btnRight, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addComponent(btnUp, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addComponent(btnDown, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+		);
+		gl_buttons.setVerticalGroup(
+			gl_buttons.createParallelGroup(Alignment.TRAILING)
+				.addGroup(gl_buttons.createSequentialGroup()
+					.addContainerGap(253, Short.MAX_VALUE)
+					.addGroup(gl_buttons.createParallelGroup(Alignment.BASELINE)
+						.addComponent(btnReset)
+						.addComponent(btnLock)
+						.addComponent(btnLeft)
+						.addComponent(btnRight)
+						.addComponent(btnUp)
+						.addComponent(btnDown))
+					.addGap(41))
+		);
+		buttons.setLayout(gl_buttons);
+	//	panel
+    	getContentPane().add(sweeperPanel, BorderLayout.CENTER);
+	
+		getContentPane().add(buttons, BorderLayout.SOUTH);
+	
 		pack();
 		         
 	}
