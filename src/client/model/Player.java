@@ -20,23 +20,28 @@ import java.util.*;
 public class Player {
 	
 	private Boolean isManger;
-	private String nickName;
-	private String id;
-	private int totalScore;
+	
+	private String gameId;
+	private int score;
+	private String name;
 	private Position position;
 	private List<String> words;
+	private Board board;
  
-	public void Player(Boolean isManger, String nickName, String id){
-	
-		this.isManger = isManger;
-		this.nickName = nickName;
-		this.id = id;
+	public Player(String gameId, String name, String score, Board board, Position position) {
+		
+		this.gameId = gameId;
+		this.name = name; 
+		this.board = board;
+		this.position = position;
+		
+
 	}
 	
 	/** Get the player's position from server*/
-	public void getPosition(Position position) {
+	public Position getPosition() {
 		
-		
+		return position; 
 	}
 
 }

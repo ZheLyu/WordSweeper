@@ -23,7 +23,7 @@ public class Position {
 	private int row;
 	
 	// Constructs Position using column and row
-    public Position(int column, int row){
+    public Position(int column, int row) {
     	
     	this.column = column;
     	this.row = row;

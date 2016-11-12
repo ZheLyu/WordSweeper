@@ -34,30 +34,65 @@ public class BoardResponseController extends ControllerChain {
 	}
 	
 	public boolean process(Message response) {
-		String type = response.contents.getFirstChild().getLocalName();
-		if (!type.equals ("boardResponse")) {
-			return next.process(response);
-		}
+//		String type = response.contents.getFirstChild().getLocalName();
+//		if (!type.equals ("boardResponse")) {
+//			return next.process(response);
+//		}
 		
 		// this refers to the outer node of the Message DOM (in this case, updateResponse).
-		Node boardResponse = response.contents.getFirstChild();
-		NamedNodeMap map = boardResponse.getAttributes();
-		
-		String gameId = map.getNamedItem("gameId").getNodeValue();
-		//app.getResponseArea().append("Board Message received for game:" + gameId + "\n");
-		//app.getResponseArea().append("Players:\n");
-		NodeList list = boardResponse.getChildNodes();
-		for (int i = 0; i < list.getLength(); i++) {
-			Node n = list.item(i);
-			String pname = n.getAttributes().getNamedItem("name").getNodeValue();
-			//app.getResponseArea().append("  " + pname  + "\n");
-		}
-		
+//		Node boardResponse = response.contents.getFirstChild();
+//		NamedNodeMap map = boardResponse.getAttributes();
+//		
+//		String gameId = map.getNamedItem("gameId").getNodeValue();
+//		//app.getResponseArea().append("Board Message received for game:" + gameId + "\n");
+//		//app.getResponseArea().append("Players:\n");
+//		NodeList list = boardResponse.getChildNodes();
+//		for (int i = 0; i < list.getLength(); i++) {
+//			Node n = list.item(i);
+//			String pname = n.getAttributes().getNamedItem("name").getNodeValue();
+//			//app.getResponseArea().append("  " + pname  + "\n");
+//		}
+//		
 		// at this point, you would normally start processing this...
 		//app.getResponseArea().append(response.toString());
 		//app.getResponseArea().append("\n");
+		
+		NodeList ls = response.contents.getChildNodes();
+		System.out.println(ls.getLength());
+		for (int j = 0; j < ls.getLength(); j++) {
+			Node child = ls.item(j);
+			
+			NamedNodeMap map = child.getAttributes();
+			for (int i = 0; i < map.getLength(); i++) {
+				Node attribute = map.item(i);
+				String name = attribute.getNodeName(); 
+				String value = attribute.getNodeValue();
+				System.out.println(name + " = " + value);
+			}
+			System.out.println(child.getChildNodes().getLength());
+			process(child);
+		}
 		return true;
 	}
+	
+	
+	public static void process(Node child) {
+
+		NodeList list = child.getChildNodes();
+		for (int i = 0; i < list.getLength(); i++) {
+			
+			Node child1 = list.item(i);
+			NamedNodeMap map1 = child1.getAttributes();
+			for (int j = 0; j < map1.getLength(); j++) {
+				Node attribute = map1.item(j);
+				String name = attribute.getNodeName(); 
+				String value = attribute.getNodeValue();
+				System.out.println(name + " = " + value);
+			}
+			System.out.println();
+		}
+		
+	} 
 
 }
 

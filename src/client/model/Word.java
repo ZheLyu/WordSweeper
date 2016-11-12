@@ -22,6 +22,7 @@ import java.util.*;
 public class Word {
 	
 	private String word; 
+	private long score;
 //	private List<Cell> cellList;
 	
 	// Creates a word based on the letter in the given cell 

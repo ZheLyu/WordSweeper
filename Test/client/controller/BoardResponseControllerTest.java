@@ -1,11 +1,15 @@
 package client.controller;
 
+import xml.Message;
 import junit.framework.TestCase;
 
 public class BoardResponseControllerTest extends TestCase {
 
 	protected void setUp() throws Exception {
-		super.setUp();
+		
+		if (!Message.configure("wordsweeper.xsd")) {
+			fail ("unable to configure protocol");
+		}
 	}
 
 	protected void tearDown() throws Exception {

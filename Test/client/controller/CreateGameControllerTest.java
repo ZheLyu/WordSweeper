@@ -41,7 +41,7 @@ public class CreateGameControllerTest extends TestCase {
 	}
 
 	protected void tearDown() throws Exception {
-		super.tearDown();
+	//	super.tearDown();
 	}
 
 	public void testProcess() {

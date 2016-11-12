@@ -10,7 +10,7 @@ public class TestBoard {
 
 	public static void main(String[] args) {
 		
-		Board board = createBoard();
+		Board board = createBoard2("AFERKSOEROIERPOR");
 		System.out.println("letter = " + board.getPositionLetter(0, 0));
 	}
 	
@@ -26,5 +26,18 @@ public class TestBoard {
 		}
 		return board;
 	}
+	
+	public static Board createBoard2(String sixteenLetter) {
+		
+		Board board = new Board(sixteenLetter);
+		Map<Position, Cell> boardMap = board.getBoard();
+		for (Position pos: boardMap.keySet()) {
+			
+			Cell cell = boardMap.get(pos);
+			System.out.println(cell);
+		}
+		return board;
+	}
+	
 	
 }

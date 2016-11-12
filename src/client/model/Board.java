@@ -46,6 +46,21 @@ public class Board {
 		}
 	}
 	
+	public Board(String sixteenLetter) {
+		
+		if (sixteenLetter.length() != 16) {
+			throw new IllegalArgumentException();
+		}
+		board = new HashMap<>();
+		for (int i = 0; i < sixteenLetter.length(); i++) {
+			int col = i % 4;
+			int row = i / 4;
+			Position position = new Position(row, col);
+			Cell cell = new Cell(position, sixteenLetter.charAt(i) + "");
+			board.put(position, cell);
+		}
+	}
+	
 	// Return a map including key: positions and value: cells.
 	public Map<Position, Cell> getBoard() {
 		
