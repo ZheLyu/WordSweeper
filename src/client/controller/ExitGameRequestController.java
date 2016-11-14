@@ -22,7 +22,7 @@ public class ExitGameRequestController {
 
 		// Request the lock (this might not succeed).
 				app.getServerAccess().sendRequest(m);
-				app.setVisible(false);
+				System.exit(0);
 	}
 
 
