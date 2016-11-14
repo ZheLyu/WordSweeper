@@ -4,12 +4,12 @@ import xml.Message;
 import client.model.GameRoom;
 import client.view.Application;
 
-public class ResetGameController {
+public class ResetGameRequestController {
 	
 	Application app;
 	GameRoom model;
 	
-	public ResetGameController(Application app, GameRoom model){
+	public ResetGameRequestController(Application app, GameRoom model){
 		
 		this.app = app;
 		this.model = model;

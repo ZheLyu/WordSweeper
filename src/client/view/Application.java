@@ -28,9 +28,9 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
 
 import client.ServerAccess;
-import client.controller.CreateGameController;
-import client.controller.ExitGameController;
-import client.controller.JoinGameController;
+import client.controller.CreateGameRequestController;
+import client.controller.ExitGameRequestController;
+import client.controller.JoinGameRequestController;
 import client.controller.StartPraticeController;
 import client.model.GameRoom;
 
@@ -72,14 +72,14 @@ public class Application extends JFrame {
 		btnCreateGame = new JButton("Create Game");
 		btnCreateGame.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new CreateGameController(Application.this, model).process();
+				new CreateGameRequestController(Application.this, model).process();
 			}
 		});
 		
 		btnJoinGame = new JButton("Join Game");
 		btnJoinGame.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new JoinGameController(Application.this, model).process();
+				new JoinGameRequestController(Application.this, model).process();
 			}
 		});
 		
@@ -99,7 +99,7 @@ public class Application extends JFrame {
 		JButton btnExitGame= new JButton("Exit Game");
 		btnExitGame.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new ExitGameController(Application.this,model).process();
+				new ExitGameRequestController(Application.this,model).process();
 			}
 		});
 		

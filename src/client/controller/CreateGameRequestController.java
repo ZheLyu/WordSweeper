@@ -16,12 +16,12 @@ import xml.Message;
 import client.model.GameRoom;
 import client.view.Application;
 
-public class CreateGameController {
+public class CreateGameRequestController {
 
 	Application app;
 	GameRoom model;
 
-	public CreateGameController(Application app , GameRoom model) {
+	public CreateGameRequestController(Application app , GameRoom model) {
 
 		this.app = app;
 

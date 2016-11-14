@@ -18,12 +18,12 @@ import xml.Message;
 import client.model.GameRoom;
 import client.view.Application;
 
-public class JoinGameController {
+public class JoinGameRequestController {
 
 	Application app;
 	GameRoom model;
 
-	public JoinGameController(Application app, GameRoom model) {
+	public JoinGameRequestController(Application app, GameRoom model) {
 		this.app = app;
 		this.model = model;
 	}

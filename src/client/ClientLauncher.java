@@ -16,6 +16,8 @@ History:
 
 package client;
 import client.ServerAccess;
+import client.controller.BoardResponseController;
+import client.controller.ConnectResponseController;
 import client.controller.SampleClientMessageHandler;
 import client.model.GameRoom;
 import client.view.Application;
@@ -47,7 +49,12 @@ public class ClientLauncher {
 		// Initialize the client application and its corresponding model
 		GameRoom model = new GameRoom("123");
 		Application app = new Application(model);
-				
+		
+		// set up the chain of responsibility
+		SampleClientMessageHandler handler = new SampleClientMessageHandler(app);
+		handler.registerHandler(new BoardResponseController(app, model));
+		handler.registerHandler(new ConnectResponseController(app, model));
+		
 		// try to connect to the server. Once connected, messages are going to be processed by 
 		// SampleClientMessageHandler. For now we just continue on with the initialization because
 		// no message is actually sent by the connect method.

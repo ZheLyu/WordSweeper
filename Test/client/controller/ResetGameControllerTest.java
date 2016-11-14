@@ -42,7 +42,7 @@ public class ResetGameControllerTest extends TestCase {
 	public void testProcess() {
 		//fail("Not yet implemented");
 		
-		new ResetGameController(client, model).process();
+		new ResetGameRequestController(client, model).process();
 		
 		ArrayList<Message> reqs = mockServer.getAndClearMessages();
 		assertTrue(reqs.size() == 1);

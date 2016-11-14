@@ -34,10 +34,11 @@ public class BoardResponseController extends ControllerChain {
 	}
 	
 	public boolean process(Message response) {
-//		String type = response.contents.getFirstChild().getLocalName();
-//		if (!type.equals ("boardResponse")) {
-//			return next.process(response);
-//		}
+
+		String type = response.contents.getFirstChild().getLocalName();
+		if (!type.equals ("boardResponse")) {
+			return next.process(response);
+		}
 		
 		// this refers to the outer node of the Message DOM (in this case, updateResponse).
 //		Node boardResponse = response.contents.getFirstChild();
@@ -65,6 +66,7 @@ public class BoardResponseController extends ControllerChain {
 			NamedNodeMap map = child.getAttributes();
 			for (int i = 0; i < map.getLength(); i++) {
 				Node attribute = map.item(i);
+			
 				String name = attribute.getNodeName(); 
 				String value = attribute.getNodeValue();
 				System.out.println(name + " = " + value);

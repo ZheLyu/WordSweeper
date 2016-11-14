@@ -46,7 +46,7 @@ public class CreateGameControllerTest extends TestCase {
 
 	public void testProcess() {
 
-		new CreateGameController(client, model).process();
+		new CreateGameRequestController(client, model).process();
 
 		// validate from mockServer
 

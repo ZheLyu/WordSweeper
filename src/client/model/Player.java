@@ -19,23 +19,23 @@ import java.util.*;
 
 public class Player {
 	
-	private Boolean isManger;
+	private boolean isManager;
 	
 	private String gameId;
-	private int score;
-	private String name;
+	private long score;
 	private Position position;
 	private List<String> words;
 	private Board board;
+	private String name; 
  
-	public Player(String gameId, String name, String score, Board board, Position position) {
+	public Player(String gameId, String name, String score, String sixteenLetter, Position position, boolean isManager) {
 		
 		this.gameId = gameId;
 		this.name = name; 
-		this.board = board;
+		this.board = new Board(sixteenLetter);
 		this.position = position;
+		this.isManager = isManager; 
 		
-
 	}
 	
 	/** Get the player's position from server*/
@@ -43,5 +43,20 @@ public class Player {
 		
 		return position; 
 	}
-
+	
+	public String getGameId() {
+		
+		return gameId;
+	}
+	
+	public String getName() {
+		
+		return name; 
+	}
+	
+	public long getScore() {
+		
+		return score; 
+	}
+	
 }

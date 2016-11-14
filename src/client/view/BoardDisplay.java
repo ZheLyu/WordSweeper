@@ -118,7 +118,7 @@ public class BoardDisplay extends JFrame {
 		btnLock.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				LockGameController lock=new LockGameController(app,m);
+				LockGameRequestController lock=new LockGameRequestController(app,m);
 				lock.process();
 			}
 		});
@@ -129,7 +129,7 @@ public class BoardDisplay extends JFrame {
 		btnReset.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				ResetGameController reset=new ResetGameController(app,m);
+				ResetGameRequestController reset=new ResetGameRequestController(app,m);
 				reset.process();
 			}
 		});
@@ -139,7 +139,7 @@ public class BoardDisplay extends JFrame {
 		btnExit.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				ExitGameController reset=new ExitGameController(app,m);
+				ExitGameRequestController reset=new ExitGameRequestController(app,m);
 				reset.process();
 			}
 		});

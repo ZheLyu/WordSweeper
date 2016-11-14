@@ -54,6 +54,7 @@ public class GameRoom {
 		
 	}
 	
+	
 	public DrawBoardModel getDrawModel(){
 		return drawModel;
 	}
