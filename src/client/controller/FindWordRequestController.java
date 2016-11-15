@@ -17,7 +17,7 @@ public class FindWordRequestController {
 
 	/** Make the request on the server and wait for response. */
 	public void process() {
-		// send the request to exit the game.
+
 	//	String xmlString = Message.requestHeader() + "<findWordRequest name='nextOne' word = 'sample' gameId='somePlace' /></request>";
 		String xmlString = Message.requestHeader() +
 				"<findWordRequest gameId='somePlace' name='nextOne' word='sample'>" +
