@@ -4,12 +4,12 @@ import xml.Message;
 import client.model.GameRoom;
 import client.view.Application;
 
-public class RepositionController {
+public class RepositionBoardRequestController {
 	
 	Application app;
 	GameRoom model;
 	
-	public RepositionController (Application app , GameRoom model) {
+	public RepositionBoardRequestController (Application app , GameRoom model) {
 
 		this.app = app;
 
@@ -17,7 +17,7 @@ public class RepositionController {
 	}
 
 	/** Make the request on the server and wait for response. */
-	public void lprocess() {
+	public void leftProcess() {
 		
 		String xmlString = Message.requestHeader() + "<repositionBoardRequest gameId='somePlace' name='nextOne' rowChange='-1' /></request>";
 		Message m = new Message (xmlString);
@@ -26,15 +26,15 @@ public class RepositionController {
 	
 	}
 
-    public void rprocess() {
+    public void rightProcess() {
 		
-		String xmlString = Message.requestHeader() + "<repositionBoardRequest gameId='somePlace' name='nextOne' rowChange='1' /></request>";
+    	String xmlString = Message.requestHeader() + "<repositionBoardRequest gameId='somePlace' name='nextOne' rowChange='1' /></request>";
 		Message m = new Message (xmlString);
 		
 		app.getServerAccess().sendRequest(m);
 	
 	}
-    public void uprocess() {
+    public void upProcess() {
 		
 		String xmlString = Message.requestHeader() + "<repositionBoardRequest gameId='somePlace' name='nextOne' colChange='1'/></request>";
 		Message m = new Message (xmlString);
@@ -42,7 +42,7 @@ public class RepositionController {
 		app.getServerAccess().sendRequest(m);
 	
 	}
-    public void dprocess() {
+    public void downProcess() {
 		
 		String xmlString = Message.requestHeader() + "<repositionBoardRequest gameId='somePlace' name='nextOne' colChange='-1' /></request>";
 		Message m = new Message (xmlString);

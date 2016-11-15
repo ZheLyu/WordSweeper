@@ -8,7 +8,7 @@ import client.view.Application;
 import xml.Message;
 import junit.framework.TestCase;
 
-public class ResetGameControllerTest extends TestCase {
+public class ResetGameRequestControllerTest extends TestCase {
 	
 		// Mock server object that extends (and overrides) ServerAccess for its purposes
 		MockServerAccess mockServer;
@@ -20,7 +20,7 @@ public class ResetGameControllerTest extends TestCase {
 		GameRoom model;
 
 	protected void setUp() throws Exception {
-		//super.setUp();
+		super.setUp();
 		if (!Message.configure("wordsweeper.xsd")){
 			fail("unable to configure protocol");
 		}

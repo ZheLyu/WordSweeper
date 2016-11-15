@@ -22,6 +22,6 @@ public class LockGameRequestController {
 		Message m = new Message (xmlString);
 
 		// Request the lock (this might not succeed).
-				app.getServerAccess().sendRequest(m);
+		app.getServerAccess().sendRequest(m);
 	}
 }
