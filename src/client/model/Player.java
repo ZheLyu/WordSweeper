@@ -21,31 +21,40 @@ public class Player {
 	
 	private boolean isManager;
 	private long score;
-	private Position position;
+	private Position globalPosition;
 	private List<String> words;
 	private Board board;
 	private String name; 
  
-	public Player(String name, String score, String sixteenLetter, Position position, boolean isManager) {
+	public Player(String name, String score, String sixteenLetter, Position globalPosition, boolean isManager) {
 		
 		
 		this.name = name; 
 		this.board = new Board(sixteenLetter);
-		this.position = position;
+		this.globalPosition = globalPosition;
 		this.isManager = isManager; 
 		
 	}
 	
 	/** Get the player's position from server*/
-	public Position getPosition() {
+	public Position getGlobalPosition() {
 		
-		return position; 
+		return globalPosition; 
 	}
 	
-	
+	public void setGlobalPosition(Position position) {
+		
+		globalPosition = position;
+		
+	}
 	public String getName() {
 		
 		return name; 
+	}
+	
+	public String setName(String name) {
+		
+		return name;
 	}
 	
 	public long getScore() {
