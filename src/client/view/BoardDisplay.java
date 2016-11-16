@@ -15,33 +15,22 @@ History:
 
 package client.view;
 
-import java.awt.BorderLayout;
-
 import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-
 import client.controller.*;
 import client.model.GameRoom;
-
-
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.LayoutStyle.ComponentPlacement;
-import javax.swing.SwingConstants;
-
-import java.awt.Component;
+import javax.swing.JWindow;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.Window.Type;
 
-public class BoardDisplay extends JFrame {
+
+public class BoardDisplay extends JWindow {
 	
 	 
 	 GameRoom model;
      Application app;
      
      SweeperPanel sweeperPanel;
+    
      
     
      private JButton btnLeft;
@@ -51,7 +40,7 @@ public class BoardDisplay extends JFrame {
      private JButton btnLock;
      private JButton btnReset;
      private JButton btnExit;
-     private JPanel panel;
+     
 	
 	/**
 	 * Create the frame.
@@ -63,15 +52,14 @@ public class BoardDisplay extends JFrame {
 		this.app = app;
 		
 		//setSize(1024, 768);
-		setBounds(0, 0, 1024, 768);
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		
-		panel = new JPanel();
-		panel.setBounds(0, 0, 1024, 768);
-		
+		setBounds(100, 100, 1600, 900);
+		//setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		//setResizable(false);
+		setAlwaysOnTop(true);
 		
 		sweeperPanel = new SweeperPanel(m.getDrawModel());
-		sweeperPanel.setBounds(0, 0, 600, 700);
+		sweeperPanel.setBounds(0, 0, 1600, 900);
+		
 	
 		btnLeft = new JButton("LEFT");
 		btnLeft.setBounds(809, 33, 150, 63);
@@ -139,25 +127,30 @@ public class BoardDisplay extends JFrame {
 		btnExit.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
+				
 				ExitGameRequestController reset=new ExitGameRequestController(app,m);
 				reset.process();
+				dispose();
 			}
 		});
 		
 	
 		
 		
-		getContentPane().setLayout(null);  
-	
-    	getContentPane().add(sweeperPanel);
-		getContentPane().add(btnLeft);
-		getContentPane().add(btnRight);
-		getContentPane().add(btnUp);
-		getContentPane().add(btnDown);
-		getContentPane().add(btnLock);
-		getContentPane().add(btnReset);
-		getContentPane().add(btnExit);
-		getContentPane().add(panel);
+		getContentPane().setLayout(null);  		
+		getContentPane().add(sweeperPanel);
+		
+		
+		sweeperPanel.setLayout(null);	
+		sweeperPanel.add(btnLeft);
+		sweeperPanel.add(btnRight);
+		sweeperPanel.add(btnUp);
+		sweeperPanel.add(btnDown);
+		sweeperPanel.add(btnLock);
+		sweeperPanel.add(btnReset);
+		sweeperPanel.add(btnExit);
+		
+		
 		
 		setVisible(true);
 			         

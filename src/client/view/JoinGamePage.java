@@ -1,10 +1,15 @@
 package client.view;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
+import client.controller.CreateGameRequestController;
+import client.controller.JoinGameRequestController;
 import client.model.GameRoom;
 
 
@@ -32,7 +37,22 @@ public class JoinGamePage extends JFrame
 		
 		JButton btnNewButton = new JButton("Join");
 		btnNewButton.setBounds(128, 159, 123, 51);
+		btnNewButton.addActionListener(new ActionListener() {
+			   public void actionPerformed(ActionEvent e) {
+					
+					new JoinGameRequestController(app, m).process();
+					dispose();
+					
+					BoardDisplay frame = new BoardDisplay(app, m);
+				    frame.setVisible(true);
+					
+					
+
+				}
+			});
+		
 		getContentPane().add(btnNewButton);
+		
 		
 		JButton btnCancel = new JButton("Cancel");
 		btnCancel.setBounds(252, 159, 123, 51);

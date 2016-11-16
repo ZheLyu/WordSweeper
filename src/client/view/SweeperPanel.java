@@ -15,9 +15,11 @@ package client.view;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.Point;
 import java.util.ArrayList;
 
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 import client.controller.DragControl;
@@ -41,9 +43,14 @@ public class SweeperPanel extends JPanel{
 	}
 	
 	@Override
-	public void paintComponent(Graphics g) {
+	protected void paintComponent(Graphics g) {
 		
 		super.paintComponent(g);
+		
+		ImageIcon icon =new ImageIcon("src\\client\\res\\bk2.jpg");
+	    Image img=icon.getImage();
+	    g.drawImage(img, 0, 0, icon.getIconWidth(),icon.getIconHeight(),this);
+	        
 		
 		int magin = 15;
 		

@@ -1,7 +1,11 @@
 package client.view;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.*;
 
+import client.controller.CreateGameRequestController;
 import client.model.GameRoom;
 
 public class CreateRoomPage extends JFrame{
@@ -25,7 +29,23 @@ public class CreateRoomPage extends JFrame{
 		
 		JButton btnNewButton = new JButton("Create");
 		btnNewButton.setBounds(128, 159, 123, 51);
+		btnNewButton.addActionListener(new ActionListener() {
+		   public void actionPerformed(ActionEvent e) {
+				
+				new CreateGameRequestController(app, m).process();
+				dispose();
+				
+				BoardDisplay frame = new BoardDisplay(app, m);
+			    frame.setVisible(true);
+				
+				
+
+			}
+		});
+		
 		getContentPane().add(btnNewButton);
+		
+		
 		
 		JButton btnCancel = new JButton("Cancel");
 		btnCancel.setBounds(252, 159, 123, 51);
