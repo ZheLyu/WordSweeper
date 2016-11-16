@@ -25,7 +25,7 @@ public class ExitGameRequestControllerTest extends TestCase {
 		}
 		
 		// prepare client and connect to server.
-		model = new GameRoom("123");
+		model = new GameRoom("123", "password");
 		client = new Application (model);
 		client.setVisible(true);
 		

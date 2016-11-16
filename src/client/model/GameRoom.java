@@ -27,9 +27,10 @@ public class GameRoom {
 	private Board board;
 	private Map<String, Player> findPlayerByName; 
 	private Map<String, Integer> findScoreByName;
-	public GameRoom(String gameId) {
+	
+	public GameRoom(String gameId, String password) {
 		
-		password = null;
+		this.password = password;
 		players = new ArrayList<Player>();
 		findPlayerByName = new HashMap<String, Player>();
 		findScoreByName = new HashMap<String, Integer>();
@@ -45,11 +46,11 @@ public class GameRoom {
 		return null;
 	}
 	
-	// Calculates scores for each player
-	public int computeScore(Word word) {
-		
-		return 0;
-	}
+//	// Calculates scores for each player
+//	public int computeScore(Word word) {
+//		
+//		return 0;
+//	}
 	
 	// Updates the board
 	public void updateBoard(Board board, List<Player> players) {
@@ -93,5 +94,12 @@ public class GameRoom {
 		return players.remove(player);
 	}
 	
+	public String getPassword() {
+		return password; 
+	}
+	
+	public void setPassword(String password) {
+		this.password = password;
+	}
 	
 }

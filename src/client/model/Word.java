@@ -59,18 +59,23 @@ public class Word {
     }
     
 	// Creates a word based on the letter in the given string list
-	public Word(List<String> list) {
+	public Word(List<Cell> list) {
 		
 		word = "";
 		score = 0;
 	//	this.cellList = new ArrayList<Cell>();
 		for (int i = 0; i < list.size(); i++) {
 			
-			String s = list.get(i);
-		//	this.cellList.add(cell);
-			word += s;
-			score += WEIGHT.get(s);
+			Cell cell = list.get(i);
+			word += cell.getLetter();
+			score += WEIGHT.get(cell.getLetter());
 		}
+		
+		if (word.length() >= 3) {
+			score *= (10 * Math.pow(2, word.length()));
+		}
+		System.out.println(word);
+		System.out.println(score);
 	}
 	
 	// Returns the word 
