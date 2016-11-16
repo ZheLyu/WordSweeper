@@ -20,19 +20,22 @@ public class GameRoom {
 	
  // practice model or team model
 	private DrawBoardModel drawModel;
+	private String gameId;
 	private boolean locked; 
 	private List<Player> players; 
 	private String password; 
 	private Board board;
 	
-	public GameRoom(String password) {
+	public GameRoom(String gameId) {
 		
-		this.password = password;
+		this.password = null;
 		this.players = new ArrayList<Player>();
 		/*for (int i = 0; i < players.size(); i++) {
 			this.players.add(players.get(i));
 		}
 		*/
+		this.gameId = gameId;
+		this.locked = false; 
 		drawModel = new DrawBoardModel();
 	}
 	
@@ -57,5 +60,25 @@ public class GameRoom {
 	
 	public DrawBoardModel getDrawModel(){
 		return drawModel;
+	}
+	
+	public void setGameId(String gameId) {
+		this.gameId = gameId; 
+	}
+	
+	public String getGameId() {
+		
+		return gameId; 
+	}
+	
+	public void setLocked(boolean locked) {
+		
+		this.locked = locked; 
+		
+	}
+	
+	public boolean getLocked() {
+		
+		return locked; 
 	}
 }
