@@ -30,8 +30,8 @@ public class DrawBoardModel {
 		oldSelPoint.y = -1;
 		
 		
-		origin.x = 50;
-		origin.y = 50;
+		origin.x = 150;
+		origin.y = 150;
 		
 		size = 400;
 		cellSize = size / 4 - 2;

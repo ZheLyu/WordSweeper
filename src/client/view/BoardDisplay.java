@@ -68,7 +68,7 @@ public class BoardDisplay extends JWindow {
 		
 		//setSize(1024, 768);
 
-		setBounds(100, 100, 1600, 900);
+		setBounds(260, 150, 1200, 800);
 		//setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		//setsetResizable(false);
 		setAlwaysOnTop(true);
