@@ -1,5 +1,10 @@
 package client.controller;
 
+
+import org.w3c.dom.NamedNodeMap;
+import org.w3c.dom.Node;
+
+
 import client.model.GameRoom;
 import client.view.Application;
 import xml.Message;
@@ -18,7 +23,17 @@ public class ExitGameResponseController extends ControllerChain {
 	@Override
 	public boolean process(Message response) {
 		// TODO Auto-generated method stub
-		return false;
+		String type = response.contents.getFirstChild().getLocalName();
+		if (!type.equals ("exitGameResponse")) {
+			return next.process(response);
+		}
+		Node exitGameResponse = response.contents.getFirstChild();
+		NamedNodeMap map = exitGameResponse.getAttributes();
+		
+		String gameId = map.getNamedItem("gameId").getNodeValue();
+	    System.out.println("Exit game:"+gameId);
+	
+		return true;
 	}
 
 }
