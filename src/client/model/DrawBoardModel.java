@@ -17,6 +17,7 @@ public class DrawBoardModel {
 	private int cellSize;
 	
 	private List<String> selCellList; // store the selected cells
+	private List<Cell> selCellList2;
 	private Board board;
 	
 	public DrawBoardModel() {
@@ -48,10 +49,16 @@ public class DrawBoardModel {
     public void clearSelCellList() {
     	
     	selCellList.clear();
+    	selCellList2.clear();
     }
     
     public int getSelCellListSize(){
     	return selCellList.size();
+    }
+    
+    public List<Cell> getSelCellList2() {
+    	
+    	return selCellList2;
     }
 
     
@@ -59,11 +66,14 @@ public class DrawBoardModel {
     	
     	String s;
     	s = String.format("%d%d", (p.y - origin.y + 1) / (size / 4), (p.x - origin.x + 1) / (size / 4));
-		
+    	int col = (p.x - origin.x + 1) / (size / 4);
+    	int row = (p.y - origin.y + 1) / (size / 4);
+		Position position = new Position(row, col);
         if(!selCellList.contains(s)) {
           	
         	selCellList.add(s);
-            System.out.println("fuck you" + s);
+        	selCellList2.add(new Cell(position, getCellLetter(row, col)));
+            System.out.println(s);
         }   	
         
     }
