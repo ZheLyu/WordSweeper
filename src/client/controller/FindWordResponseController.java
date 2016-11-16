@@ -1,22 +1,30 @@
 package client.controller;
 
+import client.model.GameRoom;
+import client.view.Application;
 import xml.Message;
 
 public class FindWordResponseController extends ControllerChain {
-	public  String gameId;
-	public  String name;
-	public  long score;
-
-	public FindWordResponseController(String gameId, String name, long score) {
-		this.gameId = gameId;
-		this.name = name;
-		this.score = score;
+	
+	public Application app;
+	public GameRoom model;
+	
+	public FindWordResponseController(Application a, GameRoom m) {
+		super();
+		this.app = a;
+		this.model = m;
 	}
-
+	
 	@Override
 	public boolean process(Message response) {
-		// TODO Auto-generated method stub
-		return false;
+		
+		String type = response.contents.getFirstChild().getLocalName();
+		if (!type.equals ("findWordResponse")) {
+			return next.process(response);
+		}
+		
+		
+		return true;
 	}
 
 }
