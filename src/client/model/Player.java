@@ -26,13 +26,14 @@ public class Player {
 	private Board board;
 	private String name; 
  
-	public Player(String name, String score, String sixteenLetter, Position globalPosition, boolean isManager) {
+	public Player(String name, String sixteenLetter, String globalPosition, boolean isManager) {
 		
 		
 		this.name = name; 
 		this.board = new Board(sixteenLetter);
-		this.globalPosition = globalPosition;
+	//	this.globalPosition = globalPosition;
 		this.isManager = isManager; 
+		words = new ArrayList<>();
 		
 	}
 	
@@ -47,19 +48,25 @@ public class Player {
 		globalPosition = position;
 		
 	}
+	
 	public String getName() {
 		
 		return name; 
 	}
 	
-	public String setName(String name) {
+	public void setName(String name) {
 		
-		return name;
+		this.name = name;
 	}
 	
 	public long getScore() {
 		
 		return score; 
+	}
+	
+	public void setScore(long score) { 
+		
+		this.score += score;
 	}
 	
 	public Board getBoard() {
@@ -73,6 +80,16 @@ public class Player {
 	
 	public boolean isManager() {
 		return isManager; 
+	}
+	
+	public void addWord(String word) {
+		  
+		words.add(word);
+	}
+	
+	public List<String> getWords() {
+		
+		return words;
 	}
 	
 }

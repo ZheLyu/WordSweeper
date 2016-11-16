@@ -83,10 +83,10 @@ public class GameRoom {
 		return locked; 
 	}
 	
-	public boolean addPlayer(Player player) {
-		findPlayerByName.put(player.getName(), player);
+	public boolean addPlayer(String name, String sixteenLetter, String globalPosition, boolean isManager) {
+		Player player = new Player(name, sixteenLetter, globalPosition, isManager);
+		findPlayerByName.put(name, player);
 		return players.add(player);
-		
 	}
 	
 	public boolean removePlayer(Player player) {
