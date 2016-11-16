@@ -29,7 +29,7 @@ public class ResetGameResponseController extends ControllerChain{
 		NamedNodeMap map = resetGameResponse.getAttributes();
 		
 		String gameId = map.getNamedItem("gameId").getNodeValue();
-	
+		model.setGameId(gameId);
 		return true;
 	}
 	

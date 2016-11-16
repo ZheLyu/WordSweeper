@@ -28,7 +28,7 @@ public class ConnectResponseController extends ControllerChain {
 		Node resetGameResponse = response.contents.getFirstChild();
 		NamedNodeMap map = resetGameResponse.getAttributes();
 		
-		String gameId = map.getNamedItem("id").getNodeValue();
+		String id = map.getNamedItem("id").getNodeValue();
 	
 		//app.getResponseArea().append(response.toString() + "\n");
 		return true;

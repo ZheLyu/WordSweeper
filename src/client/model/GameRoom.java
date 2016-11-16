@@ -10,7 +10,7 @@ players playing the game.
 History:
 7 Oct, 2016	--- Zeling Lei @1
 - Created.
-aa
+
 *****************************************************************/
 package client.model;
 

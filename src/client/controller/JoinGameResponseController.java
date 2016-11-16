@@ -29,7 +29,7 @@ public class JoinGameResponseController extends ControllerChain {
 		NamedNodeMap map = joinGameResponse.getAttributes();
 		
 		String gameId = map.getNamedItem("gameId").getNodeValue();
-
+        model.setGameId(gameId);
 		return true;
 	}
 
