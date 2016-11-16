@@ -66,4 +66,13 @@ public class Player {
 		return board;
 	}
 	
+	public void setManagingPlayer(boolean isManager) {
+		
+		this.isManager = isManager();
+	}
+	
+	public boolean isManager() {
+		return isManager; 
+	}
+	
 }
