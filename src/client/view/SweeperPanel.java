@@ -18,6 +18,7 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Point;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
@@ -69,9 +70,9 @@ public class SweeperPanel extends JPanel{
 		for (int row = 0; row < SIZE; row++) {
 			for (int col = 0; col < SIZE; col++) {
 				
-				ArrayList<String> list = new ArrayList<String>();
+				List<String> list = new ArrayList<String>();
 				list = model.getSelCellList();
-			
+				
 				String ss;
 		    	ss = String.format("%d%d", row, col);
 				

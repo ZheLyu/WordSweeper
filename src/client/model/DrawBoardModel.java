@@ -2,6 +2,7 @@ package client.model;
 
 import java.awt.Point;
 import java.util.ArrayList;
+import java.util.List;
 
 public class DrawBoardModel {
 
@@ -15,7 +16,7 @@ public class DrawBoardModel {
 	private int size;
 	private int cellSize;
 	
-	private ArrayList<String> selCellList; // store the selected cells
+	private List<String> selCellList; // store the selected cells
 	private Board board;
 	
 	public DrawBoardModel() {
@@ -39,7 +40,7 @@ public class DrawBoardModel {
 	}
 	
 	
-    public ArrayList<String> getSelCellList() {
+    public List<String> getSelCellList() {
 		
 		return selCellList;
 	}
@@ -62,7 +63,7 @@ public class DrawBoardModel {
         if(!selCellList.contains(s)) {
           	
         	selCellList.add(s);
-            System.out.println(s);
+            System.out.println("fuck you" + s);
         }   	
         
     }

@@ -15,10 +15,17 @@ History:
 
 package client.view;
 
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFrame;
+
 import client.controller.*;
 import client.model.GameRoom;
+
 import javax.swing.JWindow;
+
+import java.awt.Image;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -42,6 +49,14 @@ public class BoardDisplay extends JWindow {
      private JButton btnExit;
      
 	
+     
+     static int WIDTH=120;
+     static int HEIGHT=120;
+     static int VSTATRT=650;
+     static int HSTATRT=100;
+     static int HSPAN=130;
+     
+     
 	/**
 	 * Create the frame.
 	 */
@@ -52,17 +67,23 @@ public class BoardDisplay extends JWindow {
 		this.app = app;
 		
 		//setSize(1024, 768);
-		setBounds(100, 100, 1600, 900);
-		//setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		//setResizable(false);
-		setAlwaysOnTop(true);
+		setBounds(256, 120, 1200, 800);
+
 		
 		sweeperPanel = new SweeperPanel(m.getDrawModel());
-		sweeperPanel.setBounds(0, 0, 1600, 900);
+		sweeperPanel.setBounds(0, 0, 1200, 800);
 		
 	
 		btnLeft = new JButton("LEFT");
-		btnLeft.setBounds(809, 33, 150, 63);
+		btnLeft.setBounds(HSTATRT, VSTATRT, WIDTH, HEIGHT);
+		
+		btnLeft.setBorderPainted(false);
+		btnLeft.setContentAreaFilled(false);
+		Icon iconLeftA=new ImageIcon("src\\client\\res\\leftA.png");
+	    Icon iconLeftB=new ImageIcon("src\\client\\res\\leftB.png");
+	    btnLeft.setIcon(iconLeftA);
+	    btnLeft.setPressedIcon(iconLeftB);
+		
 		btnLeft.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
@@ -72,7 +93,16 @@ public class BoardDisplay extends JWindow {
 		});
 		
 		btnRight = new JButton("RIGHT");
-		btnRight.setBounds(809, 129, 150, 63);
+		btnRight.setBounds(HSTATRT+HSPAN, VSTATRT, WIDTH, HEIGHT);
+		
+		btnRight.setBorderPainted(false);
+		btnRight.setContentAreaFilled(false);
+		Icon iconRightA=new ImageIcon("src\\client\\res\\rightA.png");
+	    Icon iconRightB=new ImageIcon("src\\client\\res\\rightB.png");
+	    btnRight.setIcon(iconRightA);
+	    btnRight.setPressedIcon(iconRightB);
+	    
+	    
 		btnRight.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
@@ -82,7 +112,16 @@ public class BoardDisplay extends JWindow {
 		});
 		
 		btnUp = new JButton("UP");
-		btnUp.setBounds(809, 225, 150, 63);
+		btnUp.setBounds(HSTATRT+HSPAN*2, VSTATRT, WIDTH, HEIGHT);
+		
+		btnUp.setBorderPainted(false);
+		btnUp.setContentAreaFilled(false);
+		Icon iconUpA=new ImageIcon("src\\client\\res\\upA.png");
+	    Icon iconUpB=new ImageIcon("src\\client\\res\\upB.png");
+	    btnUp.setIcon(iconUpA);
+	    btnUp.setPressedIcon(iconUpB);
+	    
+	    
 		btnUp.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
@@ -92,7 +131,16 @@ public class BoardDisplay extends JWindow {
 		});
 		
 		btnDown = new JButton("DOWN");
-		btnDown.setBounds(809, 321, 150, 63);
+		btnDown.setBounds(HSTATRT+HSPAN*3, VSTATRT, WIDTH, HEIGHT);
+		
+		btnDown.setBorderPainted(false);
+		btnDown.setContentAreaFilled(false);
+		Icon iconDownA=new ImageIcon("src\\client\\res\\downA.png");
+	    Icon iconDownB=new ImageIcon("src\\client\\res\\downB.png");
+	    btnDown.setIcon(iconDownA);
+	    btnDown.setPressedIcon(iconDownB);
+	    
+	    
 		btnDown.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
@@ -102,7 +150,16 @@ public class BoardDisplay extends JWindow {
 		});
 		
 		btnLock = new JButton("LOCK");
-		btnLock.setBounds(809, 417, 150, 63);
+		btnLock.setBounds(1000, VSTATRT-380, 150, 150);
+		
+		btnLock.setBorderPainted(false);
+		btnLock.setContentAreaFilled(false);
+		Icon iconLockA=new ImageIcon("src\\client\\res\\lockA.png");
+	    Icon iconLockB=new ImageIcon("src\\client\\res\\lockB.png");
+	    btnLock.setIcon(iconLockA);
+	    //btnLock.setPressedIcon(iconLockB);
+	    
+	    
 		btnLock.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
@@ -113,7 +170,15 @@ public class BoardDisplay extends JWindow {
 		
 		
 		btnReset = new JButton("RESET");
-		btnReset.setBounds(809, 513, 150, 63);
+		btnReset.setBounds(1000, VSTATRT-190, 150, 150);
+		
+		btnReset.setBorderPainted(false);
+		btnReset.setContentAreaFilled(false);
+		Icon iconRstA=new ImageIcon("src\\client\\res\\rstA.png");
+	    Icon iconRstB=new ImageIcon("src\\client\\res\\rstB.png");
+	    btnReset.setIcon(iconRstA);
+	    btnReset.setPressedIcon(iconRstB);
+	    
 		btnReset.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
@@ -123,7 +188,16 @@ public class BoardDisplay extends JWindow {
 		});
 		
 		btnExit = new JButton("EXIT");
-		btnExit.setBounds(809, 609, 150, 63);
+		btnExit.setBounds(1000, VSTATRT, 160, 118);
+		
+		btnExit.setBorderPainted(false);
+		btnExit.setContentAreaFilled(false);
+		Icon iconExitA=new ImageIcon("src\\client\\res\\returnA.png");
+	    Icon iconExitB=new ImageIcon("src\\client\\res\\returnB.png");
+	    btnExit.setIcon(iconExitA);
+	    btnExit.setPressedIcon(iconExitB);
+	    
+	    
 		btnExit.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {

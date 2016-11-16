@@ -20,29 +20,26 @@ import java.awt.event.MouseEvent;
 import javax.swing.event.MouseInputListener;
 
 import client.model.DrawBoardModel;
+import client.model.Word;
 import client.view.*;
 
 
 public class DragControl implements MouseInputListener{
 	
 	private SweeperPanel panel; 
-	private DrawBoardModel model;
-
-	
-	
-	// int x0 = 0;     
-    // int y0 = 0; 
+	private DrawBoardModel drawBoardModel;
 	
 	public DragControl(SweeperPanel panel, DrawBoardModel m) {
 		// TODO Auto-generated constructor stub
 		this.panel = panel;
-		model = m;
+		drawBoardModel = m;
 		
 	}
 	
 	public void mouseDragged(MouseEvent arg0){
 	      
-		model.addDragCellList(arg0.getPoint());
+		drawBoardModel.addDragCellList(arg0.getPoint());
+	//	Word word = new Word(drawBoardModel.getSelCellList());
         panel.repaint();
 	}
 
@@ -65,7 +62,7 @@ public class DragControl implements MouseInputListener{
 
 	public void mousePressed(MouseEvent arg0) {
 		// TODO Auto-generated method stub
-		model.clearSelCellList();
+		drawBoardModel.clearSelCellList();
 		panel.repaint();
 	}
 

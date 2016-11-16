@@ -24,6 +24,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JWindow;
 import javax.swing.border.EmptyBorder;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
@@ -41,6 +42,7 @@ import client.model.GameRoom;
 
 
 
+
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JLabel;
 
@@ -50,7 +52,7 @@ import java.awt.Image;
 
 import javax.swing.SwingConstants;
 
-public class Application extends JFrame {
+public class Application extends JWindow {
     
 
 	static String Version ="V 1.0.26"; 
@@ -84,8 +86,8 @@ public class Application extends JFrame {
 		
 		this.model = model;
 		
-		setTitle("Word Sweeper");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//setTitle("Word Sweeper");
+		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1600, 900);
 		
 	

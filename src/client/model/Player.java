@@ -20,17 +20,15 @@ import java.util.*;
 public class Player {
 	
 	private boolean isManager;
-	
-	private String gameId;
 	private long score;
 	private Position position;
 	private List<String> words;
 	private Board board;
 	private String name; 
  
-	public Player(String gameId, String name, String score, String sixteenLetter, Position position, boolean isManager) {
+	public Player(String name, String score, String sixteenLetter, Position position, boolean isManager) {
 		
-		this.gameId = gameId;
+		
 		this.name = name; 
 		this.board = new Board(sixteenLetter);
 		this.position = position;
@@ -44,10 +42,6 @@ public class Player {
 		return position; 
 	}
 	
-	public String getGameId() {
-		
-		return gameId;
-	}
 	
 	public String getName() {
 		
@@ -57,6 +51,10 @@ public class Player {
 	public long getScore() {
 		
 		return score; 
+	}
+	
+	public Board getBoard() {
+		return board;
 	}
 	
 }
