@@ -30,8 +30,10 @@ public class LockGameResponseController extends ControllerChain {
 		
 		String gameId = map.getNamedItem("gameId").getNodeValue();
 	    System.out.println(" Game:"+gameId+"is locked!");
-	
-		return true;
+	    return true;
 	}
+	public void setLocked() {
+	    model.setLocked(true);
+	 }
 
 }
