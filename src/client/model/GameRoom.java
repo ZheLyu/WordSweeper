@@ -25,17 +25,17 @@ public class GameRoom {
 	private List<Player> players; 
 	private String password; 
 	private Board board;
-	
+	private Map<String, Player> findPlayerByName; 
+	private Map<String, Integer> findScoreByName;
 	public GameRoom(String gameId) {
 		
-		this.password = null;
-		this.players = new ArrayList<Player>();
-		/*for (int i = 0; i < players.size(); i++) {
-			this.players.add(players.get(i));
-		}
-		*/
+		password = null;
+		players = new ArrayList<Player>();
+		findPlayerByName = new HashMap<String, Player>();
+		findScoreByName = new HashMap<String, Integer>();
+		
 		this.gameId = gameId;
-		this.locked = false; 
+		locked = false; 
 		drawModel = new DrawBoardModel();
 	}
 	
@@ -58,7 +58,7 @@ public class GameRoom {
 	}
 	
 	
-	public DrawBoardModel getDrawModel(){
+	public DrawBoardModel getDrawModel() {
 		return drawModel;
 	}
 	
@@ -81,4 +81,17 @@ public class GameRoom {
 		
 		return locked; 
 	}
+	
+	public boolean addPlayer(Player player) {
+		findPlayerByName.put(player.getName(), player);
+		return players.add(player);
+		
+	}
+	
+	public boolean removePlayer(Player player) {
+		findPlayerByName.remove(player.getName());
+		return players.remove(player);
+	}
+	
+	
 }
