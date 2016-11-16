@@ -38,6 +38,7 @@ public class DrawBoardModel {
 		cellSize = size / 4 - 2;
 		
 		selCellList = new ArrayList<String>();
+		selCellList2 = new ArrayList<Cell>();
 	}
 	
 	
