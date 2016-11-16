@@ -7,12 +7,12 @@ import client.model.GameRoom;
 import client.view.Application;
 import xml.Message;
 
-public class LockGameResponseController extends ControllerChain {
+public class JoinGameResponseController extends ControllerChain {
 
 	public Application app;
 	public GameRoom model;
 	
-	public LockGameResponseController(Application a, GameRoom m) {
+	public JoinGameResponseController(Application a, GameRoom m) {
 		super();
 		this.app = a;
 		this.model = m;
@@ -22,15 +22,14 @@ public class LockGameResponseController extends ControllerChain {
 	public boolean process(Message response) {
 		// TODO Auto-generated method stub
 		String type = response.contents.getFirstChild().getLocalName();
-		if (!type.equals ("lockGameResponse")) {
+		if (!type.equals ("joinGameResponse")) {
 			return next.process(response);
 		}
-		Node lockGameResponse = response.contents.getFirstChild();
-		NamedNodeMap map = lockGameResponse.getAttributes();
+		Node joinGameResponse = response.contents.getFirstChild();
+		NamedNodeMap map = joinGameResponse.getAttributes();
 		
 		String gameId = map.getNamedItem("gameId").getNodeValue();
-	    System.out.println(" Game:"+gameId+"is locked!");
-	
+
 		return true;
 	}
 

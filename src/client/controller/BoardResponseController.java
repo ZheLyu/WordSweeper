@@ -85,12 +85,11 @@ public class BoardResponseController extends ControllerChain {
 			
 			Node child1 = list.item(i);
 			NamedNodeMap map1 = child1.getAttributes();
-			for (int j = 0; j < map1.getLength(); j++) {
-				Node attribute = map1.item(j);
-				String name = attribute.getNodeName(); 
-				String value = attribute.getNodeValue();
-				System.out.println(name + " = " + value);
-			}
+			String gameId = map1.getNamedItem("gameId").getNodeValue();
+			int size = Integer.valueOf(map1.getNamedItem("size").getNodeValue());
+			String score = map1.getNamedItem("score").getNodeValue();
+			String contents= map1.getNamedItem("contents").getNodeValue();
+			String bonus=map1.getNamedItem("bonus").getNodeValue();
 			System.out.println();
 		}
 		

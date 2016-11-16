@@ -1,5 +1,8 @@
 package client.controller;
 
+import org.w3c.dom.NamedNodeMap;
+import org.w3c.dom.Node;
+
 import xml.Message;
 import client.model.GameRoom;
 import client.view.Application;
@@ -22,7 +25,11 @@ public class ConnectResponseController extends ControllerChain {
 		if (!type.equals ("connectResponse")) {
 			return next.process(response);
 		}
+		Node resetGameResponse = response.contents.getFirstChild();
+		NamedNodeMap map = resetGameResponse.getAttributes();
 		
+		String gameId = map.getNamedItem("id").getNodeValue();
+	
 		//app.getResponseArea().append(response.toString() + "\n");
 		return true;
 	}

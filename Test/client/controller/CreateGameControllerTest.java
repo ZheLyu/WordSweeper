@@ -59,7 +59,7 @@ public class CreateGameControllerTest extends TestCase {
 				.getLocalName());
 
 		// make sure "grab" attribute is there, and true
-		System.out.println(r.toString());
+		
 		assertEquals("samplePlayer", r.contents.getFirstChild().getAttributes()
 				.getNamedItem("name").getNodeValue());
 	}

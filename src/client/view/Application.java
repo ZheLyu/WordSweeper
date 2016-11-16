@@ -44,7 +44,7 @@ import javax.swing.SwingConstants;
 
 public class Application extends JFrame {
     
-	static String Version ="V 1.0.23"; 
+	static String Version ="V 1.0.24"; 
 	
 
 	/** GUI application maintains reference to Model for ease of navigation. */
