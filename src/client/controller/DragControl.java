@@ -39,7 +39,7 @@ public class DragControl implements MouseInputListener{
 	public void mouseDragged(MouseEvent arg0){
 	      
 		drawBoardModel.addDragCellList(arg0.getPoint());
-	//	Word word = new Word(drawBoardModel.getSelCellList());
+		//Word word = new Word(drawBoardModel.getSelCellList2());
         panel.repaint();
 	}
 
@@ -62,12 +62,14 @@ public class DragControl implements MouseInputListener{
 
 	public void mousePressed(MouseEvent arg0) {
 		// TODO Auto-generated method stub
+		
 		drawBoardModel.clearSelCellList();
 		panel.repaint();
 	}
 
 	public void mouseReleased(MouseEvent arg0) {
 		// TODO Auto-generated method stub
+		Word word = new Word(drawBoardModel.getSelCellList2());
 		
 	}
 
