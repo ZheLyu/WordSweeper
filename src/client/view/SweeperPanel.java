@@ -25,19 +25,21 @@ import javax.swing.JPanel;
 
 import client.controller.DragControl;
 import client.model.DrawBoardModel;
+import client.model.GameRoom;
 
 
 public class SweeperPanel extends JPanel{
 	
 	private static final int SIZE = 4;
 	private DrawBoardModel model;
+	
 	private DragControl control;
 	
 	
-	public SweeperPanel(DrawBoardModel m) {
-		
-		model = m;
-        control = new DragControl(this, model);
+//	public SweeperPanel(DrawBoardModel m) {
+	public SweeperPanel(GameRoom m) {
+		model = m.getDrawModel();
+        control = new DragControl(this, m);
 		this.addMouseListener(control);
 		this.addMouseMotionListener(control);
 		

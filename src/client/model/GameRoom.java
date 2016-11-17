@@ -24,9 +24,7 @@ public class GameRoom {
 	private boolean locked; 
 	private List<Player> players; 
 	private String password; 
-	private Board board;
 	private Map<String, Player> findPlayerByName; 
-	private Map<String, Integer> findScoreByName;
 	private Position bonus;
 	
 	public GameRoom(String gameId, String password) {
@@ -34,7 +32,7 @@ public class GameRoom {
 		this.password = password;
 		players = new ArrayList<Player>();
 		findPlayerByName = new HashMap<String, Player>();
-		findScoreByName = new HashMap<String, Integer>();
+		
 		bonus = null;
 		this.gameId = gameId;
 		locked = false; 
@@ -106,11 +104,11 @@ public class GameRoom {
 		
 		if (findPlayerByName.get(name) == null) {
 			throw new IllegalArgumentException();
-		
 		}
+		
 		// store the sixteen position of the given player in a set for comparison
 		Set<Position> positions = getPositonByName(name);
-		
+		// store the same positions of two players
 		Set<Position> union = new HashSet<>();
 		Map<Position, Integer> positionToWeight = new HashMap<>();
 		
@@ -156,7 +154,5 @@ public class GameRoom {
 		return positions; 
 		
 	}
-	 
-	
-	
+
 }
