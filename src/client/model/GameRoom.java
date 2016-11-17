@@ -118,14 +118,21 @@ public class GameRoom {
 			
 			if (!players.get(i).getName().equals(name)) { // avoid name repetition
 				Set<Position> positionsTemp = getPositonByName(name);
+				// add positions of the given player to union
 				union.addAll(positions);
+				// get the union of positions of the given player and players.get(i)
 				union.retainAll(positionsTemp);
+				// copy the position in the union to positionToWeight
 				Iterator<Position> itr = union.iterator();
 				while(itr.hasNext()) {
 					Position temp = itr.next();
-					union
-					
+					if (positionToWeight.containsKey(temp)) { // if the position exist in the map, add 1 to the weight
+						positionToWeight.put(temp, positionToWeight.get(temp) + 1);
+					} else { // if the position does not exists, create a new one
+						positionToWeight.put(temp, 1);
+					}
 				}
+				union.clear(); // clear union for next use
 			}
 			
 		}
