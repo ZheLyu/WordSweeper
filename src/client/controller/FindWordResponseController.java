@@ -5,6 +5,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import client.model.GameRoom;
+import client.model.Player;
 import client.view.Application;
 import xml.Message;
 
@@ -32,10 +33,15 @@ public class FindWordResponseController extends ControllerChain {
 		String gameId = map.getNamedItem("gameId").getNodeValue();
 		
 		String pname = map.getNamedItem("name").getNodeValue();
-			
+	
 		String score = map.getNamedItem("score").getNodeValue();
 		long s = Long.valueOf(score);
+		 if (gameId==model.getGameId()){
+			 model.findPlayerByName().get(pname).setScore(s);
+		 }
+		 
 
+     
 		return true;
 	
 	}

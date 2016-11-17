@@ -25,7 +25,7 @@ import client.view.Application;
 public class BoardResponseController extends ControllerChain {
 
 	public Application app;
-	public GameRoom model;
+	public static GameRoom model;
 	
 	public BoardResponseController(Application a, GameRoom m) {
 		super();
@@ -64,6 +64,7 @@ public class BoardResponseController extends ControllerChain {
 			Node child = ls.item(j);
 			
 			NamedNodeMap map = child.getAttributes();
+			
 			for (int i = 0; i < map.getLength(); i++) {
 				Node attribute = map.item(i);
 			
@@ -86,8 +87,10 @@ public class BoardResponseController extends ControllerChain {
 			Node child1 = list.item(i);
 			NamedNodeMap map1 = child1.getAttributes();
 			String gameId = map1.getNamedItem("gameId").getNodeValue();
+		    model.setGameId(gameId);
 			int size = Integer.valueOf(map1.getNamedItem("size").getNodeValue());
 			String score = map1.getNamedItem("score").getNodeValue();
+			long s = Long.valueOf(score);
 			String contents= map1.getNamedItem("contents").getNodeValue();
 			String bonus=map1.getNamedItem("bonus").getNodeValue();
 			System.out.println();
