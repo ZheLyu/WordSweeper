@@ -20,7 +20,7 @@ import java.util.*;
 public class Player {
 	
 	private boolean isManager;
-	private long score;
+	private long totalScore;
 	private Position globalPosition;
 	private List<String> words;
 	private Board board;
@@ -31,9 +31,12 @@ public class Player {
 		
 		this.name = name; 
 		this.board = new Board(sixteenLetter);
-	//	this.globalPosition = globalPosition;
+		this.globalPosition = new Position (Integer.parseInt("" + globalPosition.charAt(0)), 
+				                            Integer.parseInt("" + globalPosition.charAt(2)));
+				                       
 		this.isManager = isManager; 
 		words = new ArrayList<>();
+		totalScore = 0;
 		
 	}
 	
@@ -43,9 +46,10 @@ public class Player {
 		return globalPosition; 
 	}
 	
-	public void setGlobalPosition(Position position) {
+	public void setGlobalPosition(String position) {
 		
-		globalPosition = position;
+		globalPosition.setRow(Integer.parseInt("" + position.charAt(0)));
+		globalPosition.setColumn(Integer.parseInt("" + position.charAt(2)));
 		
 	}
 	
@@ -61,15 +65,16 @@ public class Player {
 	
 	public long getScore() {
 		
-		return score; 
+		return totalScore; 
 	}
 	
 	public void setScore(long score) { 
 		
-		this.score += score;
+		totalScore += score;
 	}
 	
 	public Board getBoard() {
+		
 		return board;
 	}
 	

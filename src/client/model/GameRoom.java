@@ -27,6 +27,7 @@ public class GameRoom {
 	private Board board;
 	private Map<String, Player> findPlayerByName; 
 	private Map<String, Integer> findScoreByName;
+	private Position bonus;
 	
 	public GameRoom(String gameId, String password) {
 		
@@ -34,7 +35,7 @@ public class GameRoom {
 		players = new ArrayList<Player>();
 		findPlayerByName = new HashMap<String, Player>();
 		findScoreByName = new HashMap<String, Integer>();
-		
+		bonus = null;
 		this.gameId = gameId;
 		locked = false; 
 		drawModel = new DrawBoardModel();
@@ -44,18 +45,6 @@ public class GameRoom {
 	public Player getManagingPlayer() {
 		
 		return null;
-	}
-	
-//	// Calculates scores for each player
-//	public int computeScore(Word word) {
-//		
-//		return 0;
-//	}
-	
-	// Updates the board
-	public void updateBoard(Board board, List<Player> players) {
-		
-		
 	}
 	
 	
@@ -89,9 +78,14 @@ public class GameRoom {
 		return players.add(player);
 	}
 	
+	
 	public boolean removePlayer(Player player) {
 		findPlayerByName.remove(player.getName());
 		return players.remove(player);
+	}
+	
+	public Map<String, Player> findPlayerByName() {
+		return findPlayerByName;
 	}
 	
 	public String getPassword() {
@@ -101,5 +95,61 @@ public class GameRoom {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
+	public void setBonus(String bonus) {
+		this.bonus = new Position(Integer.parseInt("" + bonus.charAt(0)), 
+				                  Integer.parseInt("" + bonus.charAt(2)));
+	
+	}
+	
+	public Map<Position, Integer> computeSharedArea(String name) {
+		
+		if (findPlayerByName.get(name) == null) {
+			throw new IllegalArgumentException();
+		
+		}
+		// store the sixteen position of the given player in a set for comparison
+		Set<Position> positions = getPositonByName(name);
+		
+		Set<Position> union = new HashSet<>();
+		Map<Position, Integer> positionToWeight = new HashMap<>();
+		
+		for (int i = 0; i < players.size(); i++) {
+			
+			if (!players.get(i).getName().equals(name)) { // avoid name repetition
+				Set<Position> positionsTemp = getPositonByName(name);
+				union.addAll(positions);
+				union.retainAll(positionsTemp);
+				Iterator<Position> itr = union.iterator();
+				while(itr.hasNext()) {
+					Position temp = itr.next();
+					union
+					
+				}
+			}
+			
+		}
+		return positionToWeight;
+	}
+	
+	private Set<Position> getPositonByName(String name) {
+		
+		Position globalPosition = findPlayerByName.get(name).getGlobalPosition();
+		int row = globalPosition.getRow();
+		int col = globalPosition.getColumn();
+		
+		// store the sixteen position of the given player in a set for comparison
+		Set<Position> positions = new HashSet<>();
+		
+		for (int i = row; i < row + 4; i++) {
+			for (int j = col; j < col + 4; j++) {
+				positions.add(new Position(i, j));
+			}
+		}
+		return positions; 
+		
+	}
+	 
+	
 	
 }
