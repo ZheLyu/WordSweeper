@@ -29,10 +29,12 @@ public class DragControl implements MouseInputListener{
 	
 	private SweeperPanel panel; 
 	private DrawBoardModel drawBoardModel;
+	private GameRoom model;
 	
 	public DragControl(SweeperPanel panel, GameRoom m) {
 		// TODO Auto-generated constructor stub
 		this.panel = panel;
+		this.model = m;
 		drawBoardModel = m.getDrawModel();
 		
 	}
@@ -70,7 +72,8 @@ public class DragControl implements MouseInputListener{
 
 	public void mouseReleased(MouseEvent arg0) {
 		// TODO Auto-generated method stub
-		Word word = new Word(drawBoardModel.getSelCellList2());
+		new Word(drawBoardModel.getSelCellList2());
+		model.computeScore();
 		
 	}
 

@@ -154,5 +154,10 @@ public class GameRoom {
 		return positions; 
 		
 	}
-
+	
+	public long computeScore() {
+		
+		 return (long) 0;
+	//	reutrn 1;
+	}
 }

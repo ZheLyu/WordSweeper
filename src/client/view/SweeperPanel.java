@@ -36,7 +36,6 @@ public class SweeperPanel extends JPanel{
 	private DragControl control;
 	
 	
-//	public SweeperPanel(DrawBoardModel m) {
 	public SweeperPanel(GameRoom m) {
 		model = m.getDrawModel();
         control = new DragControl(this, m);
