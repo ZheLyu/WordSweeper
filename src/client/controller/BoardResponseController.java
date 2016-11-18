@@ -10,6 +10,8 @@ History:
 
 package client.controller;
 
+import javax.sound.midi.MidiDevice.Info;
+
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -62,16 +64,14 @@ public class BoardResponseController extends ControllerChain {
 		System.out.println(ls.getLength());
 		for (int j = 0; j < ls.getLength(); j++) {
 			Node child = ls.item(j);
-			
-			NamedNodeMap map = child.getAttributes();
-			
-			for (int i = 0; i < map.getLength(); i++) {
-				Node attribute = map.item(i);
-			
-				String name = attribute.getNodeName(); 
-				String value = attribute.getNodeValue();
-				System.out.println(name + " = " + value);
-			}
+			Node BoardResponse = response.contents.getFirstChild();
+			NamedNodeMap infor = BoardResponse.getAttributes();
+				String gameId = infor.getNamedItem("gameId").getNodeValue();
+			    String size= infor.getNamedItem("size").getNodeValue();
+			    int s =Integer.valueOf(size);
+				String isManagingUser= infor.getNamedItem("managingUser").getNodeValue();
+				String  contents = infor.getNamedItem("contents").getNodeValue();
+				String bonus = infor.getNamedItem("bonus").getNodeValue();
 			System.out.println(child.getChildNodes().getLength());
 			process(child);
 		}
@@ -86,14 +86,12 @@ public class BoardResponseController extends ControllerChain {
 			
 			Node child1 = list.item(i);
 			NamedNodeMap map1 = child1.getAttributes();
-			String gameId = map1.getNamedItem("gameId").getNodeValue();
-		    model.setGameId(gameId);
-			int size = Integer.valueOf(map1.getNamedItem("size").getNodeValue());
+			String name = map1.getNamedItem("name").getNodeValue();
+		    String position= map1.getNamedItem("position").getNodeValue();
 			String score = map1.getNamedItem("score").getNodeValue();
 			long s = Long.valueOf(score);
-			String contents= map1.getNamedItem("contents").getNodeValue();
-			String bonus=map1.getNamedItem("bonus").getNodeValue();
-			System.out.println();
+			String board= map1.getNamedItem("board").getNodeValue();
+			model.addPlayer(name, board, position, score);
 		}
 		
 	} 
