@@ -71,10 +71,11 @@ public class BoardDisplay extends JWindow {
 		setBounds(260, 150, 1200, 800);
 		//setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		//setsetResizable(false);
-		setAlwaysOnTop(true);
+		//setAlwaysOnTop(true);
 
 		
-		sweeperPanel = new SweeperPanel(m.getDrawModel());
+	//	sweeperPanel = new SweeperPanel(m.getDrawModel());
+		sweeperPanel = new SweeperPanel(m);
 		sweeperPanel.setBounds(0, 0, 1200, 800);
 		
 	

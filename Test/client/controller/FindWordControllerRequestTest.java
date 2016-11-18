@@ -28,7 +28,7 @@ public class FindWordControllerRequestTest extends TestCase {
 		}
 		
 		// prepare client and connect to server.
-		model = new GameRoom("123", "password");
+		model = new GameRoom("123");
 		client = new Application (model);
 		client.setVisible(true);
 		

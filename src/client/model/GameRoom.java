@@ -24,17 +24,16 @@ public class GameRoom {
 	private boolean locked; 
 	private List<Player> players; 
 	private String password; 
-	private Board board;
 	private Map<String, Player> findPlayerByName; 
-	private Map<String, Integer> findScoreByName;
 	private Position bonus;
 	
-	public GameRoom(String gameId, String password) {
+	
+	public GameRoom(String gameId) {
 		
-		this.password = password;
+//		this.password = password;
 		players = new ArrayList<Player>();
 		findPlayerByName = new HashMap<String, Player>();
-		findScoreByName = new HashMap<String, Integer>();
+		
 		bonus = null;
 		this.gameId = gameId;
 		locked = false; 
@@ -106,11 +105,11 @@ public class GameRoom {
 		
 		if (findPlayerByName.get(name) == null) {
 			throw new IllegalArgumentException();
-		
 		}
+		
 		// store the sixteen position of the given player in a set for comparison
 		Set<Position> positions = getPositonByName(name);
-		
+		// store the same positions of two players
 		Set<Position> union = new HashSet<>();
 		Map<Position, Integer> positionToWeight = new HashMap<>();
 		
@@ -118,14 +117,21 @@ public class GameRoom {
 			
 			if (!players.get(i).getName().equals(name)) { // avoid name repetition
 				Set<Position> positionsTemp = getPositonByName(name);
+				// add positions of the given player to union
 				union.addAll(positions);
+				// get the union of positions of the given player and players.get(i)
 				union.retainAll(positionsTemp);
+				// copy the position in the union to positionToWeight
 				Iterator<Position> itr = union.iterator();
 				while(itr.hasNext()) {
 					Position temp = itr.next();
-					union
-					
+					if (positionToWeight.containsKey(temp)) { // if the position exist in the map, add 1 to the weight
+						positionToWeight.put(temp, positionToWeight.get(temp) + 1);
+					} else { // if the position does not exists, create a new one
+						positionToWeight.put(temp, 1);
+					}
 				}
+				union.clear(); // clear union for next use
 			}
 			
 		}
@@ -149,7 +155,10 @@ public class GameRoom {
 		return positions; 
 		
 	}
-	 
 	
-	
+	public long computeScore() {
+		
+		 return (long) 0;
+	//	reutrn 1;
+	}
 }

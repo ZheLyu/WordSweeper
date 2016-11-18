@@ -74,6 +74,7 @@ public class Word {
 		if (word.length() >= 3) {
 			score *= (10 * Math.pow(2, word.length()));
 		}
+		
 		System.out.println(word);
 		System.out.println(score);
 	}

@@ -60,7 +60,24 @@ public class BoardResponseController extends ControllerChain {
 		//app.getResponseArea().append(response.toString());
 		//app.getResponseArea().append("\n");
 		
+//		NodeList ls = response.contents.getChildNodes();
+//		System.out.println(ls.getLength());
+//		for (int j = 0; j < ls.getLength(); j++) {
+//			Node child = ls.item(j);
+//			
+//			NamedNodeMap map = child.getAttributes();
+//			for (int i = 0; i < map.getLength(); i++) {
+//				Node attribute = map.item(i);
+//			
+//				String name = attribute.getNodeName(); 
+//				String value = attribute.getNodeValue();
+//				System.out.println(name + " = " + value);
+//			}
+//			System.out.println(child.getChildNodes().getLength());
+//			process(child);
+//		}
 		NodeList ls = response.contents.getChildNodes();
+		
 		System.out.println(ls.getLength());
 		for (int j = 0; j < ls.getLength(); j++) {
 			Node child = ls.item(j);
@@ -72,28 +89,56 @@ public class BoardResponseController extends ControllerChain {
 				String isManagingUser= infor.getNamedItem("managingUser").getNodeValue();
 				String  contents = infor.getNamedItem("contents").getNodeValue();
 				String bonus = infor.getNamedItem("bonus").getNodeValue();
-			System.out.println(child.getChildNodes().getLength());
+
 			process(child);
 		}
+
 		return true;
 	}
 	
 	
 	public static void process(Node child) {
 
+//		NodeList list = child.getChildNodes();
+//		for (int i = 0; i < list.getLength(); i++) {
+//			
+//			Node child1 = list.item(i);
+//			NamedNodeMap map1 = child1.getAttributes();
+//			String gameId = map1.getNamedItem("gameId").getNodeValue();
+//			int size = Integer.valueOf(map1.getNamedItem("size").getNodeValue());
+//			String score = map1.getNamedItem("score").getNodeValue();
+//			String contents= map1.getNamedItem("contents").getNodeValue();
+//			String bonus=map1.getNamedItem("bonus").getNodeValue();
+//			System.out.println();
+//		}
+//		
 		NodeList list = child.getChildNodes();
 		for (int i = 0; i < list.getLength(); i++) {
 			
 			Node child1 = list.item(i);
 			NamedNodeMap map1 = child1.getAttributes();
+
 			String name = map1.getNamedItem("name").getNodeValue();
 		    String position= map1.getNamedItem("position").getNodeValue();
 			String score = map1.getNamedItem("score").getNodeValue();
 			long s = Long.valueOf(score);
 			String board= map1.getNamedItem("board").getNodeValue();
 			model.addPlayer(name, board, position, score);
+
+//			for (int j = 0; j < map1.getLength(); j++) {
+//				Node attribute = map1.item(j);
+//				String name = attribute.getNodeName(); 
+//				String value = attribute.getNodeValue();
+//				System.out.println(name + " = " + value);
+				System.out.println(map1.getNamedItem("board").getNodeValue());
+				System.out.println(map1.getNamedItem("name").getNodeValue());
+				System.out.println(map1.getNamedItem("position").getNodeValue());
+				System.out.println(map1.getNamedItem("score").getNodeValue());
+				System.out.println();
+			//}
+			System.out.println();
+
 		}
-		
 	} 
 
 }
