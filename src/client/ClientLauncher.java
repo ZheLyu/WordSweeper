@@ -52,7 +52,7 @@ public class ClientLauncher {
 		}
 		
 		// Initialize the client application and its corresponding model
-		GameRoom model = new GameRoom("123", "password");
+		GameRoom model = new GameRoom("123");
 		Application app = new Application(model);
 		
 		// set up the chain of responsibility

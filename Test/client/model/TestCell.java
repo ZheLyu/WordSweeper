@@ -29,7 +29,7 @@ public class TestCell {
 		
 		Random r = new Random();
 		int random = r.nextInt(26);
-		return new Cell(new Position(6, 4), ALPHABET[random], false);
+		return new Cell(new Position(6, 4), ALPHABET[random]);
 		
 	}
 	

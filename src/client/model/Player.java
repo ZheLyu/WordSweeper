@@ -97,4 +97,9 @@ public class Player {
 		return words;
 	}
 	
+	public void updatePlayer() {
+		
+		
+	}
+	
 }

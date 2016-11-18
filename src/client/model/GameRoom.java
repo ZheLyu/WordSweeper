@@ -27,9 +27,10 @@ public class GameRoom {
 	private Map<String, Player> findPlayerByName; 
 	private Position bonus;
 	
-	public GameRoom(String gameId, String password) {
+	
+	public GameRoom(String gameId) {
 		
-		this.password = password;
+//		this.password = password;
 		players = new ArrayList<Player>();
 		findPlayerByName = new HashMap<String, Player>();
 		
