@@ -16,10 +16,17 @@ package client.model;
 
 import java.util.*;
 
+/**
+ * @author leizeling
+ *
+ */
+/**
+ * @author leizeling
+ *
+ */
 public class GameRoom {
 	
- // practice model or team model
-	private DrawBoardModel drawBoardModel;
+	private DrawBoardModel drawBoardModel; // 
 	private String gameId;
 	private boolean locked; 
 	private List<Player> players; 
@@ -115,7 +122,7 @@ public class GameRoom {
 		
 	}
 	
-	public boolean getLocked() {
+	public boolean isLocked() {
 		
 		return locked; 
 	}
@@ -150,7 +157,7 @@ public class GameRoom {
 		
 		// Stores the sixteen position of the current player
 		String name = player.getName();
-		Set<Position> positions = getPositonByName(name);
+		Set<Position> positions = getPositonsByName(name);
 		
 		
 		for (int i = 0; i < players.size(); i++) {
@@ -159,7 +166,7 @@ public class GameRoom {
 				
 				Player tempPlayer = players.get(i);
 				// Stores the sixteen position of the tempPlayer
-				Set<Position> positionsTemp = getPositonByName(tempPlayer.getName());
+				Set<Position> positionsTemp = getPositonsByName(tempPlayer.getName());
 				// Stores the shared positions of two players
 				Set<Position> union = new HashSet<>();
 				// add positions of the current player to union
@@ -172,7 +179,7 @@ public class GameRoom {
 					Position temp = itr.next();
 					if (positionToWeight.containsKey(temp)) { // if the position exist in the map, add 1 to the weight
 						positionToWeight.put(temp, positionToWeight.get(temp) + 1);
-					} else { // if the position does not exists, create a new one, at least two players share the same position
+					} else { // if the position does not exist, create a new one, at least two players share the same position
 						positionToWeight.put(temp, 2);
 					}
 				}
@@ -182,7 +189,7 @@ public class GameRoom {
 	}
 	
 	// Stores the sixteen position of the given player in a set for comparison
-	private Set<Position> getPositonByName(String name) {
+	private Set<Position> getPositonsByName(String name) {
 		
 		Position globalPosition = findPlayerByName.get(name).getGlobalPosition();
 		int row = globalPosition.getRow();
@@ -199,7 +206,7 @@ public class GameRoom {
 		
 	}
 	
-	// Produces the word every time the user drag their mouse
+	// Produces the word every time the user drag the mouse
 	public String getWord(List<Cell> cellList) {
 		
 		String s = "";
@@ -225,7 +232,7 @@ public class GameRoom {
 			Position globalPosition = cell.getPosition().localToGlobal(player.getGlobalPosition());
 			
 		//	word += cell.getLetter();
-			int sharedAreaMutiply = 1;
+			int sharedAreaMutiply = 0;
 			int bonusMutiply = 1;
 			if (positionToWeight.containsKey(globalPosition)) {
 				
@@ -237,7 +244,7 @@ public class GameRoom {
 				bonusMutiply = 10;
 			}
 			
-			score += Word.WEIGHT.get(letter) * sharedAreaMutiply * bonusMutiply;
+			score += Word.WEIGHT.get(letter) * Math.pow(2, sharedAreaMutiply) * bonusMutiply;
 		}
 		
 		// if the length of the letter is larger than 3, then multiply the total score by POW(2, wordLength) * 10

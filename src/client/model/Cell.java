@@ -18,7 +18,7 @@ public class Cell {
 
 	private Position position;
 	private String letter;
-//	private boolean bonus;
+
 	
 	// Constructs a cell using position and letter
 	public Cell(Position position, String letter) {
@@ -28,13 +28,6 @@ public class Cell {
 		this.letter = letter;
 	}
 	
-	// Constructs a cell using position, leter and bonus
-//	public Cell(Position position, String letter, boolean bonus) {
-//		
-//		this.position = position;
-//		this.letter = letter;
-//		this.bonus = bonus;
-//	}
 	
 	// Returns position of the cell 
 	public Position getPosition() {
@@ -54,12 +47,4 @@ public class Cell {
 		return "position: " + position + ", letter: " + letter;
 	}
 	
-//	public void setBonus(boolean bonus) {
-//		this.bonus = bonus;
-//	}
-//	
-//	public boolean isBonus() {
-//		
-//		return bonus; 
-//	}
 }

@@ -76,9 +76,4 @@ public class Board {
 		return board.get(position).getLetter();
 	}
 	
-	// Resets the board
-	public void reset() {
-		
-		// TODO: 
-	}
 }
