@@ -67,8 +67,8 @@ public class DrawBoardModel {
     	
     	String s;
     	s = String.format("%d%d", (p.y - origin.y + 1) / (size / 4), (p.x - origin.x + 1) / (size / 4));
-    	int col = (p.x - origin.x + 1) / (size / 4);
-    	int row = (p.y - origin.y + 1) / (size / 4);
+    	int row = (p.x - origin.x + 1) / (size / 4);
+    	int col = (p.y - origin.y + 1) / (size / 4);
 		Position position = new Position(row, col);
         if(!selCellList.contains(s)) {
           	
@@ -106,7 +106,7 @@ public class DrawBoardModel {
 	
 	public String getCellLetter(int row, int col) {
 	   
-		return board.getPositionLetter(col, row);
+		return board.getPositionLetter(row, col);
 		
 	}
 	

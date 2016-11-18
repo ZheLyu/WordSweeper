@@ -22,11 +22,11 @@ public class Player {
 	private boolean isManager;
 	private long totalScore;
 	private Position globalPosition;
-	private List<String> words;
+//	private List<String> words;
 	private Board board;
 	private String name; 
  
-	public Player(String name, String sixteenLetter, String globalPosition, boolean isManager) {
+	public Player(String name, String sixteenLetter, String globalPosition, long totalScore, boolean isManager) {
 		
 		
 		this.name = name; 
@@ -35,9 +35,18 @@ public class Player {
 				                            Integer.parseInt("" + globalPosition.charAt(2)));
 				                       
 		this.isManager = isManager; 
-		words = new ArrayList<>();
+	//	words = new ArrayList<>();
 		totalScore = 0;
 		
+	}
+	
+	public Player(String name, String globalPosition, long totalScore) {
+		
+		this.name = name; 
+		this.globalPosition = new Position (Integer.parseInt("" + globalPosition.charAt(0)), 
+                                            Integer.parseInt("" + globalPosition.charAt(2)));
+		
+		this.totalScore = totalScore;
 	}
 	
 	/** Get the player's position from server*/
@@ -63,14 +72,14 @@ public class Player {
 		this.name = name;
 	}
 	
-	public long getScore() {
+	public long updateTotalScore(long score) {
 		
-		return totalScore; 
+		return totalScore += score; 
 	}
 	
-	public void setScore(long score) { 
+	public void setScore(long totalScore) { 
 		
-		totalScore += score;
+		this.totalScore = totalScore;
 	}
 	
 	public Board getBoard() {
@@ -87,19 +96,15 @@ public class Player {
 		return isManager; 
 	}
 	
-	public void addWord(String word) {
-		  
-		words.add(word);
-	}
+//	public void addWord(String word) {
+//		  
+//		words.add(word);
+//	}
+//	
+//	public List<String> getWords() {
+//		
+//		return words;
+//	}
 	
-	public List<String> getWords() {
-		
-		return words;
-	}
-	
-	public void updatePlayer() {
-		
-		
-	}
 	
 }

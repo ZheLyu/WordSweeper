@@ -18,15 +18,16 @@ package client.model;
 
 public class Position {
 	
-	
-	private int column;
 	private int row;
+	private int column;
+	
 	
 	// Constructs Position using column and row
-    public Position(int column, int row) {
+    public Position(int row, int column) {
     	
-    	this.column = column;
+    	
     	this.row = row;
+    	this.column = column;
     }
     
     // Used to implement Map<Position, Cell> in Board.java
@@ -72,6 +73,20 @@ public class Position {
 		this.row = row;
 	}
     
+	public Position globalToLocal(Position globalPosition) {
+		
+	//	Position globalPosition = player.getGlobalPosition();
+		return new Position(row - globalPosition.getRow(), 
+							column - globalPosition.getColumn());
+		
+	}
+	
+	public Position localToGlobal(Position globalPosition) {
+		
+		return new Position(row + globalPosition.getRow(),
+							column + globalPosition.getColumn());
+		
+	}
     
 	
 }

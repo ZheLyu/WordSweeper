@@ -19,29 +19,31 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.event.MouseInputListener;
 
-import client.model.DrawBoardModel;
-import client.model.GameRoom;
-import client.model.Word;
+//import client.model.DrawBoardModel;
+//import client.model.GameRoom;
+//import client.model.Word;
+import client.model.*;
 import client.view.*;
 
 
 public class DragControl implements MouseInputListener{
 	
 	private SweeperPanel panel; 
-	private DrawBoardModel drawBoardModel;
+//	private DrawBoardModel drawBoardModel;
 	private GameRoom model;
 	
 	public DragControl(SweeperPanel panel, GameRoom m) {
 		// TODO Auto-generated constructor stub
 		this.panel = panel;
 		this.model = m;
-		drawBoardModel = m.getDrawModel();
+//		drawBoardModel = m.getDrawModel();
 		
 	}
 	
 	public void mouseDragged(MouseEvent arg0){
-	      
-		drawBoardModel.addDragCellList(arg0.getPoint());
+	    
+		//drawBoardModel.addDragCellList(arg0.getPoint());
+		model.getDrawModel().addDragCellList(arg0.getPoint());
 		//Word word = new Word(drawBoardModel.getSelCellList2());
         panel.repaint();
 	}
@@ -66,15 +68,16 @@ public class DragControl implements MouseInputListener{
 	public void mousePressed(MouseEvent arg0) {
 		// TODO Auto-generated method stub
 		
-		drawBoardModel.clearSelCellList();
+		model.getDrawModel().clearSelCellList();
 		panel.repaint();
 	}
 
 	public void mouseReleased(MouseEvent arg0) {
 		// TODO Auto-generated method stub
-		new Word(drawBoardModel.getSelCellList2());
-		model.computeScore();
-		
+		model.getWord(model.getDrawModel().getSelCellList2());
+		model.computeScore(model.getDrawModel().getSelCellList2());
+		// sent find word request to server
+		// new FindWordRequestController(app, model)
 	}
 
 	public void mouseMoved(MouseEvent arg0) {

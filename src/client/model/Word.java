@@ -59,36 +59,36 @@ public class Word {
     }
     
 	// Creates a word based on the letter in the given string list
-	public Word(List<Cell> list) {
-		
-		word = "";
-		score = 0;
-	//	this.cellList = new ArrayList<Cell>();
-		for (int i = 0; i < list.size(); i++) {
-			
-			Cell cell = list.get(i);
-			word += cell.getLetter();
-			score += WEIGHT.get(cell.getLetter());
-		}
-		
-		if (word.length() >= 3) {
-			score *= (10 * Math.pow(2, word.length()));
-		}
-		
-		System.out.println(word);
-		System.out.println(score);
-	}
-	
+//	public Word(List<Cell> list) {
+//		
+//		word = "";
+//		score = 0;
+//	//	this.cellList = new ArrayList<Cell>();
+//		for (int i = 0; i < list.size(); i++) {
+//			
+//			Cell cell = list.get(i);
+//			word += cell.getLetter();
+//			score += WEIGHT.get(cell.getLetter());
+//		}
+//		
+//		if (word.length() >= 3) {
+//			score *= (10 * Math.pow(2, word.length()));
+//		}
+//		
+//		System.out.println(word);
+//		System.out.println(score);
+//	}
+//	
 	// Returns the word 
-	public String getWord() {
-		
-		return word;
-	}
-	
-	
-	// Checks if the given word is vaild
-	public boolean checkVaild() {
-		
-		return true;
-	}
+//	public String getWord() {
+//		
+//		return word;
+//	}
+//	
+//	
+//	// Checks if the given word is vaild
+//	public boolean checkVaild() {
+//		
+//		return true;
+//	}
 }
