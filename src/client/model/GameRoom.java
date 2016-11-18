@@ -97,6 +97,10 @@ public class GameRoom {
 		
 	}
 	
+	public Player getPlayer() {
+		
+		return player; 
+	}
 	
 	public void findWordResponseHandler(long score) {
 		
