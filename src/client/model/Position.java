@@ -53,7 +53,7 @@ public class Position {
     // used for test only
     public String toString() {
     	
-    	return "[" + column + ",  " + row + "]";
+    	return row + "," + column;
     	
     }
 

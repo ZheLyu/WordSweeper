@@ -62,7 +62,7 @@ public class GameRoom {
 		return managingUser;
 	}
 	
-	// set current player name
+	// set current player name, used when the user first login
 	public void setCurrentPlayerName(String name) {
 		
 		currentPlayerName = name;
@@ -238,20 +238,20 @@ public class GameRoom {
 		}
 		return s;
 	}
-	public String getPosition(int i,List<Cell> cellList){  
-		
-		String p="";
-		Cell cell = cellList.get(i);
-		p=cell.getPosition().toString();
-		return p;
-	}
-	public String getLetter(int i,List<Cell> cellList){
-		
-		String l="";
-		Cell cell = cellList.get(i);
-		l=cell.getLetter();
-		return l;
-	}
+//	public String getPosition(int i,List<Cell> cellList){  
+//		
+//		String p="";
+//		Cell cell = cellList.get(i);
+//		p=cell.getPosition().toString();
+//		return p;
+//	}
+//	public String getLetter(int i,List<Cell> cellList){
+//		
+//		String l="";
+//		Cell cell = cellList.get(i);
+//		l=cell.getLetter();
+//		return l;
+//	}
 	
 	// the score of one letter is POW(2, m) * WEIGHT * BONUS, m is the number of people share this letter
 	// then produce the word score by adding up the score in each letter, if the length of this word is larger

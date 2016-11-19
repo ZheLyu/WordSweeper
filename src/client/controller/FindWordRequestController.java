@@ -1,6 +1,9 @@
 package client.controller;
 
+import java.util.List;
+
 import xml.Message;
+import client.model.Cell;
 import client.model.GameRoom;
 import client.view.Application;
 
@@ -41,12 +44,15 @@ public class FindWordRequestController {
 		app.setVisible(false);
 	}
 	public String toString() {
-	 String word = model.getWord(model.getDrawModel().getSelCellList2());
+		List<Cell> cellList = model.getDrawModel().getSelCellList2();
+	// String word = model.getWord(model.getDrawModel().getSelCellList2());
+		String word = model.getWord(cellList);
 		XmlStringBuilder builder = new XmlStringBuilder("findWordRequest").add("gameId", model.getGameId()).add("name", model.getPlayer().getName()).add("word", word).closeSegment();
-		int i=0;
-		while(i<word.length()){
+		
+		for (int i = 0; i < word.length(); i++){
 			
-			builder.add("cell").add("letter", model.getLetter(i, model.getDrawModel().getSelCellList2())).add("position", model.getPosition(i, model.getDrawModel().getSelCellList2())).closeElement().toString();
+		//	builder.add("cell").add("letter", model.getLetter(i, model.getDrawModel().getSelCellList2())).add("position", model.getPosition(i, model.getDrawModel().getSelCellList2())).closeElement().toString();
+			builder.add("cell").add("letter", cellList.get(i).getLetter()).add("position", cellList.get(i).getPosition().toString()).closeElement().toString();
 		}
 
 		return builder.finishSegment().toString();
