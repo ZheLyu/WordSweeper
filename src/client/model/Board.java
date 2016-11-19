@@ -69,11 +69,11 @@ public class Board {
 	}
 	
 	// Returns a letter 
-	public String getPositionLetter(int column, int row) {
+	public Cell getPositionLetter(int column, int row) {
 		
 		Position position = new Position(column + 1, row + 1);
 		
-		return board.get(position).getLetter();
+		return board.get(position);
 	}
 	
 }
