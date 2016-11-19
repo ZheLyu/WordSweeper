@@ -55,7 +55,7 @@ import javax.swing.SwingConstants;
 public class Application extends JWindow {
     
 
-	static String Version ="V 1.0.33"; 
+	static String Version ="V 1.0.34"; 
 
 	
 

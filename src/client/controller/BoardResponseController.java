@@ -36,7 +36,7 @@ public class BoardResponseController extends ControllerChain {
 	}
 	
 	public boolean process(Message response) {
-
+		System.out.println("test2");
 		String type = response.contents.getFirstChild().getLocalName();
 		if (!type.equals ("boardResponse")) {
 			return next.process(response);
@@ -44,10 +44,10 @@ public class BoardResponseController extends ControllerChain {
 		System.out.println(response.toString());
 		Node boardResponse = response.contents.getFirstChild();
 		NamedNodeMap map = boardResponse.getAttributes();
-		int size = Integer.valueOf(map.getNamedItem("size").getNodeValue());
+	//	int size = Integer.valueOf(map.getNamedItem("size").getNodeValue());
 		String managingUser = map.getNamedItem("managingUser").getNodeValue();
 		String bonus = map.getNamedItem("bonus").getNodeValue();
-		String content=map.getNamedItem("content").getNodeValue();
+	//	String content=map.getNamedItem("content").getNodeValue();
 		String gameId = map.getNamedItem("gameId").getNodeValue();
 		model.setGameId(gameId);
 		//app.getResponseArea().append("Board Message received for game:" + gameId + "\n");

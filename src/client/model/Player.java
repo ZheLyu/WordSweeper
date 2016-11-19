@@ -36,7 +36,7 @@ public class Player {
 				                       
 		this.isManager = isManager; 
 	//	words = new ArrayList<>();
-		totalScore = 0;
+		this.totalScore = totalScore;
 		
 	}
 	

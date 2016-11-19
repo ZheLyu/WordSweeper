@@ -42,6 +42,7 @@ public class SampleClientMessageHandler implements IMessageHandler {
 	
 	@Override
 	public void process(Message response) {
+		
 		chain.process(response);
 	}
 
