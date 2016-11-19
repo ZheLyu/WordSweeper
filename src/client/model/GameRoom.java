@@ -274,7 +274,7 @@ public class GameRoom {
 				sharedAreaMutiply  = globalPositionToWeight.get(globalPosition);
 			}
 			
-			if (globalPosition.equals(bonus)) {
+			if (bonus != null && globalPosition.equals(bonus)) {
 				
 				bonusMutiply = 10;
 			}
