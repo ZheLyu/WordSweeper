@@ -34,6 +34,7 @@ public class GameRoom {
 	private Map<String, Player> findPlayerByName; 
 	private Position bonus;
 	private Player player; 
+	private String currentPlayerName;
 	public String name="samplePlayer";
 	private Map<Position, Integer> globalPositionToWeight;
 	private String managingUser;
@@ -49,6 +50,7 @@ public class GameRoom {
 		password= "";
 		players = new ArrayList<Player>();
 		player = null;
+		currentPlayerName = "";
 		globalPositionToWeight = new HashMap<Position, Integer>();
 		managingUser = "";
 	}
@@ -58,6 +60,12 @@ public class GameRoom {
 	public String getManagingPlayer() {
 		
 		return managingUser;
+	}
+	
+	// set current player name
+	public void setCurrentPlayerName(String name) {
+		
+		currentPlayerName = name;
 	}
 	
 	public void boardResponseHandler(String managingUser, String bonus, String[] names, 
@@ -79,7 +87,7 @@ public class GameRoom {
 			
 			for (int i = 0; i < length; i++) {
 				
-				if (names[i].equals(player.getName())) { // update the current player
+				if (names[i].equals(currentPlayerName)) { // update the current player
 					
 					player = new Player(names[i], board[i], positions[i], scores[i], names[i].equals(managingUser));
 					players.add(player);
@@ -102,7 +110,12 @@ public class GameRoom {
 		
 		return player; 
 	}
-	   
+	
+	public List<Player> getPlayerList() {
+		
+		return players;
+	}
+	
 	public void findWordResponseHandler(long score) {
 		
 		player.updateTotalScore(score);

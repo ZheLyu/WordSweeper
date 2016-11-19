@@ -74,6 +74,11 @@ public class Player {
 		this.totalScore = totalScore;
 	}
 	
+	public long getScore() {
+		
+		return totalScore;
+	}
+	
 	public Board getBoard() {
 		
 		return board;
