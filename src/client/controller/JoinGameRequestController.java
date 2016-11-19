@@ -37,6 +37,8 @@ public class JoinGameRequestController {
 		// Request the lock (this might not succeed).
 		app.getServerAccess().sendRequest(m);
 	}
+	
+	
 	public String toString() {
 		String s=model.getGameId();
 		String s1=model.getPlayer().getName();

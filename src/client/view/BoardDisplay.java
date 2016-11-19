@@ -75,7 +75,7 @@ public class BoardDisplay extends JWindow {
 
 		
 	//	sweeperPanel = new SweeperPanel(m.getDrawModel());
-		sweeperPanel = new SweeperPanel(m);
+		sweeperPanel = new SweeperPanel(app, m);
 		sweeperPanel.setBounds(0, 0, 1200, 800);
 		
 	
