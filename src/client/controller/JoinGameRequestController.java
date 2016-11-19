@@ -31,10 +31,16 @@ public class JoinGameRequestController {
 	/** Make the request on the server and wait for response. */
 	public void process() {
 		// send the request to create the game.
-		String xmlString = Message.requestHeader() + "<joinGameRequest gameId='somePlace' name='nextOne' password = '12345'/></request>";
-		Message m = new Message (xmlString);
+		//String xmlString = Message.requestHeader() + "<joinGameRequest gameId='somePlace' name='nextOne' password = '12345'/></request>";
+		Message m = new Message (toString());
 		
 		// Request the lock (this might not succeed).
 		app.getServerAccess().sendRequest(m);
+	}
+	public String toString() {
+		String s=model.getGameId();
+		String s1=model.getPlayer().getName();
+		return new XmlStringBuilder("joinGameRequest").add("gameId",s).add("name", s1).add("password", model.getPassword()).finish()
+				.toString();
 	}
 }

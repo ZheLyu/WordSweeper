@@ -19,6 +19,7 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.event.MouseInputListener;
 
+
 //import client.model.DrawBoardModel;
 //import client.model.GameRoom;
 //import client.model.Word;
@@ -28,10 +29,11 @@ import client.view.*;
 
 public class DragControl implements MouseInputListener{
 	
+
 	private SweeperPanel panel; 
 //	private DrawBoardModel drawBoardModel;
 	private GameRoom model;
-	
+	private Application app;
 	public DragControl(SweeperPanel panel, GameRoom m) {
 		// TODO Auto-generated constructor stub
 		this.panel = panel;
@@ -76,8 +78,11 @@ public class DragControl implements MouseInputListener{
 		// TODO Auto-generated method stub
 		model.getWord(model.getDrawModel().getSelCellList2());
 		model.computeScore(model.getDrawModel().getSelCellList2());
+		FindWordRequestController findwordrequestcontroller=new FindWordRequestController(app,model);
+		findwordrequestcontroller.process();
 		// sent find word request to server
 		// new FindWordRequestController(app, model)
+	
 	}
 
 	public void mouseMoved(MouseEvent arg0) {

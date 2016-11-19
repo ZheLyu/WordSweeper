@@ -34,6 +34,7 @@ public class GameRoom {
 	private Map<String, Player> findPlayerByName; 
 	private Position bonus;
 	private Player player; 
+	public String name="samplePlayer";
 	private Map<Position, Integer> positionToWeight;
 	private String managingUser;
 	
@@ -220,6 +221,20 @@ public class GameRoom {
 			s += cell.getLetter();
 		}
 		return s;
+	}
+	public String getPosition(int i,List<Cell> cellList){  
+		
+		String p="";
+		Cell cell = cellList.get(i);
+		p=cell.getPosition().toString();
+		return p;
+	}
+	public String getLetter(int i,List<Cell> cellList){
+		
+		String l="";
+		Cell cell = cellList.get(i);
+		l=cell.getLetter();
+		return l;
 	}
 	
 	// the score of one letter is POW(2, m) * WEIGHT * BONUS, m is the number of people share this letter

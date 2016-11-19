@@ -24,6 +24,12 @@ public class ExitGameRequestController {
 				app.getServerAccess().sendRequest(m);
 				
 	}
+	public String toString() {
+		String s=model.getGameId();
+		String s1=model.getPlayer().getName();
+		return new XmlStringBuilder("exitGameRequest").add("gameId",s).add("name",s1).finish()
+				.toString();
+	}
 
 
 }

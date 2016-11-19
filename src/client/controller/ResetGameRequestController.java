@@ -20,11 +20,16 @@ public class ResetGameRequestController {
 		//String gameId = map.getNamedItem("gameId").getNodeValue();
 		
 		// send the request to reset the game.
-		String xmlString = Message.requestHeader() + "<resetGameRequest gameId='somePlace' /></request>";
-		Message m = new Message (xmlString);
+		//String xmlString = Message.requestHeader() + "<resetGameRequest gameId='somePlace' /></request>";
+		Message m = new Message (toString());
 		
 		app.getServerAccess().sendRequest(m);
 		
+	}
+	public String toString() {
+		String s=model.getGameId();
+		return new XmlStringBuilder("resetGameRequest").add("gameId",s).finish()
+				.toString();
 	}
 
 }

@@ -18,10 +18,15 @@ public class LockGameRequestController {
 	/** Make the request on the server and wait for response. */
 	public void process() {
 		// send the request to lock the game.
-		String xmlString = Message.requestHeader() + "<lockGameRequest gameId='sample'/></request>";
-		Message m = new Message (xmlString);
+		//tring xmlString = Message.requestHeader() + "<lockGameRequest gameId='sample'/></request>";
+		Message m = new Message (toString());
 
 		// Request the lock (this might not succeed).
 		app.getServerAccess().sendRequest(m);
+	}
+	public String toString() {
+		String s=model.getGameId();
+		return new XmlStringBuilder("lockGameRequest").add("gameId",s).finish()
+				.toString();
 	}
 }

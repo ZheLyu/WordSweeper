@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import xml.Message;
 import client.model.GameRoom;
+import client.model.Player;
 import client.view.Application;
 import client.MockServerAccess;
 import junit.framework.TestCase;
@@ -59,7 +60,8 @@ public class CreateGameControllerTest extends TestCase {
 				.getLocalName());
 
 		// make sure "grab" attribute is there, and true
-		
+		Player player=new Player("sampleplayer","4,6",0);
+	
 		assertEquals("samplePlayer", r.contents.getFirstChild().getAttributes()
 				.getNamedItem("name").getNodeValue());
 	}

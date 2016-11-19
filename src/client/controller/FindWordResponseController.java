@@ -36,8 +36,9 @@ public class FindWordResponseController extends ControllerChain {
 	
 		String score = map.getNamedItem("score").getNodeValue();
 		long s = Long.valueOf(score);
-		 if (gameId==model.getGameId()){
-			 model.findPlayerByName().get(pname).setScore(s);
+		 if (gameId==model.getGameId()&&model.findPlayerByName().equals(pname)){
+			 model.findWordResponseHandler(s);
+			 
 		 }
 		 
 
