@@ -35,7 +35,7 @@ public class GameRoom {
 	private Position bonus;
 	private Player player; 
 	public String name="samplePlayer";
-	private Map<Position, Integer> positionToWeight;
+	private Map<Position, Integer> globalPositionToWeight;
 	private String managingUser;
 	
 	
@@ -49,7 +49,7 @@ public class GameRoom {
 		password= "";
 		players = new ArrayList<Player>();
 		player = null;
-		positionToWeight = new HashMap<Position, Integer>();
+		globalPositionToWeight = new HashMap<Position, Integer>();
 		managingUser = "";
 	}
 	
@@ -67,7 +67,7 @@ public class GameRoom {
 		setBonus(bonus);
 		players.clear();
 		findPlayerByName.clear();
-		positionToWeight.clear();
+		globalPositionToWeight.clear();
 		int length = names.length; // store the number in the game room
 		if (length == 1) { // execute after creating game or there is only one player in the room
 			
@@ -102,7 +102,7 @@ public class GameRoom {
 		
 		return player; 
 	}
-	
+	   
 	public void findWordResponseHandler(long score) {
 		
 		player.updateTotalScore(score);
@@ -152,7 +152,10 @@ public class GameRoom {
 	}
 	
 	public Map<Position, Integer> getPositionToWeight() {
-		
+		Map<Position, Integer> positionToWeight = new HashMap<Position, Integer>();
+		for (Position globalPosition: globalPositionToWeight.keySet()) {
+			positionToWeight.put(globalPosition.globalToLocal(player.getGlobalPosition()), globalPositionToWeight.get(globalPosition));
+		}
 		return positionToWeight;
 	}
 	
@@ -182,10 +185,10 @@ public class GameRoom {
 				Iterator<Position> itr = union.iterator();
 				while(itr.hasNext()) {
 					Position temp = itr.next();
-					if (positionToWeight.containsKey(temp)) { // if the position exist in the map, add 1 to the weight
-						positionToWeight.put(temp, positionToWeight.get(temp) + 1);
+					if (globalPositionToWeight.containsKey(temp)) { // if the position exist in the map, add 1 to the weight
+						globalPositionToWeight.put(temp, globalPositionToWeight.get(temp) + 1);
 					} else { // if the position does not exist, create a new one, at least two players share the same position
-						positionToWeight.put(temp, 2);
+						globalPositionToWeight.put(temp, 2);
 					}
 				}
 			}
@@ -253,9 +256,9 @@ public class GameRoom {
 		//	word += cell.getLetter();
 			int sharedAreaMutiply = 0;
 			int bonusMutiply = 1;
-			if (positionToWeight.containsKey(globalPosition)) {
+			if (globalPositionToWeight.containsKey(globalPosition)) {
 				
-				sharedAreaMutiply  = positionToWeight.get(globalPosition);
+				sharedAreaMutiply  = globalPositionToWeight.get(globalPosition);
 			}
 			
 			if (globalPosition.equals(bonus)) {

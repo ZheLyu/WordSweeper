@@ -40,14 +40,6 @@ public class Player {
 		
 	}
 	
-	public Player(String name, String globalPosition, long totalScore) {
-		
-		this.name = name; 
-		this.globalPosition = new Position (Integer.parseInt("" + globalPosition.charAt(0)), 
-                                            Integer.parseInt("" + globalPosition.charAt(2)));
-		
-		this.totalScore = totalScore;
-	}
 	
 	/** Get the player's position from server*/
 	public Position getGlobalPosition() {
@@ -96,15 +88,6 @@ public class Player {
 		return isManager; 
 	}
 	
-//	public void addWord(String word) {
-//		  
-//		words.add(word);
-//	}
-//	
-//	public List<String> getWords() {
-//		
-//		return words;
-//	}
-	
+
 	
 }
