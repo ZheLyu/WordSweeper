@@ -47,18 +47,30 @@ public class Board {
 		}
 	}
 	
-	public Board(String sixteenLetter) {
+	public Board(String boardContents) {
 		
-		if (sixteenLetter.length() != 16) {
-			throw new IllegalArgumentException();
-		}
 		board = new HashMap<>();
-		for (int i = 0; i < sixteenLetter.length(); i++) {
-			int col = i % 4;
-			int row = i / 4;
+		
+		int count = 0; // count should be 16 after the for loop finishes executing.
+		
+		for (int i = 0; i < boardContents.length(); i++) {
+			
+			String contents = boardContents.charAt(i) + "";
+			
+			if (boardContents.charAt(i) == 'q') { 
+				i++;
+				if (i == boardContents.length() || boardContents.charAt(i) != 'u') { // make sure that letter u follows letter q
+					throw new IllegalArgumentException();
+				}
+				contents += boardContents.charAt(i);  // contents = "qu", charAt(i) = 'u'
+			}
+			
+			int col = count % 4;
+			int row = count / 4;
 			Position position = new Position(row, col);
-			Cell cell = new Cell(position, sixteenLetter.charAt(i) + "");
+			Cell cell = new Cell(position, contents);
 			board.put(position, cell);
+			count++;
 		}
 	}
 	
