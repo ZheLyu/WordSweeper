@@ -38,7 +38,7 @@ public class GameRoom {
 	public String name="samplePlayer";
 	private Map<Position, Integer> globalPositionToWeight;
 	private String managingUser;
-	
+	private boolean isPracticeMode;
 	
 	public GameRoom(String gameId) {
 		
@@ -53,6 +53,7 @@ public class GameRoom {
 		currentPlayerName = "";
 		globalPositionToWeight = new HashMap<Position, Integer>();
 		managingUser = "";
+		isPracticeMode = true;
 	}
 	
 
@@ -66,6 +67,11 @@ public class GameRoom {
 	public void setCurrentPlayerName(String name) {
 		
 		currentPlayerName = name;
+	}
+	
+	public void setGameMode(boolean isPracticeMode) {
+		
+		this.isPracticeMode = isPracticeMode;
 	}
 	
 	public void boardResponseHandler(String managingUser, String bonus, String[] names, 
@@ -264,21 +270,23 @@ public class GameRoom {
 			Cell cell = cellList.get(i);
 			String letter = cell.getLetter();
 			// transform the local position to global
-			Position globalPosition = cell.getPosition().localToGlobal(player.getGlobalPosition());
 			
-		//	word += cell.getLetter();
 			int sharedAreaMutiply = 0;
 			int bonusMutiply = 1;
-			if (globalPositionToWeight.containsKey(globalPosition)) {
+			if (!isPracticeMode) { // the player is playing on line
 				
-				sharedAreaMutiply  = globalPositionToWeight.get(globalPosition);
-			}
-			
-			if (bonus != null && globalPosition.equals(bonus)) {
+				Position globalPosition = cell.getPosition().localToGlobal(player.getGlobalPosition());
 				
-				bonusMutiply = 10;
+				if (globalPositionToWeight.containsKey(globalPosition)) {
+					
+					sharedAreaMutiply  = globalPositionToWeight.get(globalPosition);
+				}
+				
+				if (bonus != null && globalPosition.equals(bonus)) {
+					
+					bonusMutiply = 10;
+				}
 			}
-			
 			score += Word.WEIGHT.get(letter) * Math.pow(2, sharedAreaMutiply) * bonusMutiply;
 		}
 		

@@ -26,11 +26,11 @@ public class Player {
 	private Board board;
 	private String name; 
  
-	public Player(String name, String sixteenLetter, String globalPosition, long totalScore, boolean isManager) {
+	public Player(String name, String boardContents, String globalPosition, long totalScore, boolean isManager) {
 		
 		
 		this.name = name; 
-		this.board = new Board(sixteenLetter);
+		this.board = new Board(boardContents);
 		this.globalPosition = new Position (Integer.parseInt("" + globalPosition.charAt(0)), 
 				                            Integer.parseInt("" + globalPosition.charAt(2)));
 				                       
