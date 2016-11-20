@@ -57,14 +57,14 @@ public class Board {
 			
 			String contents = boardContents.charAt(i) + "";
 			
-			if (boardContents.charAt(i) == 'q') { 
+			if (Character.toLowerCase(boardContents.charAt(i)) == 'q') { 
 				i++;
-				if (i == boardContents.length() || boardContents.charAt(i) != 'u') { // make sure that letter u follows letter q
-					throw new IllegalArgumentException();
+				if (i == boardContents.length() || Character.toLowerCase(boardContents.charAt(i)) != 'u') { // make sure that letter u follows letter q
+					throw new IllegalArgumentException("u should follow q");
 				}
 				contents += boardContents.charAt(i);  // contents = "qu", charAt(i) = 'u'
 			}
-			
+		
 			int col = count % 4;
 			int row = count / 4;
 			Position position = new Position(row, col);
