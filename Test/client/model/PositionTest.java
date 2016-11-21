@@ -14,8 +14,8 @@ public class PositionTest extends TestCase {
 
 	public void testHashCode() {
 		//fail("Not yet implemented");
-		Position test2=new Position(0,2);
-		Position test3=new Position(0,3);
+		Position test2=new Position(2,0);
+		Position test3=new Position(3,0);
 		assertEquals("should be 22",22,test2.hashCode());
 		assertEquals("should be 33",33,test3.hashCode());
 	}

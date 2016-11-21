@@ -27,7 +27,7 @@ public class ResetGameRequestControllerTest extends TestCase {
 		}
 		
 		// prepare client and connect to server.
-		model = new GameRoom("123");
+		model = new GameRoom("somePlace");
 		client = new Application (model);
 		client.setVisible(true);
 		

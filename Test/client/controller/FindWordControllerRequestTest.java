@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import xml.Message;
 import client.MockServerAccess;
 import client.model.GameRoom;
+import client.model.Player;
 import client.model.Position;
 import client.view.Application;
 import junit.framework.TestCase;
@@ -20,7 +21,17 @@ public class FindWordControllerRequestTest extends TestCase {
 	
 	// model being maintained by client.
 	GameRoom model;
+	
+	
+	String managingUser = "george";
+	String bonus = "4,3";
+	String[] names = {"george", "nextOne"};
+	String[] positions = {"1,1","1,1"};
+	String[] board = {"QuWERTYUIOPLKJHGF", "MLPOKNJIUHBVGYTF"};
+	long[] scores = {0,30};
 
+	//Player player = new Player("george", "QuWERTYUIOPLKJHGF", "1,1",0, true);
+	
 	protected void setUp() throws Exception {
 		super.setUp();
 		if (!Message.configure("wordsweeper.xsd")){
@@ -28,7 +39,11 @@ public class FindWordControllerRequestTest extends TestCase {
 		}
 		
 		// prepare client and connect to server.
-		model = new GameRoom("123");
+		//model = new GameRoom("123");
+		GameRoom model = new GameRoom("somePlace");
+		model.setCurrentPlayerName("nextOne");
+		model.boardResponseHandler(managingUser, bonus, names, positions, board, scores);
+		
 		client = new Application (model);
 		client.setVisible(true);
 		

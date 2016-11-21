@@ -97,13 +97,14 @@ public class GameRoom {
 					
 					player = new Player(names[i], board[i], positions[i], scores[i], names[i].equals(managingUser));
 					players.add(player);
-					
+					findPlayerByName.put(names[i], player);
 				} else { // update the attribute of other players
 					
 					Player newPlayer = new Player(names[i], board[i], positions[i], scores[i], names[i].equals(managingUser));
 					players.add(newPlayer);
+					findPlayerByName.put(names[i], newPlayer);
 				}
-				findPlayerByName.put(names[i], player);
+			
 				
 			}
 			
