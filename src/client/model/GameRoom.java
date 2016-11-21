@@ -195,13 +195,13 @@ public class GameRoom {
 				// Stores the sixteen position of the tempPlayer
 				Set<Position> positionsTemp = getPositonsByName(tempPlayer.getName());
 				// Stores the shared positions of two players
-				Set<Position> union = new HashSet<>();
+				Set<Position> intersection = new HashSet<>();
 				// add positions of the current player to union
-				union.addAll(positions);
+				intersection.addAll(positions);
 				// get the union of positions of the current player and tempPlayer
-				union.retainAll(positionsTemp);
+				intersection.retainAll(positionsTemp);
 				// copy the position in the union to positionToWeight
-				Iterator<Position> itr = union.iterator();
+				Iterator<Position> itr = intersection.iterator();
 				while(itr.hasNext()) {
 					Position temp = itr.next();
 					if (globalPositionToWeight.containsKey(temp)) { // if the position exist in the map, add 1 to the weight

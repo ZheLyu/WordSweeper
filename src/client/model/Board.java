@@ -33,8 +33,8 @@ public class Board {
 		Random r = new Random();
 		board = new HashMap<Position, Cell>();
 		
-		for (int j = 1; j <= SIZE; j++) {
-			for (int k = 1; k <= SIZE; k++) {
+		for (int j = 0; j < SIZE; j++) {
+			for (int k = 0; k < SIZE; k++) {
 				
 				Position position = new Position(j, k);
 				Cell cell = null;
@@ -81,9 +81,9 @@ public class Board {
 	}
 	
 	// Returns a letter 
-	public String getPositionLetter(int column, int row) {
+	public String getPositionLetter(int row, int column) {
 		
-		Position position = new Position(column + 1, row + 1);
+		Position position = new Position(row, column);
 		
 		return board.get(position).getLetter();
 	}
