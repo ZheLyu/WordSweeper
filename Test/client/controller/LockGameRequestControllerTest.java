@@ -24,7 +24,7 @@ public class LockGameRequestControllerTest extends TestCase {
 		}
 		
 		// prepare client and connect to server.
-		model = new GameRoom("123");
+		model = new GameRoom("somePlace");
 		client = new Application (model);
 		client.setVisible(true);
 		
@@ -34,6 +34,7 @@ public class LockGameRequestControllerTest extends TestCase {
 
 	public void testProcess() {
 		
+		model.setGameId("somePlace");
 		new LockGameRequestController(client, model).process();
 		
 		ArrayList<Message> reqs = mockServer.getAndClearMessages();
@@ -43,7 +44,7 @@ public class LockGameRequestControllerTest extends TestCase {
 		assertEquals("lockGameRequest", r.contents.getFirstChild().getLocalName());
 		
 		System.out.println(r.toString());
-		assertEquals("sample", r.contents.getFirstChild().getAttributes().getNamedItem("gameId").getNodeValue());
+		assertEquals("somePlace", r.contents.getFirstChild().getAttributes().getNamedItem("gameId").getNodeValue());
 	}
 
 }

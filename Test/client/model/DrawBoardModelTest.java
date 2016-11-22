@@ -41,7 +41,7 @@ public class DrawBoardModelTest extends TestCase {
 		
 		Point p = new Point();
 		p.x = 400;
-		p.y = 300;
+		p.y = 100;
 		
 		drawBoardModel.addDragCellList(p);
 		drawBoardModel.addDragCellList(p);

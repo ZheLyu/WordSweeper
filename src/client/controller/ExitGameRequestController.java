@@ -17,11 +17,11 @@ public class ExitGameRequestController {
 	/** Make the request on the server and wait for response. */
 	public void process() {
 		// send the request to exit the game.
-		String xmlString = Message.requestHeader() + "<exitGameRequest gameId='somePlace' name='nextOne'/></request>";
-		Message m = new Message (xmlString);
+		//String xmlString = Message.requestHeader() + "<exitGameRequest gameId='somePlace' name='nextOne'/></request>";
+		Message m = new Message (toString());
 
 		// Request the lock (this might not succeed).
-				app.getServerAccess().sendRequest(m);
+		app.getServerAccess().sendRequest(m);
 				
 	}
 	public String toString() {

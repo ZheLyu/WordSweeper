@@ -38,10 +38,12 @@ public class ResetGameRequestControllerTest extends TestCase {
 	protected void tearDown() throws Exception {
 		//super.tearDown();
 		
+		
 	}
 
 	public void testProcess() {
 		//fail("Not yet implemented");
+		model.setGameId("somePlace");
 		
 		new ResetGameRequestController(client, model).process();
 		

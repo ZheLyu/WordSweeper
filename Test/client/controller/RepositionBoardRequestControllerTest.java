@@ -26,12 +26,22 @@ public class RepositionBoardRequestControllerTest extends TestCase {
 		}
 		
 		// prepare client and connect to server.
-		model = new GameRoom("123");
+		model = new GameRoom("somePlace");
 		client = new Application (model);
 		client.setVisible(true);
 		
 		mockServer = new MockServerAccess("localhost");
 		client.setServerAccess(mockServer);
+		
+		String[] names1 = {"george"};
+		String[] positions1 = {"1,1"};
+		String[] board1 = {"QuWERTYUIOPLKJHGF"};
+		long[] scores1 = {0};
+		String bonus = "4,3";
+		
+		model.setCurrentPlayerName("geroge");
+		model.boardResponseHandler("george", bonus, names1, positions1, board1, scores1);
+		
 	}
 	
 	protected void tearDown() throws Exception {
@@ -41,6 +51,8 @@ public class RepositionBoardRequestControllerTest extends TestCase {
 	
 	public void testLeftProcess() {
 		//fail("Not yet implemented");
+		
+		model.setGameId("somePlace");
 		
 		new RepositionBoardRequestController(client, model).leftProcess();
 		
@@ -53,7 +65,7 @@ public class RepositionBoardRequestControllerTest extends TestCase {
 		System.out.println("left" + r.toString());
 //		<repositionBoardRequest gameId='somePlace' name='nextOne' rowChange='-1' /></request>";
 		assertEquals("somePlace", r.contents.getFirstChild().getAttributes().getNamedItem("gameId").getNodeValue());
-		assertEquals("nextOne", r.contents.getFirstChild().getAttributes().getNamedItem("name").getNodeValue());
+		assertEquals("george", r.contents.getFirstChild().getAttributes().getNamedItem("name").getNodeValue());
 		assertEquals("-1", r.contents.getFirstChild().getAttributes().getNamedItem("rowChange").getNodeValue());
 	
 	}
@@ -72,7 +84,7 @@ public class RepositionBoardRequestControllerTest extends TestCase {
 		System.out.println("right" + r.toString());
 //		<repositionBoardRequest gameId='somePlace' name='nextOne' rowChange='-1' /></request>";
 		assertEquals("somePlace", r.contents.getFirstChild().getAttributes().getNamedItem("gameId").getNodeValue());
-		assertEquals("nextOne", r.contents.getFirstChild().getAttributes().getNamedItem("name").getNodeValue());
+		assertEquals("george", r.contents.getFirstChild().getAttributes().getNamedItem("name").getNodeValue());
 		assertEquals("1", r.contents.getFirstChild().getAttributes().getNamedItem("rowChange").getNodeValue());
 
 	}
@@ -91,7 +103,7 @@ public class RepositionBoardRequestControllerTest extends TestCase {
 		System.out.println("up" + r.toString());
 //		<repositionBoardRequest gameId='somePlace' name='nextOne' rowChange='-1' /></request>";
 		assertEquals("somePlace", r.contents.getFirstChild().getAttributes().getNamedItem("gameId").getNodeValue());
-		assertEquals("nextOne", r.contents.getFirstChild().getAttributes().getNamedItem("name").getNodeValue());
+		assertEquals("george", r.contents.getFirstChild().getAttributes().getNamedItem("name").getNodeValue());
 		assertEquals("1", r.contents.getFirstChild().getAttributes().getNamedItem("colChange").getNodeValue());
 	//	assertEquals("somePlace", r.contents.getFirstChild().getAttributes().getNamedItem("gameId").getNodeValue());
 	}
@@ -110,7 +122,7 @@ public class RepositionBoardRequestControllerTest extends TestCase {
 		System.out.println("down" + r.toString());
 //		<repositionBoardRequest gameId='somePlace' name='nextOne' rowChange='-1' /></request>";
 		assertEquals("somePlace", r.contents.getFirstChild().getAttributes().getNamedItem("gameId").getNodeValue());
-		assertEquals("nextOne", r.contents.getFirstChild().getAttributes().getNamedItem("name").getNodeValue());
+		assertEquals("george", r.contents.getFirstChild().getAttributes().getNamedItem("name").getNodeValue());
 		assertEquals("-1", r.contents.getFirstChild().getAttributes().getNamedItem("colChange").getNodeValue());
 	//	assertEquals("somePlace", r.contents.getFirstChild().getAttributes().getNamedItem("gameId").getNodeValue());
 	}

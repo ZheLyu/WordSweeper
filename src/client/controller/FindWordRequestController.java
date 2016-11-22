@@ -24,7 +24,7 @@ public class FindWordRequestController {
 	//	String xmlString = Message.requestHeader() + "<findWordRequest name='nextOne' word = 'sample' gameId='somePlace' /></request>";
 		/*String xmlString = Message.requestHeader() +
 				"<findWordRequest gameId='somePlace' name='nextOne' word='sample'>" +
-			      "<cell letter= 's' position='1,6'/>" +
+			      "<cell letter= 's' position='1,6'/></cell>" +
 			      "<cell letter= 'a' position='2,6'/>" +
 			      "<cell letter= 'm' position='3,6'/>" +
 			      "<cell letter= 'p' position='4,6'/>" +
@@ -52,9 +52,9 @@ public class FindWordRequestController {
 		for (int i = 0; i < word.length(); i++){
 			
 		//	builder.add("cell").add("letter", model.getLetter(i, model.getDrawModel().getSelCellList2())).add("position", model.getPosition(i, model.getDrawModel().getSelCellList2())).closeElement().toString();
-			builder.add("cell").add("letter", cellList.get(i).getLetter()).add("position", cellList.get(i).getPosition().toString()).closeElement().toString();
+		builder.add("cell").add("letter", cellList.get(i).getLetter()).add("position", cellList.get(i).getPosition().toString()).closeSegment().finishTep("cell");
 		}
-
+      
 		return builder.finishSegment().toString();
 	}
 

@@ -72,9 +72,9 @@ public class JoinGameControllerTest extends TestCase {
 		assertEquals("joinGameRequest", r.contents.getFirstChild().getLocalName());
 		
 		System.out.println(r.toString());
-		//assertEquals("somePlace", r.contents.getFirstChild().getAttributes().getNamedItem("gameId").getNodeValue());
-		//assertEquals("nextOne", r.contents.getFirstChild().getAttributes().getNamedItem("name").getNodeValue());
-		//assertEquals("12345", r.contents.getFirstChild().getAttributes().getNamedItem("password").getNodeValue());
+		assertEquals("somePlace", r.contents.getFirstChild().getAttributes().getNamedItem("gameId").getNodeValue());
+		assertEquals("nextOne", r.contents.getFirstChild().getAttributes().getNamedItem("name").getNodeValue());
+		assertEquals("123456", r.contents.getFirstChild().getAttributes().getNamedItem("password").getNodeValue());
 	}
 
 }

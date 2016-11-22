@@ -121,6 +121,13 @@ public class DrawBoardModel {
 		return cellSize;
 	
 	}
+
+
+	public void setBoard(Board board) {
+		this.board = board;
+	}
+	
+	
 	
 	
 	

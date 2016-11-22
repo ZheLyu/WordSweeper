@@ -27,7 +27,7 @@ public class CreateGameControllerTest extends TestCase {
 		}
 		
 		// prepare client and connect to server.
-		model = new GameRoom("123");
+		model = new GameRoom("somePlace");
 		client = new Application (model);
 		client.setVisible(true);
 		
@@ -47,6 +47,15 @@ public class CreateGameControllerTest extends TestCase {
 
 	public void testProcess() {
 
+		String[] names1 = {"george"};
+		String[] positions1 = {"1,1"};
+		String[] board1 = {"QuWERTYUIOPLKJHGF"};
+		long[] scores1 = {0};
+		String bonus = "4,3";
+		
+		model.setCurrentPlayerName("geroge");
+		model.boardResponseHandler("george", bonus, names1, positions1, board1, scores1);
+		
 		new CreateGameRequestController(client, model).process();
 
 		// validate from mockServer
@@ -62,9 +71,9 @@ public class CreateGameControllerTest extends TestCase {
 		// make sure "grab" attribute is there, and true
 		//Player player=new Player("sampleplayer","4,6",0);
 	
-		assertEquals("samplePlayer", r.contents.getFirstChild().getAttributes()
+		assertEquals("george", r.contents.getFirstChild().getAttributes()
 				.getNamedItem("name").getNodeValue());
-		
+		System.out.println(r.toString());
 		
 	}
 

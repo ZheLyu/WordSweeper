@@ -109,6 +109,8 @@ public class GameRoom {
 			}
 			
 		}
+		
+		
 		computeSharedArea(); // update shared area 
 		
 	}
@@ -299,6 +301,13 @@ public class GameRoom {
 		return score;
 	
 	}
+
+
+	public void setDrawBoardModel(DrawBoardModel drawBoardModel) {
+		this.drawBoardModel = drawBoardModel;
+	}
+	
+	
 	
 	
 }

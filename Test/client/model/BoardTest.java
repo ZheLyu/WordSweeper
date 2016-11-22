@@ -57,8 +57,8 @@ public class BoardTest extends TestCase {
 //		System.out.println(l2);
 //		System.out.println(l3);
 		
-		for(int i = -1; i <= 2; i++) {
-			for(int j = -1; j <= 2; j++) {
+		for(int i = 0; i < 4; i++) {
+			for(int j = 0; j < 4; j++) {
 				System.out.println(board.getPositionLetter(i, j));
 			}
 		}

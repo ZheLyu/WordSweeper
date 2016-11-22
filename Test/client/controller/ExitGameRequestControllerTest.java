@@ -25,7 +25,7 @@ public class ExitGameRequestControllerTest extends TestCase {
 		}
 		
 		// prepare client and connect to server.
-		model = new GameRoom("123");
+		model = new GameRoom("somePlace");
 		client = new Application (model);
 		client.setVisible(true);
 		
@@ -40,6 +40,15 @@ public class ExitGameRequestControllerTest extends TestCase {
 
 	public void testProcess() {
 		//fail("Not yet implemented");
+		String[] names1 = {"george"};
+		String[] positions1 = {"1,1"};
+		String[] board1 = {"QuWERTYUIOPLKJHGF"};
+		long[] scores1 = {0};
+		String bonus = "4,3";
+		
+		model.setCurrentPlayerName("geroge");
+		model.boardResponseHandler("george", bonus, names1, positions1, board1, scores1);
+		
 		new ExitGameRequestController(client, model).process();
 		
 		ArrayList<Message> reqs = mockServer.getAndClearMessages();
@@ -49,10 +58,10 @@ public class ExitGameRequestControllerTest extends TestCase {
 		assertEquals("exitGameRequest", r.contents.getFirstChild()
 				.getLocalName());
 		
-		System.out.println(r.toString());
+		
 		assertEquals("somePlace", r.contents.getFirstChild().getAttributes().getNamedItem("gameId").getNodeValue());
-		System.out.println(r.toString());
-		assertEquals("nextOne", r.contents.getFirstChild().getAttributes()
+		
+		assertEquals("george", r.contents.getFirstChild().getAttributes()
 				.getNamedItem("name").getNodeValue());
 		System.out.println(r.toString());
 	}

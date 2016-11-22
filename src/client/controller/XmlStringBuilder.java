@@ -22,9 +22,10 @@ public class XmlStringBuilder {
 			this.xml = "<" + name;
 		}
 	}
+	
 
 	public XmlStringBuilder add(String s) {
-		this.xml += s;
+		this.xml+="<"+ s;
 
 		return this;
 	}
@@ -44,6 +45,10 @@ public class XmlStringBuilder {
 	public XmlStringBuilder closeElement() {
 		this.xml += "/>";
 
+		return this;
+	}
+	public XmlStringBuilder finishTep(String s){
+		this.xml += "</" + s + ">";
 		return this;
 	}
 
