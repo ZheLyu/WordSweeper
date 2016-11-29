@@ -58,7 +58,7 @@ import javax.swing.SwingConstants;
 public class Application extends JWindow {
     
 
-	static String Version ="V 1.0.37"; 
+	static String Version ="V 1.0.38"; 
 
 	
 
@@ -130,7 +130,7 @@ public class Application extends JWindow {
 		btnCreateGame.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//new CreateGameRequestController(Application.this, model).process();
-				
+				model.setGameMode(false);
 				EnterRoomDlg createPage= new EnterRoomDlg(Application.this, model,0);
 				createPage.setVisible(true);
 				
@@ -151,6 +151,7 @@ public class Application extends JWindow {
 		btnJoinGame.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
+				model.setGameMode(false);
 				EnterRoomDlg joinPage= new EnterRoomDlg(Application.this, model, 0);
 				joinPage.setVisible(true);
 				
@@ -171,6 +172,8 @@ public class Application extends JWindow {
 		
 		btnStartPratice.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				model.setGameMode(true);
 				new StartPraticeController(Application.this,model).process();
 			}
 		});

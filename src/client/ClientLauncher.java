@@ -130,6 +130,8 @@ public class ClientLauncher {
 		// Initialize the client application and its corresponding model
 		GameRoom model = new GameRoom("123");
 		Application app = new Application(model);
+		
+		model.setCurrentPlayerName("Virgo");
 				
 		// set up the chain of responsibility
 		SampleClientMessageHandler handler = new SampleClientMessageHandler(app);

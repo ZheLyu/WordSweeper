@@ -35,12 +35,21 @@ public class DragControl implements MouseInputListener{
 //	private DrawBoardModel drawBoardModel;
 	private GameRoom model;
 	private Application app;
-	public DragControl(SweeperPanel panel, GameRoom m, Application app) {
+	
+	private long lSelectedScore;
+	private String szSelctedWord;
+	
+	
+	public DragControl(SweeperPanel panel, GameRoom m, Application app) 
+	{
 		// TODO Auto-generated constructor stub
 		this.panel = panel;
 		this.model = m;
 		this.app   = app;
 //		drawBoardModel = m.getDrawModel();
+		
+		this.szSelctedWord="";
+		this.lSelectedScore =0;
 		
 	}
 	
@@ -78,10 +87,17 @@ public class DragControl implements MouseInputListener{
 
 	public void mouseReleased(MouseEvent arg0) {
 		// TODO Auto-generated method stub
-		model.getWord(model.getDrawModel().getSelCellList2());
-		model.computeScore(model.getDrawModel().getSelCellList2());
-		FindWordRequestController findwordrequestcontroller=new FindWordRequestController(app,model);
-		findwordrequestcontroller.process();
+		
+		szSelctedWord  = model.getWord(model.getDrawModel().getSelCellList2());
+		lSelectedScore = model.computeScore(model.getDrawModel().getSelCellList2());
+		
+		if(model.getGameMode()==false)
+		{
+		  FindWordRequestController findwordrequestcontroller=new FindWordRequestController(app,model);
+		  findwordrequestcontroller.process();
+		}
+		
+		panel.repaint();
 		// sent find word request to server
 		// new FindWordRequestController(app, model)
 	
@@ -91,6 +107,13 @@ public class DragControl implements MouseInputListener{
 		// TODO Auto-generated method stub
 		
 	}
-	
 
+	public long getlSelectedScore() {
+		return lSelectedScore;
+	}
+	
+	public String getlSelectedWord() {
+		return szSelctedWord;
+	}
+	
 }

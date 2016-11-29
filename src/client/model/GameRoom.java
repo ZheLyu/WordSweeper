@@ -40,6 +40,7 @@ public class GameRoom {
 	private String managingUser;
 	private boolean isPracticeMode;
 	
+	
 	public GameRoom(String gameId) {
 		
 		this.gameId = gameId;
@@ -69,10 +70,23 @@ public class GameRoom {
 		currentPlayerName = name;
 	}
 	
+	// get current player name, used when the user first login
+	public String getCurrentPlayerName() {
+			
+		return currentPlayerName;
+	}
+		
+	
 	public void setGameMode(boolean isPracticeMode) {
 		
 		this.isPracticeMode = isPracticeMode;
 	}
+	
+    public boolean getGameMode() {
+		
+		return this.isPracticeMode;
+	}
+
 	
 	public void boardResponseHandler(String managingUser, String bonus, String[] names, 
 			                         String[] positions, String[] board, long[] scores) {

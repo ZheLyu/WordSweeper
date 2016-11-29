@@ -19,6 +19,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.Timer;
 
 import client.controller.*;
 import client.model.GameRoom;
@@ -26,11 +27,15 @@ import client.model.GameRoom;
 import javax.swing.JWindow;
 
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import javax.swing.JTextArea;
 
 
-public class BoardDisplay extends JWindow {
+public class BoardDisplay extends JWindow implements ActionListener{
 	
 	 
 	 GameRoom model;
@@ -47,7 +52,7 @@ public class BoardDisplay extends JWindow {
      private JButton btnLock;
      private JButton btnReset;
      private JButton btnExit;
-     
+     Timer timer; 
 	
      
      static int WIDTH=120;
@@ -55,6 +60,7 @@ public class BoardDisplay extends JWindow {
      static int VSTATRT=650;
      static int HSTATRT=100;
      static int HSPAN=130;
+     private JTextArea textWordSelect;
      
      
 	/**
@@ -66,15 +72,8 @@ public class BoardDisplay extends JWindow {
 		this.model = m;
 		this.app = app;
 		
-		//setSize(1024, 768);
-
 		setBounds(260, 150, 1200, 800);
-		//setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		//setsetResizable(false);
-		//setAlwaysOnTop(true);
-
 		
-	//	sweeperPanel = new SweeperPanel(m.getDrawModel());
 		sweeperPanel = new SweeperPanel(app, m);
 		sweeperPanel.setBounds(0, 0, 1200, 800);
 		
@@ -88,14 +87,7 @@ public class BoardDisplay extends JWindow {
 	    Icon iconLeftB=new ImageIcon("src\\client\\res\\leftB.png");
 	    btnLeft.setIcon(iconLeftA);
 	    btnLeft.setPressedIcon(iconLeftB);
-		
-		btnLeft.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent arg0) {
-				RepositionBoardRequestController reposition=new RepositionBoardRequestController(app,m);
-				reposition.leftProcess();
-			}
-		});
+		btnLeft.addActionListener(this);
 		
 		btnRight = new JButton("RIGHT");
 		btnRight.setBounds(HSTATRT+HSPAN, VSTATRT, WIDTH, HEIGHT);
@@ -106,15 +98,7 @@ public class BoardDisplay extends JWindow {
 	    Icon iconRightB=new ImageIcon("src\\client\\res\\rightB.png");
 	    btnRight.setIcon(iconRightA);
 	    btnRight.setPressedIcon(iconRightB);
-	    
-	    
-		btnRight.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent arg0) {
-				RepositionBoardRequestController reposition=new RepositionBoardRequestController(app,m);
-				reposition.rightProcess();
-			}
-		});
+		btnRight.addActionListener(this);
 		
 		btnUp = new JButton("UP");
 		btnUp.setBounds(HSTATRT+HSPAN*2, VSTATRT, WIDTH, HEIGHT);
@@ -125,15 +109,7 @@ public class BoardDisplay extends JWindow {
 	    Icon iconUpB=new ImageIcon("src\\client\\res\\upB.png");
 	    btnUp.setIcon(iconUpA);
 	    btnUp.setPressedIcon(iconUpB);
-	    
-	    
-		btnUp.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent arg0) {
-				RepositionBoardRequestController reposition=new RepositionBoardRequestController(app,m);
-				reposition.upProcess();
-			}
-		});
+		btnUp.addActionListener(this);
 		
 		btnDown = new JButton("DOWN");
 		btnDown.setBounds(HSTATRT+HSPAN*3, VSTATRT, WIDTH, HEIGHT);
@@ -144,15 +120,7 @@ public class BoardDisplay extends JWindow {
 	    Icon iconDownB=new ImageIcon("src\\client\\res\\downB.png");
 	    btnDown.setIcon(iconDownA);
 	    btnDown.setPressedIcon(iconDownB);
-	    
-	    
-		btnDown.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent arg0) {
-				RepositionBoardRequestController reposition=new RepositionBoardRequestController(app,m);
-				reposition.downProcess();
-			}
-		});
+		btnDown.addActionListener(this);
 		
 		btnLock = new JButton("LOCK");
 		btnLock.setBounds(1000, VSTATRT-380, 150, 150);
@@ -163,15 +131,7 @@ public class BoardDisplay extends JWindow {
 	    Icon iconLockB=new ImageIcon("src\\client\\res\\lockB.png");
 	    btnLock.setIcon(iconLockA);
 	    //btnLock.setPressedIcon(iconLockB);
-	    
-	    
-		btnLock.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent arg0) {
-				LockGameRequestController lock=new LockGameRequestController(app,m);
-				lock.process();
-			}
-		});
+		btnLock.addActionListener(this);
 		
 		
 		btnReset = new JButton("RESET");
@@ -184,13 +144,7 @@ public class BoardDisplay extends JWindow {
 	    btnReset.setIcon(iconRstA);
 	    btnReset.setPressedIcon(iconRstB);
 	    
-		btnReset.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent arg0) {
-				ResetGameRequestController reset=new ResetGameRequestController(app,m);
-				reset.process();
-			}
-		});
+		btnReset.addActionListener(this);
 		
 		btnExit = new JButton("EXIT");
 		btnExit.setBounds(1000, VSTATRT, 160, 118);
@@ -203,19 +157,8 @@ public class BoardDisplay extends JWindow {
 	    btnExit.setPressedIcon(iconExitB);
 	    
 	    
-		btnExit.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent arg0) {
-				
-				ExitGameRequestController reset=new ExitGameRequestController(app,m);
-				reset.process();
-				dispose();
-			}
-		});
-		
-	
-		
-		
+		btnExit.addActionListener(this);
+			
 		getContentPane().setLayout(null);  		
 		getContentPane().add(sweeperPanel);
 		
@@ -229,9 +172,73 @@ public class BoardDisplay extends JWindow {
 		sweeperPanel.add(btnReset);
 		sweeperPanel.add(btnExit);
 		
+		textWordSelect = new JTextArea();
+		textWordSelect.setBounds(100, 100, 200, 138);
+		getContentPane().add(textWordSelect);
 		
+		
+		timer = new Timer(500, this);
+		timer.start();
 		
 		setVisible(true);
 			         
+	}
+
+
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		// TODO Auto-generated method stub
+		
+		if(arg0.getSource() == timer)
+		{
+			//Update total score, selected word and calculated score here..
+			//textWordSelect.setText(sweeperPanel.getLastSelectedWord());
+			
+		}
+		else
+		{
+			if(arg0.getSource() == btnLeft)
+			{
+				RepositionBoardRequestController reposition=new RepositionBoardRequestController(app,model);
+				reposition.leftProcess();
+			}
+			
+			if(arg0.getSource() == btnRight)
+			{
+				RepositionBoardRequestController reposition=new RepositionBoardRequestController(app,model);
+				reposition.rightProcess();
+			}
+			if(arg0.getSource() == btnUp)
+			{
+				RepositionBoardRequestController reposition=new RepositionBoardRequestController(app,model);
+				reposition.upProcess();
+			}
+			if(arg0.getSource() == btnDown)
+			{
+				RepositionBoardRequestController reposition=new RepositionBoardRequestController(app,model);
+				reposition.downProcess();
+			}
+			if(arg0.getSource() == btnLock)
+			{
+				LockGameRequestController lock=new LockGameRequestController(app,model);
+				lock.process();
+			}
+			if(arg0.getSource() == btnReset)
+			{
+				ResetGameRequestController reset=new ResetGameRequestController(app,model);
+				reset.process();
+			}
+			if(arg0.getSource() == btnExit)
+			{
+				if(model.getGameMode()==false)
+				{
+					ExitGameRequestController reset=new ExitGameRequestController(app,model);
+					reset.process();
+				}
+				dispose();
+			}
+		}
+	
+		
 	}
 }

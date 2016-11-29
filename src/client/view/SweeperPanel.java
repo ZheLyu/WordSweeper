@@ -44,6 +44,17 @@ public class SweeperPanel extends JPanel{
 		
 	}
 	
+	public String getLastSelectedWord()
+	{
+		return control.getlSelectedWord();
+	}
+	
+	public long getLastSelectedScore()
+	{
+		return control.getlSelectedScore();
+	}
+	
+	
 	@Override
 	protected void paintComponent(Graphics g) {
 		
@@ -57,7 +68,6 @@ public class SweeperPanel extends JPanel{
 		int magin = 15;
 		
 		g.setColor(Color.red);
-		
 		//draw board outline
 		for (int i = 0; i <= SIZE; i++) {
 		   
@@ -96,6 +106,16 @@ public class SweeperPanel extends JPanel{
 				g.drawString(s, cellLt.x + magin + 5, cellLt.y + model.getCellSize() - magin - 5);
 			}
 		}	
+		
+		
+		
+		g.setColor(Color.black);
+		g.setFont(new Font("Black", Font.PLAIN, 40));
+		Point xStart = model.getHorizenLine(0);
+		g.drawString("Word: " +getLastSelectedWord()+"    Score:"+ String.format("%s",getLastSelectedScore()) , xStart.x, 130);
+		
+		
+		
 	}
 	
 
