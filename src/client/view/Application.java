@@ -43,19 +43,22 @@ import client.model.GameRoom;
 
 
 
+
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JLabel;
 
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.Toolkit;
 
 import javax.swing.SwingConstants;
 
 public class Application extends JWindow {
     
 
-	static String Version ="V 1.0.36"; 
+	static String Version ="V 1.0.37"; 
 
 	
 
@@ -89,6 +92,9 @@ public class Application extends JWindow {
 		//setTitle("Word Sweeper");
 		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1600, 900);
+		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+		this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
+		
 		
 	
 		contentPane =new JPanel(){
@@ -125,7 +131,7 @@ public class Application extends JWindow {
 			public void actionPerformed(ActionEvent e) {
 				//new CreateGameRequestController(Application.this, model).process();
 				
-				CreateRoomPage createPage= new CreateRoomPage(Application.this, model);
+				EnterRoomDlg createPage= new EnterRoomDlg(Application.this, model,0);
 				createPage.setVisible(true);
 				
 			}
@@ -145,7 +151,7 @@ public class Application extends JWindow {
 		btnJoinGame.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				JoinGamePage joinPage= new JoinGamePage(Application.this, model);
+				EnterRoomDlg joinPage= new EnterRoomDlg(Application.this, model, 0);
 				joinPage.setVisible(true);
 				
 				

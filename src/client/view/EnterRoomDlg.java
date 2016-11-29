@@ -1,5 +1,7 @@
 package client.view;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -12,18 +14,18 @@ import client.controller.CreateGameRequestController;
 import client.controller.JoinGameRequestController;
 import client.model.GameRoom;
 
+public class EnterRoomDlg extends JFrame{
 
-
-public class JoinGamePage extends JFrame
-{
-	
 	private JTextField textField;
-	private JTextField textField_1;
 	
-	public JoinGamePage(final Application app, final GameRoom m) 
-	{
+	public EnterRoomDlg(final Application app, final GameRoom m, final int type) {
+		// TODO Auto-generated constructor stub
 		setTitle("Join Game");
-		setBounds(100, 100, 464, 281);
+		setBounds(100, 100, 464, 229);
+		
+		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+		this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
+		
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		getContentPane().setLayout(null);
 		
@@ -31,16 +33,20 @@ public class JoinGamePage extends JFrame
 		lblNewLabel.setBounds(39, 28, 109, 43);
 		getContentPane().add(lblNewLabel);
 		
-		JLabel lblPlayerId = new JLabel("Player ID:");
-		lblPlayerId.setBounds(39, 98, 109, 43);
-		getContentPane().add(lblPlayerId);
-		
-		JButton btnNewButton = new JButton("Join");
-		btnNewButton.setBounds(128, 159, 123, 51);
+		JButton btnNewButton = new JButton("OK");
+		btnNewButton.setBounds(102, 107, 123, 51);
 		btnNewButton.addActionListener(new ActionListener() {
-			   public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e) {
 					
-					new JoinGameRequestController(app, m).process();
+				   if(type==0)
+				   {
+					   new CreateGameRequestController(app, m).process();
+				   }
+				   else
+				   {
+					   new JoinGameRequestController(app, m).process();
+				   }
+					   
 					dispose();
 					
 					BoardDisplay frame = new BoardDisplay(app, m);
@@ -55,7 +61,15 @@ public class JoinGamePage extends JFrame
 		
 		
 		JButton btnCancel = new JButton("Cancel");
-		btnCancel.setBounds(252, 159, 123, 51);
+		btnCancel.setBounds(226, 107, 123, 51);
+		btnCancel.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+						
+				dispose();
+
+				}
+			});
+		
 		getContentPane().add(btnCancel);
 		
 		textField = new JTextField();
@@ -63,12 +77,6 @@ public class JoinGamePage extends JFrame
 		getContentPane().add(textField);
 		textField.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(163, 98, 212, 35);
-		getContentPane().add(textField_1);
-		
-	
 	}
 
 }
