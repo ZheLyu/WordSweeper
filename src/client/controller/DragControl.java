@@ -58,6 +58,9 @@ public class DragControl implements MouseInputListener{
 		//drawBoardModel.addDragCellList(arg0.getPoint());
 		model.getDrawModel().addDragCellList(arg0.getPoint());
 		//Word word = new Word(drawBoardModel.getSelCellList2());
+		szSelctedWord  = model.getWord(model.getDrawModel().getSelCellList2());
+		lSelectedScore = model.computeScore(model.getDrawModel().getSelCellList2());
+		
         panel.repaint();
 	}
 

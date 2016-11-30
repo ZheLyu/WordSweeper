@@ -19,6 +19,7 @@ import java.awt.Image;
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
@@ -26,18 +27,22 @@ import javax.swing.JPanel;
 import client.controller.DragControl;
 import client.model.DrawBoardModel;
 import client.model.GameRoom;
+import client.model.Position;
 
 
 public class SweeperPanel extends JPanel{
 	
 	private static final int SIZE = 4;
 	private DrawBoardModel model;
-	
+//	private GameRoom gameRoom;
 	private DragControl control;
+	private Map<Position, Integer> positionToWeight;
 	
 	
 	public SweeperPanel(Application app, GameRoom m) {
+	//	gameRoom = m;
 		model = m.getDrawModel();
+		positionToWeight = m.getPositionToWeight();
         control = new DragControl(this, m, app);
 		this.addMouseListener(control);
 		this.addMouseMotionListener(control);
@@ -83,6 +88,11 @@ public class SweeperPanel extends JPanel{
 				
 				List<String> list = new ArrayList<String>();
 				list = model.getSelCellList();
+				Position position = new Position(row, col);
+				
+				int weight=1;
+				if (positionToWeight.containsKey(position))
+				    weight = positionToWeight.get(position);
 				
 				String ss;
 		    	ss = String.format("%d%d", row, col);
@@ -90,11 +100,17 @@ public class SweeperPanel extends JPanel{
 				if(list.contains(ss)) // the cell is selected 
 					g.setColor(Color.yellow);
 				else                  // the cell is not selected
-					g.setColor(Color.white);
+				{
+					if(weight<14)
+			            g.setColor(new Color(255,255-(weight-1)*20,255-(weight-1)*20));
+					else
+						g.setColor(new Color(255,10,10));
+				}
 				
 				Point cellLt = model.getCellLt(row, col);
 				g.fillRect(cellLt.x, cellLt.y, model.getCellSize(), model.getCellSize());
 			
+				
 				g.setColor(Color.black);
 				
 				// Set the letter's size to be cellSize - magin - 30 
@@ -114,6 +130,10 @@ public class SweeperPanel extends JPanel{
 		Point xStart = model.getHorizenLine(0);
 		g.drawString("Word: " +getLastSelectedWord()+"    Score:"+ String.format("%s",getLastSelectedScore()) , xStart.x, 130);
 		
+		//total score
+		g.setFont(new Font("Black", Font.PLAIN, 60));
+		xStart = model.getHorizenLine(0);
+		g.drawString("Total Score: ", xStart.x, 70);
 		
 		
 	}

@@ -69,6 +69,32 @@ public class DrawBoardModel {
     	s = String.format("%d%d", (p.y - origin.y + 1) / (size / 4), (p.x - origin.x + 1) / (size / 4));
     	int col = (p.x - origin.x + 1) / (size / 4);
     	int row = (p.y - origin.y + 1) / (size / 4);
+    	
+    	//skip area out of (0.2,0.8) 
+    	if((p.x - origin.x + 1)%(size / 4)<(0.2*size/4) || 
+    		(p.x - origin.x + 1)%(size / 4)>(0.8*size/4) ||
+    		(p.y - origin.y + 1) %(size / 4)<(0.2*size/4)||
+    		(p.y - origin.y + 1) %(size / 4)>(0.8*size/4))
+    	{
+    		
+    		return;
+    	}
+    	
+        if(selCellList2.size() >0)
+        {
+	    	int lastRow=selCellList2.get(selCellList2.size()-1).getPosition().getRow();
+	    	int lastCol=selCellList2.get(selCellList2.size()-1).getPosition().getColumn();
+	    	
+	    	if(col!=lastCol+1 && col!=lastCol-1 && col!=lastCol)
+	    		return;
+	    	
+	    	if(row!=lastRow+1 && row!=lastRow-1 && row!=lastRow)
+	    		return;
+        }
+    	
+    	
+    	
+    	
 		Position position = new Position(row, col);
         if(!selCellList.contains(s)) {
           	
