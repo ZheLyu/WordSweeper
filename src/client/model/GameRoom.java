@@ -251,16 +251,16 @@ public class GameRoom {
 	}
 	
 	// Produces the word every time the user drag the mouse
-	public String getWord(List<Cell> cellList) {
-		
-		String s = "";
-		for (int i = 0; i < cellList.size(); i++) {
-			
-			Cell cell = cellList.get(i);
-			s += cell.getLetter();
-		}
-		return s;
-	}
+//	public String getWord(List<Cell> cellList) {
+//		
+//		String s = "";
+//		for (int i = 0; i < cellList.size(); i++) {
+//			
+//			Cell cell = cellList.get(i);
+//			s += cell.getLetter();
+//		}
+//		return s;
+//	}
 //	public String getPosition(int i,List<Cell> cellList){  
 //		
 //		String p="";

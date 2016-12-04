@@ -46,7 +46,7 @@ public class FindWordRequestController {
 	public String toString() {
 		List<Cell> cellList = model.getDrawModel().getSelCellList2();
 	// String word = model.getWord(model.getDrawModel().getSelCellList2());
-		String word = model.getWord(cellList);
+		String word = model.getDrawModel().getWord(cellList);
 		XmlStringBuilder builder = new XmlStringBuilder("findWordRequest").add("gameId", model.getGameId()).add("name", model.getPlayer().getName()).add("word", word).closeSegment();
 		
 		for (int i = 0; i < word.length(); i++){
