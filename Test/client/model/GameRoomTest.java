@@ -203,7 +203,7 @@ public class GameRoomTest extends TestCase {
 //		cellList.add(15, element16);
 		
 		
-		String s = GameRoom.getWord(cellList);
+		String s = GameRoom.getDrawModel().getWord(cellList);
 		
 		assertEquals("QuWER", s);
 		
@@ -250,11 +250,6 @@ public class GameRoomTest extends TestCase {
 		GameRoom.boardResponseHandler(managingUser, bonus, names2, positions2, board2, scores2);
 		
 		GameRoom.computeScore(cellList1);
-		
-		
-		
-		
-		
 		
 	}
 
