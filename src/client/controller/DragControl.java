@@ -58,7 +58,7 @@ public class DragControl implements MouseInputListener{
 		//drawBoardModel.addDragCellList(arg0.getPoint());
 		model.getDrawModel().addDragCellList(arg0.getPoint());
 		//Word word = new Word(drawBoardModel.getSelCellList2());
-		szSelctedWord  = model.getWord(model.getDrawModel().getSelCellList2());
+		szSelctedWord  = model.getDrawModel().getWord(model.getDrawModel().getSelCellList2());
 		lSelectedScore = model.computeScore(model.getDrawModel().getSelCellList2());
 		
         panel.repaint();
@@ -91,7 +91,7 @@ public class DragControl implements MouseInputListener{
 	public void mouseReleased(MouseEvent arg0) {
 		// TODO Auto-generated method stub
 		
-		szSelctedWord  = model.getWord(model.getDrawModel().getSelCellList2());
+		szSelctedWord  = model.getDrawModel().getWord(model.getDrawModel().getSelCellList2());
 		lSelectedScore = model.computeScore(model.getDrawModel().getSelCellList2());
 		
 		if(model.getGameMode()==false)
