@@ -33,15 +33,17 @@ public class JoinGameRequestController {
 		// send the request to create the game.
 		//String xmlString = Message.requestHeader() + "<joinGameRequest gameId='somePlace' name='nextOne' password = '12345'/></request>";
 		Message m = new Message (toString());
-		
+		System.out.println(m);
 		// Request the lock (this might not succeed).
 		app.getServerAccess().sendRequest(m);
 	}
 	
 	
 	public String toString() {
-		String s=model.getGameId();
-		String s1=model.getPlayer().getName();
+		String s = model.getGameId();
+		System.out.println("gameId = " + s);
+		String s1 = model.getCurrentPlayerName();
+		System.out.println("name =" + s1);
 		return new XmlStringBuilder("joinGameRequest").add("gameId",s).add("name", s1).add("password", model.getPassword()).finish()
 				.toString();
 	}

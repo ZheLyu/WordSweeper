@@ -205,42 +205,37 @@ public class BoardDisplay extends JWindow implements ActionListener{
 			//Update total score, selected word and calculated score here..
 			//textWordSelect.setText(sweeperPanel.getLastSelectedWord());
 			
-		}
-		else
-		{
-			if(arg0.getSource() == btnLeft)
-			{
+		} else {
+			if(arg0.getSource() == btnLeft) {
 				RepositionBoardRequestController reposition=new RepositionBoardRequestController(app,model);
 				reposition.leftProcess();
 			}
 			
-			if(arg0.getSource() == btnRight)
-			{
+			if(arg0.getSource() == btnRight) {
 				RepositionBoardRequestController reposition=new RepositionBoardRequestController(app,model);
 				reposition.rightProcess();
 			}
-			if(arg0.getSource() == btnUp)
-			{
+			
+			if(arg0.getSource() == btnUp) {
 				RepositionBoardRequestController reposition=new RepositionBoardRequestController(app,model);
 				reposition.upProcess();
 			}
-			if(arg0.getSource() == btnDown)
-			{
+			
+			if(arg0.getSource() == btnDown) {
 				RepositionBoardRequestController reposition=new RepositionBoardRequestController(app,model);
 				reposition.downProcess();
 			}
-			if(arg0.getSource() == btnLock)
-			{
+			
+			if(arg0.getSource() == btnLock) {
 				LockGameRequestController lock=new LockGameRequestController(app,model);
 				lock.process();
 			}
-			if(arg0.getSource() == btnReset)
-			{
+			
+			if(arg0.getSource() == btnReset) {
 				ResetGameRequestController reset=new ResetGameRequestController(app,model);
 				reset.process();
 			}
-			if(arg0.getSource() == btnExit)
-			{
+			if(arg0.getSource() == btnExit) {
 				if(model.getGameMode()==false)
 				{
 					ExitGameRequestController reset=new ExitGameRequestController(app,model);

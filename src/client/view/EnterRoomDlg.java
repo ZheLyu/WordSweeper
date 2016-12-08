@@ -80,21 +80,21 @@ public class EnterRoomDlg extends JFrame implements ActionListener {
 				return;
 			}
 				
-	//		m_gameRoom.setGameId(textField.getText());
+			m_gameRoom.setGameId(textField.getText());
 		
-			m_gameRoom.setCurrentPlayerName(textField.getText());
+	//		m_gameRoom.setCurrentPlayerName(textField.getText());
 			
-			  if(m_iType==0)
-			   {
+			  if(m_iType==0) {
 				  
 				   new CreateGameRequestController(m_app, m_gameRoom).process();
 				   while (m_gameRoom.getPlayerList().size() == 0) System.out.println();
+				   dispose();
 				  
-			   }
-			   else
-			   {
+			   } else {
+				   
 				   new JoinGameRequestController(m_app, m_gameRoom).process();
-				   while (m_gameRoom.getPlayerList().size() == 0) ;
+				   while (m_gameRoom.getPlayerList().size() == 0) System.out.println();
+				   dispose();
 			   }
 				   
 				

@@ -76,7 +76,7 @@ public class ClientLauncher {
 		// SampleClientMessageHandler. For now we just continue on with the initialization because
 		// no message is actually sent by the connect method.
 		//ServerAccess sa = new ServerAccess(host, 11430);
-		ServerAccess sa = new ServerAccess(host, 11425);
+		ServerAccess sa = new ServerAccess(host, 11430);
 		if (!sa.connect(handler)) {
 			System.out.println("Unable to connect to server (" + host + "). Exiting.");
 			System.exit(0);

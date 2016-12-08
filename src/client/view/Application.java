@@ -159,7 +159,7 @@ public class Application extends JWindow {
 			public void actionPerformed(ActionEvent e) {
 				
 				model.setGameMode(false);
-				EnterRoomDlg joinPage= new EnterRoomDlg(Application.this, model, 0);
+				EnterRoomDlg joinPage= new EnterRoomDlg(Application.this, model, 1);
 				joinPage.setVisible(true);
 				
 				
