@@ -29,7 +29,7 @@ public class EnterRoomDlg extends JFrame implements ActionListener {
 		
 		m_iType = type;
 		m_gameRoom = m;
-		
+		m_app = app;
 		
 		setTitle("Join Game");
 		setBounds(100, 100, 464, 229);
@@ -76,12 +76,15 @@ public class EnterRoomDlg extends JFrame implements ActionListener {
 			if(textField.getText().isEmpty()==true)
 				JOptionPane.showMessageDialog(null, "Invaild Room ID", "Invaild Room ID", JOptionPane.ERROR_MESSAGE);
 				
-			m_gameRoom.setGameId(textField.getText());
-			
+	//		m_gameRoom.setGameId(textField.getText());
+			System.out.println("in enterRoomDlg !!!!!!!!!!!!");
+			m_gameRoom.setCurrentPlayerName(textField.getText());
 			
 			  if(m_iType==0)
 			   {
+				  
 				   new CreateGameRequestController(m_app, m_gameRoom).process();
+				   while (m_gameRoom.getPlayerList().size() == 0) ;
 			   }
 			   else
 			   {

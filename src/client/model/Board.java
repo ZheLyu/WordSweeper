@@ -55,6 +55,8 @@ public class Board {
 		
 		for (int i = 0; i < boardContents.length(); i++) {
 			
+			while(boardContents.charAt(i) < 'A' || boardContents.charAt(i) > 'Z') i++;
+			
 			String contents = boardContents.charAt(i) + "";
 			
 			if (Character.toLowerCase(boardContents.charAt(i)) == 'q') { 
@@ -72,6 +74,7 @@ public class Board {
 			board.put(position, cell);
 			count++;
 		}
+		
 	}
 	
 	// Return a map including key: positions and value: cells.
@@ -88,4 +91,15 @@ public class Board {
 		return board.get(position).getLetter();
 	}
 	
+	public String toString() {
+		
+		//String boardContent = "";
+		for (Position p: board.keySet()) {
+			
+			System.out.println(p + " " + board.get(p));
+		}
+		
+		return "true";
+		
+	}
 }

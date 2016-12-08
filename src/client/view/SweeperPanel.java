@@ -34,13 +34,13 @@ public class SweeperPanel extends JPanel{
 	
 	private static final int SIZE = 4;
 	private DrawBoardModel model;
-//	private GameRoom gameRoom;
+	private GameRoom gameRoom;
 	private DragControl control;
 	private Map<Position, Integer> positionToWeight;
 	
 	
 	public SweeperPanel(Application app, GameRoom m) {
-	//	gameRoom = m;
+		gameRoom = m;
 		model = m.getDrawModel();
 		positionToWeight = m.getPositionToWeight();
         control = new DragControl(this, m, app);
@@ -115,7 +115,7 @@ public class SweeperPanel extends JPanel{
 				
 				// Set the letter's size to be cellSize - magin - 30 
 				g.setFont(new Font("Arial", Font.PLAIN, model.getCellSize() - magin - 30));
-				String s = model.getCellLetter(row, col);
+				String s = gameRoom.getDrawModel().getCellLetter(row, col);
 			    
 				// Sets the baseline of the string to be point(cellLt.x + magin + 5, 
 				// cellLt.y + model.cellSize - magin - 5)

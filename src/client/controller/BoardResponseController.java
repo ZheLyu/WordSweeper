@@ -39,14 +39,16 @@ public class BoardResponseController extends ControllerChain {
 		System.out.println("test2");
 		String type = response.contents.getFirstChild().getLocalName();
 		if (!type.equals ("boardResponse")) {
+			System.out.println("is not board response response");
 			return next.process(response);
 		}
-		System.out.println(response.toString());
+		System.out.println("in board response !!!!!!!!!!" + response.toString());
 		Node boardResponse = response.contents.getFirstChild();
 		NamedNodeMap map = boardResponse.getAttributes();
 	//	int size = Integer.valueOf(map.getNamedItem("size").getNodeValue());
 		String managingUser = map.getNamedItem("managingUser").getNodeValue();
 		String bonus = map.getNamedItem("bonus").getNodeValue();
+		
 	//	String content=map.getNamedItem("content").getNodeValue();
 		String gameId = map.getNamedItem("gameId").getNodeValue();
 		model.setGameId(gameId);
@@ -55,6 +57,7 @@ public class BoardResponseController extends ControllerChain {
 		
 		
 		NodeList list = boardResponse.getChildNodes();
+		System.out.println(list.getLength());
 		String[] name= new String[list.getLength()];
 		String[] position= new String[list.getLength()];
 		String[] board= new String[list.getLength()];
@@ -67,6 +70,7 @@ public class BoardResponseController extends ControllerChain {
 		    position[i]=pposition;
 			String pboard = n.getAttributes().getNamedItem("board").getNodeValue();
 			board[i]=pboard;
+			System.out.println(board[i]);
 			String score = n.getAttributes().getNamedItem("score").getNodeValue();
 			s[i] = Long.valueOf(score);
 		//	app.getResponseArea().append("  " + pname  + "\n");

@@ -30,6 +30,7 @@ public class LoginDlg extends JFrame implements ActionListener{
 		
 		m_iType = type;
 		m_gameRoom = m;
+		m_app = app;
 		
 		
 		setTitle("Join Game");

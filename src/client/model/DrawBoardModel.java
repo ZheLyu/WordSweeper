@@ -25,6 +25,7 @@ public class DrawBoardModel {
 		origin = new Point();
 		point = new Point();
 		oldSelPoint = new Point();
+		
 		board = new Board();
 		
 		oldSelPoint.x = -1;
@@ -41,6 +42,27 @@ public class DrawBoardModel {
 		selCellList2 = new ArrayList<Cell>();
 	}
 	
+	public DrawBoardModel(Board board) {
+		
+		origin = new Point();
+		point = new Point();
+		oldSelPoint = new Point();
+		this.board =  board;
+		
+		oldSelPoint.x = -1;
+		oldSelPoint.y = -1;
+		
+		
+		origin.x = 150;
+		origin.y = 150;
+		
+		size = 400;
+		cellSize = size / 4 - 2;
+		
+		selCellList = new ArrayList<String>();
+		selCellList2 = new ArrayList<Cell>();
+		
+	}
 	
     public List<String> getSelCellList() {
 		

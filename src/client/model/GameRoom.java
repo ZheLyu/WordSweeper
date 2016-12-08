@@ -38,11 +38,11 @@ public class GameRoom {
 	public String name="samplePlayer";
 	private Map<Position, Integer> globalPositionToWeight;
 	private String managingUser;
-	private boolean isPracticeMode;
+    boolean isPracticeMode;
 	
 	
 	public GameRoom(String gameId) {
-		
+	
 		this.gameId = gameId;
 		bonus = null;
 		drawBoardModel = new DrawBoardModel();
@@ -69,6 +69,7 @@ public class GameRoom {
 		
 		currentPlayerName = name;
 	}
+	
 	
 	// get current player name, used when the user first login
 	public String getCurrentPlayerName() {
@@ -98,8 +99,9 @@ public class GameRoom {
 		globalPositionToWeight.clear();
 		int length = names.length; // store the number in the game room
 		if (length == 1) { // execute after creating game or there is only one player in the room
-			
+			System.out.println("client model length = 1!!!");
 			player = new Player(names[0], board[0], positions[0], scores[0], true);
+			this.drawBoardModel = new DrawBoardModel(player.getBoard());
 			findPlayerByName.put(names[0], player);
 			players.add(player);
 			

@@ -118,6 +118,7 @@ public class BoardDisplay extends JWindow implements ActionListener{
 		btnDown.setContentAreaFilled(false);
 		Icon iconDownA=new ImageIcon("src\\client\\res\\downA.png");
 	    Icon iconDownB=new ImageIcon("src\\client\\res\\downB.png");
+	   
 	    btnDown.setIcon(iconDownA);
 	    btnDown.setPressedIcon(iconDownB);
 		btnDown.addActionListener(this);
