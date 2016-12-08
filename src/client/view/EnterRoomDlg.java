@@ -77,18 +77,20 @@ public class EnterRoomDlg extends JFrame implements ActionListener {
 				JOptionPane.showMessageDialog(null, "Invaild Room ID", "Invaild Room ID", JOptionPane.ERROR_MESSAGE);
 				
 	//		m_gameRoom.setGameId(textField.getText());
-			System.out.println("in enterRoomDlg !!!!!!!!!!!!");
+		
 			m_gameRoom.setCurrentPlayerName(textField.getText());
 			
 			  if(m_iType==0)
 			   {
 				  
 				   new CreateGameRequestController(m_app, m_gameRoom).process();
-				   while (m_gameRoom.getPlayerList().size() == 0) ;
+				   while (m_gameRoom.getPlayerList().size() == 0) System.out.println();
+				  
 			   }
 			   else
 			   {
 				   new JoinGameRequestController(m_app, m_gameRoom).process();
+				   while (m_gameRoom.getPlayerList().size() == 0) ;
 			   }
 				   
 				

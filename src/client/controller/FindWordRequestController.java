@@ -21,13 +21,17 @@ public class FindWordRequestController {
 	/** Make the request on the server and wait for response. */
 	public void process() {
 
+		if (toString() != null) {
+			
+			Message m = new Message (toString());
+			// Request the lock (this might not succeed).
+			System.out.println(m);
+			app.getServerAccess().sendRequest(m);
+		}
 
-		Message m = new Message (toString());
-
-		// Request the lock (this might not succeed).
-		app.getServerAccess().sendRequest(m);
 		app.setVisible(false);
 	}
+	
 	public String toString() {
 		List<Cell> cellList = model.getDrawModel().getSelCellList2();
 	// String word = model.getWord(model.getDrawModel().getSelCellList2());
@@ -37,7 +41,8 @@ public class FindWordRequestController {
 		for (int i = 0; i < word.length(); i++){
 			
 		//	builder.add("cell").add("letter", model.getLetter(i, model.getDrawModel().getSelCellList2())).add("position", model.getPosition(i, model.getDrawModel().getSelCellList2())).closeElement().toString();
-		builder.add("cell").add("letter", cellList.get(i).getLetter()).add("position", cellList.get(i).getPosition().toString()).closeSegment().finishTep("cell");
+			builder.add("cell").add("letter", cellList.get(i).getLetter()).add("position", cellList.get(i)
+		    .getPosition().localToGlobal(model.getPlayer().getGlobalPosition()).toString()).closeSegment().finishTep("cell");
 		}
       
 		return builder.finishSegment().toString();

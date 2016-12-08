@@ -99,11 +99,12 @@ public class GameRoom {
 		globalPositionToWeight.clear();
 		int length = names.length; // store the number in the game room
 		if (length == 1) { // execute after creating game or there is only one player in the room
-			System.out.println("client model length = 1!!!");
+			
 			player = new Player(names[0], board[0], positions[0], scores[0], true);
 			this.drawBoardModel = new DrawBoardModel(player.getBoard());
 			findPlayerByName.put(names[0], player);
 			players.add(player);
+
 			
 		} else {
 			
@@ -143,11 +144,16 @@ public class GameRoom {
 	
 	public void findWordResponseHandler(long score) {
 		
+		System.out.println("score" + score);
 		player.updateTotalScore(score);
 	}
 		
 	public DrawBoardModel getDrawModel() {
 		return drawBoardModel;
+	}
+	
+	public void setDrawBoardModel(DrawBoardModel drawBoardModel) {
+		this.drawBoardModel = drawBoardModel;
 	}
 	
 	public void setGameId(String gameId) {
@@ -185,8 +191,11 @@ public class GameRoom {
 	
 	private void setBonus(String bonus) {
 		this.bonus = new Position(Integer.parseInt("" + bonus.charAt(0)), 
-				                  Integer.parseInt("" + bonus.charAt(2)));
+				                  Integer.parseInt("" + bonus.charAt(2)));	
+	}
 	
+	public Position getBonus() {
+		return bonus;
 	}
 	
 	public Map<Position, Integer> getPositionToWeight() {
@@ -252,31 +261,6 @@ public class GameRoom {
 		
 	}
 	
-	// Produces the word every time the user drag the mouse
-//	public String getWord(List<Cell> cellList) {
-//		
-//		String s = "";
-//		for (int i = 0; i < cellList.size(); i++) {
-//			
-//			Cell cell = cellList.get(i);
-//			s += cell.getLetter();
-//		}
-//		return s;
-//	}
-//	public String getPosition(int i,List<Cell> cellList){  
-//		
-//		String p="";
-//		Cell cell = cellList.get(i);
-//		p=cell.getPosition().toString();
-//		return p;
-//	}
-//	public String getLetter(int i,List<Cell> cellList){
-//		
-//		String l="";
-//		Cell cell = cellList.get(i);
-//		l=cell.getLetter();
-//		return l;
-//	}
 	
 	// the score of one letter is POW(2, m) * WEIGHT * BONUS, m is the number of people share this letter
 	// then produce the word score by adding up the score in each letter, if the length of this word is larger
@@ -319,9 +303,7 @@ public class GameRoom {
 	}
 
 
-	public void setDrawBoardModel(DrawBoardModel drawBoardModel) {
-		this.drawBoardModel = drawBoardModel;
-	}
+
 	
 	
 	

@@ -122,7 +122,7 @@ public class DrawBoardModel {
           	
         	selCellList.add(s);
         	selCellList2.add(new Cell(position, getCellLetter(row, col)));
-            System.out.println(s);
+          //  System.out.println(s);
         }   	
         
     }

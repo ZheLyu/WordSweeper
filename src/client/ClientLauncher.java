@@ -89,7 +89,7 @@ public class ClientLauncher {
 		// the GUI
 		String xmlString = Message.requestHeader() + "<connectRequest/></request>";
 		Message m = new Message (xmlString);
-		System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1");
+		
 		sa.sendRequest(m);
 	//	app.getRequestArea().append(m.toString() + "\n");
 		
