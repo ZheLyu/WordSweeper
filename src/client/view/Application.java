@@ -58,7 +58,7 @@ import javax.swing.SwingConstants;
 public class Application extends JWindow {
     
 
-	static String Version ="V 1.0.40"; 
+	static String Version ="V 1.0.41"; 
 
 	
 
@@ -76,11 +76,16 @@ public class Application extends JWindow {
 	JButton btnExitGame;
 	JLabel lblNewLabel_1;
 	
-	static int HSTART = 588;
-	static int VSTART = 300;
+	int screenWidth=1024;
+    int screenHeight=576;
+	
+	static int HSTART;
+	static int VSTART = 180;
 	static int VSPAN = 100;
-	static int WIDTH = 350;
-	static int HEIGHT = 80;
+	static int WIDTH = 250;
+	static int HEIGHT = 57;
+	
+    
 	
 	/**
 	 * Create the Application frame.
@@ -89,14 +94,16 @@ public class Application extends JWindow {
 		
 		this.model = model;
 		
+		HSTART = screenWidth/2-WIDTH/2;
+		
 		//setTitle("Word Sweeper");
 		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1600, 900);
+		setBounds(0, 0, screenWidth, screenHeight);
+		
 		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 		this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
 		
 		
-	
 		contentPane =new JPanel(){
 			
 			protected void paintComponent(Graphics g) {
@@ -109,11 +116,11 @@ public class Application extends JWindow {
 			}
 			
 		};
-		contentPane.setBounds(0, 0, 1600, 900);
+		contentPane.setBounds(0, 0, screenWidth, screenHeight);
 		
 	
 		lblNewLabel_1 = new JLabel(Version);
-		lblNewLabel_1.setBounds(1400, 850, 200, 63);
+		lblNewLabel_1.setBounds(screenWidth-200, screenHeight-50, 200, 63);
 		
 		
 		

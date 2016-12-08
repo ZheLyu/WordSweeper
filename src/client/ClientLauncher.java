@@ -16,6 +16,9 @@
 //
 
 package client;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import client.ServerAccess;
 import client.controller.BoardResponseController;
 import client.controller.ConnectResponseController;
@@ -25,7 +28,6 @@ import client.controller.JoinGameResponseController;
 import client.controller.LockGameResponseController;
 import client.controller.ResetGameResponseController;
 import client.controller.SampleClientMessageHandler;
-
 import client.model.GameRoom;
 import client.view.Application;
 import xml.Message;
@@ -34,8 +36,8 @@ import xml.Message;
 public class ClientLauncher {
 
 	// If requested by ClientLauncher (pass in '-server' as argument).
-//	public static final String serverHost = "72.249.186.243";
-	public static final String serverHost = null;
+	public static final String serverHost = "72.249.186.243";
+	//public static final String serverHost = null;
 	/**
 	 * Note that to simplify the coding of this command-client, it declares that it can throw an Exception,
 	 * which is typically the failed connection to a server.
@@ -58,7 +60,8 @@ public class ClientLauncher {
 	//	GameRoom model = new GameRoom();
 		Application app = new Application(model);
 		
-	//	model.setCurrentPlayerName("Virgo");
+		SimpleDateFormat df = new SimpleDateFormat("HH:mm:ss");
+		model.setCurrentPlayerName("Virgo"+df.format(new Date()));
 				
 		// set up the chain of responsibility
 		SampleClientMessageHandler handler = new SampleClientMessageHandler(app);
@@ -72,8 +75,8 @@ public class ClientLauncher {
 		// try to connect to the server. Once connected, messages are going to be processed by 
 		// SampleClientMessageHandler. For now we just continue on with the initialization because
 		// no message is actually sent by the connect method.
-		ServerAccess sa = new ServerAccess(host, 11430);
-	//	ServerAccess sa = new ServerAccess(host, 11426);
+		//ServerAccess sa = new ServerAccess(host, 11430);
+		ServerAccess sa = new ServerAccess(host, 11425);
 		if (!sa.connect(handler)) {
 			System.out.println("Unable to connect to server (" + host + "). Exiting.");
 			System.exit(0);

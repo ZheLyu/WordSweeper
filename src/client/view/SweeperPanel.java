@@ -27,6 +27,7 @@ import javax.swing.JPanel;
 import client.controller.DragControl;
 import client.model.DrawBoardModel;
 import client.model.GameRoom;
+import client.model.Player;
 import client.model.Position;
 
 
@@ -38,6 +39,10 @@ public class SweeperPanel extends JPanel{
 	private DragControl control;
 	private Map<Position, Integer> positionToWeight;
 	
+	int dlgWidth;
+	int dlgHeight;
+	
+	
 	
 	public SweeperPanel(Application app, GameRoom m) {
 		gameRoom = m;
@@ -46,6 +51,9 @@ public class SweeperPanel extends JPanel{
         control = new DragControl(this, m, app);
 		this.addMouseListener(control);
 		this.addMouseMotionListener(control);
+		
+		dlgWidth  =864;
+		dlgHeight =576;
 		
 	}
 	
@@ -65,12 +73,15 @@ public class SweeperPanel extends JPanel{
 		
 		super.paintComponent(g);
 		
+		
 		ImageIcon icon =new ImageIcon("src\\client\\res\\bk2.jpg");
-	    Image img=icon.getImage();
+		//icon.setImage(icon.getImage().getScaledInstance(test.WIDTH,test.HEIGHT,Image.SCALE_DEFAULT));
+		
+		Image img=icon.getImage();
 	    g.drawImage(img, 0, 0, icon.getIconWidth(),icon.getIconHeight(),this);
 	        
 		
-		int magin = 15;
+		int magin = 10;
 		
 		g.setColor(Color.red);
 		//draw board outline
@@ -123,17 +134,50 @@ public class SweeperPanel extends JPanel{
 			}
 		}	
 		
-		
+		Point xStart = model.getHorizenLine(0);
 		
 		g.setColor(Color.black);
-		g.setFont(new Font("Black", Font.PLAIN, 40));
-		Point xStart = model.getHorizenLine(0);
-		g.drawString("Word: " +getLastSelectedWord()+"    Score:"+ String.format("%s",getLastSelectedScore()) , xStart.x, 130);
+		g.setFont(new Font("Black", Font.PLAIN, 18));
 		
 		//total score
-		g.setFont(new Font("Black", Font.PLAIN, 60));
-		xStart = model.getHorizenLine(0);
-		g.drawString("Total Score: ", xStart.x, 70);
+		g.setFont(new Font("Yellow", Font.BOLD, 28));
+		g.drawString("Total Score: ", xStart.x, xStart.y-25-35);
+		
+		//selected word
+		
+		g.drawString("Word: " +getLastSelectedWord()+"    Score:"+ String.format("%s",getLastSelectedScore()) , xStart.x, xStart.y-25);
+		
+		//player and room ID
+		g.setFont(new Font("Black", Font.BOLD, 20));
+		g.drawString("ROOM: "+ gameRoom.getGameId(), dlgWidth-270, 30);
+		g.drawString("PLAYER: "+gameRoom.getCurrentPlayerName(), dlgWidth-270, 60);
+		
+		
+		//player list
+		g.drawString("PLAYER LIST:", 400, xStart.y+50);
+		String strPlayList;
+		List<Player> players = gameRoom.getPlayerList();
+		g.drawLine(400-5, xStart.y+65, 600, xStart.y+70);
+		
+
+		int y= xStart.y+50;
+		g.setFont(new Font("Black", Font.BOLD, 15));
+				
+		for(int i=0; i<players.size();i++)
+		{
+			String isManager;
+			if(players.get(i).isManager())
+				isManager ="Yes";
+			else
+				isManager ="No";
+			
+		   y+=35;
+		   strPlayList=String.format("%s  %d  %s",players.get(i).getName(),players.get(i).getScore(),isManager);
+		   g.drawString(strPlayList, 400, y);
+		   g.drawLine(400-5, y+10, 600, y+10);
+		}
+		
+	
 		
 		
 	}

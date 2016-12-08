@@ -32,10 +32,10 @@ public class DrawBoardModel {
 		oldSelPoint.y = -1;
 		
 		
-		origin.x = 150;
+		origin.x = 50;
 		origin.y = 150;
 		
-		size = 400;
+		size = 280;
 		cellSize = size / 4 - 2;
 		
 		selCellList = new ArrayList<String>();
@@ -53,10 +53,10 @@ public class DrawBoardModel {
 		oldSelPoint.y = -1;
 		
 		
-		origin.x = 150;
+		origin.x = 50;
 		origin.y = 150;
 		
-		size = 400;
+		size = 300;
 		cellSize = size / 4 - 2;
 		
 		selCellList = new ArrayList<String>();

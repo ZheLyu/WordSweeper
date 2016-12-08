@@ -74,7 +74,11 @@ public class EnterRoomDlg extends JFrame implements ActionListener {
 		if(arg0.getSource()==btnNewButton)
 		{
 			if(textField.getText().isEmpty()==true)
+			{
 				JOptionPane.showMessageDialog(null, "Invaild Room ID", "Invaild Room ID", JOptionPane.ERROR_MESSAGE);
+				dispose();
+				return;
+			}
 				
 	//		m_gameRoom.setGameId(textField.getText());
 		

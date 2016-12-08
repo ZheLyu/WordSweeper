@@ -26,12 +26,15 @@ import client.model.GameRoom;
 
 import javax.swing.JWindow;
 
+import java.awt.Dimension;
 import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+
 import javax.swing.JTextArea;
 
 
@@ -54,12 +57,14 @@ public class BoardDisplay extends JWindow implements ActionListener{
      private JButton btnExit;
      Timer timer; 
 	
+     static int DLG_W=864;
+     static int DLG_H=576;
      
-     static int WIDTH=120;
-     static int HEIGHT=120;
-     static int VSTATRT=650;
-     static int HSTATRT=100;
-     static int HSPAN=130;
+     static int WIDTH=80;
+     static int HEIGHT=80;
+     static int VSTATRT=480;
+     static int HSTATRT=50;
+     static int HSPAN=80;
      private JTextArea textWordSelect;
      
      
@@ -72,10 +77,15 @@ public class BoardDisplay extends JWindow implements ActionListener{
 		this.model = m;
 		this.app = app;
 		
-		setBounds(260, 150, 1200, 800);
+		setBounds(0, 0, DLG_W, DLG_H);
+		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+		this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
+		
 		
 		sweeperPanel = new SweeperPanel(app, m);
-		sweeperPanel.setBounds(0, 0, 1200, 800);
+		sweeperPanel.setBounds(0, 0, DLG_W, DLG_H);
+		
+		
 		
 	
 		btnLeft = new JButton("LEFT");
@@ -124,7 +134,7 @@ public class BoardDisplay extends JWindow implements ActionListener{
 		btnDown.addActionListener(this);
 		
 		btnLock = new JButton("LOCK");
-		btnLock.setBounds(1000, VSTATRT-380, 150, 150);
+		btnLock.setBounds(DLG_W-WIDTH-20, VSTATRT-260, WIDTH, HEIGHT);
 		
 		btnLock.setBorderPainted(false);
 		btnLock.setContentAreaFilled(false);
@@ -136,7 +146,7 @@ public class BoardDisplay extends JWindow implements ActionListener{
 		
 		
 		btnReset = new JButton("RESET");
-		btnReset.setBounds(1000, VSTATRT-190, 150, 150);
+		btnReset.setBounds(DLG_W-WIDTH-20, VSTATRT-160, WIDTH, HEIGHT);
 		
 		btnReset.setBorderPainted(false);
 		btnReset.setContentAreaFilled(false);
@@ -148,7 +158,7 @@ public class BoardDisplay extends JWindow implements ActionListener{
 		btnReset.addActionListener(this);
 		
 		btnExit = new JButton("EXIT");
-		btnExit.setBounds(1000, VSTATRT, 160, 118);
+		btnExit.setBounds(DLG_W-WIDTH-20, VSTATRT, 105, 79);
 		
 		btnExit.setBorderPainted(false);
 		btnExit.setContentAreaFilled(false);
@@ -173,13 +183,13 @@ public class BoardDisplay extends JWindow implements ActionListener{
 		sweeperPanel.add(btnReset);
 		sweeperPanel.add(btnExit);
 		
-		textWordSelect = new JTextArea();
-		textWordSelect.setBounds(100, 100, 200, 138);
-		getContentPane().add(textWordSelect);
+		//textWordSelect = new JTextArea();
+		//textWordSelect.setBounds(100, 100, 200, 138);
+		//getContentPane().add(textWordSelect);
 		
 		
-		timer = new Timer(500, this);
-		timer.start();
+		//timer = new Timer(500, this);
+		//timer.start();
 		
 		setVisible(true);
 			         
