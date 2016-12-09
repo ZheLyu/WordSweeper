@@ -22,7 +22,7 @@ public class ResetGameRequestController {
 		// send the request to reset the game.
 		//String xmlString = Message.requestHeader() + "<resetGameRequest gameId='somePlace' /></request>";
 		Message m = new Message (toString());
-		
+		System.out.println(m);
 		app.getServerAccess().sendRequest(m);
 		
 	}
