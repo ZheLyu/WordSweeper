@@ -53,25 +53,25 @@ public class RepositionBoardRequestController {
     public String ltoString() {
     	String s1 = model.getGameId();
 		String s = model.getCurrentPlayerName();
-		return new XmlStringBuilder("repositionBoardRequest").add("gameId", s1).add("name",s).add("rowChange","-1").finish()
+		return new XmlStringBuilder("repositionBoardRequest").add("gameId", s1).add("name",s).add("rowChange","-1").add("colChange", "0").finish()
 				.toString();
     }
     public String rtoString() {
     	String s1 = model.getGameId();
 		String s = model.getPlayer().getName();
-		return new XmlStringBuilder("repositionBoardRequest").add("gameId", s1).add("name",s).add("rowChange","1").finish()
+		return new XmlStringBuilder("repositionBoardRequest").add("gameId", s1).add("name",s).add("rowChange","1").add("colChange", "0").finish()
 				.toString();
     }
     public String utoString() {
     	String s1 = model.getGameId();
 		String s = model.getPlayer().getName();
-		return new XmlStringBuilder("repositionBoardRequest").add("gameId", s1).add("name",s).add("colChange","1").finish()
+		return new XmlStringBuilder("repositionBoardRequest").add("gameId", s1).add("name",s).add("rowChange","0").add("colChange","-1").finish()
 				.toString();
     }
     public String dtoString() {
     	String s1 = model.getGameId();
 		String s = model.getPlayer().getName();
-		return new XmlStringBuilder("repositionBoardRequest").add("gameId", s1).add("name",s).add("colChange","-1").finish()
+		return new XmlStringBuilder("repositionBoardRequest").add("gameId", s1).add("name",s).add("rowChange","0").add("colChange","1").finish()
 				.toString();
     }
 }
