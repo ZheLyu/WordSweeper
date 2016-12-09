@@ -98,7 +98,6 @@ public class EnterRoomDlg extends JFrame implements ActionListener {
 				   System.out.println("ff");
 				   while (count < 65535 && m_gameRoom.getPlayerList().size() == 0) {
 					   System.out.print(""); 
-					   System.out.println(count);
 					   count++;
 				   }
 					   

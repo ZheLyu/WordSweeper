@@ -197,6 +197,7 @@ public class BoardDisplay extends JFrame implements ActionListener{
 
 
 	@Override
+	
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
 		
@@ -227,13 +228,15 @@ public class BoardDisplay extends JFrame implements ActionListener{
 			}
 			
 			if(arg0.getSource() == btnLock) {
-				LockGameRequestController lock=new LockGameRequestController(app,model);
-				lock.process();
+				if(model.getPlayer().isManager())
+				{LockGameRequestController lock=new LockGameRequestController(app,model);
+				lock.process();}
 			}
 			
 			if(arg0.getSource() == btnReset) {
+				if(model.getPlayer().isManager()){
 				ResetGameRequestController reset=new ResetGameRequestController(app,model);
-				reset.process();
+				reset.process();}
 			}
 			if(arg0.getSource() == btnExit) {
 				if(model.getGameMode()==false)
