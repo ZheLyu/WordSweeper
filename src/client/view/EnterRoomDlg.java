@@ -94,7 +94,14 @@ public class EnterRoomDlg extends JFrame implements ActionListener {
 			   } else {
 				   
 				   new JoinGameRequestController(m_app, m_gameRoom).process();
-				   while (m_gameRoom.getPlayerList().size() == 0) System.out.print("");
+				   int count = 0; 
+				   System.out.println("ff");
+				   while (count < 65535 && m_gameRoom.getPlayerList().size() == 0) {
+					   System.out.print(""); 
+					   System.out.println(count);
+					   count++;
+				   }
+					   
 				   System.out.println();
 				   dispose();
 			   }

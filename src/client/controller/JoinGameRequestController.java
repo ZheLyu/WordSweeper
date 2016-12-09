@@ -41,9 +41,8 @@ public class JoinGameRequestController {
 	
 	public String toString() {
 		String s = model.getGameId();
-		System.out.println("gameId = " + s);
+		
 		String s1 = model.getCurrentPlayerName();
-		System.out.println("name =" + s1);
 		return new XmlStringBuilder("joinGameRequest").add("gameId",s).add("name", s1).add("password", model.getPassword()).finish()
 				.toString();
 	}

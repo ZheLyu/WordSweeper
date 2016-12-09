@@ -140,7 +140,7 @@ public class GameRoom {
 		
 		//refresh panel
 		if (panel != null)
-		panel.repaint();
+			panel.repaint();
 	}
 	
 	public Player getPlayer() {
@@ -155,7 +155,6 @@ public class GameRoom {
 	
 	public void findWordResponseHandler(long score) {
 		
-		System.out.println("score" + score);
 		player.updateTotalScore(score);
 	}
 		
@@ -281,9 +280,8 @@ public class GameRoom {
 		long score = 0;
 		
 		if(cellList.size()==0)
-		{	System.out.println("!!compute size == 0 !!");
 			return 0;
-		}
+		
 		
 		for (int i = 0; i < cellList.size(); i++) {
 				

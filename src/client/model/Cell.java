@@ -38,7 +38,7 @@ public class Cell {
 	// Returns the letter in the cell
 	public String getLetter() {
 		
-		return letter.toLowerCase();
+		return letter;
 	}
 	
 	// Used for test only

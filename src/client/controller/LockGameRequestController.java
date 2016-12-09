@@ -20,7 +20,7 @@ public class LockGameRequestController {
 		// send the request to lock the game.
 		//tring xmlString = Message.requestHeader() + "<lockGameRequest gameId='sample'/></request>";
 		Message m = new Message (toString());
-
+		System.out.println(m);
 		// Request the lock (this might not succeed).
 		app.getServerAccess().sendRequest(m);
 	}

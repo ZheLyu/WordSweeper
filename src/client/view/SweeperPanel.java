@@ -111,7 +111,7 @@ public class SweeperPanel extends JPanel{
 				
 				if(list.contains(ss)) // the cell is selected 
 				{
-					//System.out.println("paint0"+ss + "  ");
+					
 					g.setColor(Color.yellow);
 				}
 				else                  // the cell is not selected
