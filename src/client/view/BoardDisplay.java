@@ -38,7 +38,7 @@ import java.awt.event.MouseListener;
 import javax.swing.JTextArea;
 
 
-public class BoardDisplay extends JWindow implements ActionListener{
+public class BoardDisplay extends JFrame implements ActionListener{
 	
 	 
 	 GameRoom model;

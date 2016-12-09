@@ -35,6 +35,7 @@ import client.controller.CreateGameRequestController;
 import client.controller.ExitGameRequestController;
 import client.controller.JoinGameRequestController;
 import client.controller.StartPraticeController;
+import client.model.Board;
 import client.model.GameRoom;
 
 
@@ -55,7 +56,7 @@ import java.awt.Toolkit;
 
 import javax.swing.SwingConstants;
 
-public class Application extends JWindow {
+public class Application extends JFrame {
     
 
 	static String Version ="V 1.0.41"; 
@@ -181,6 +182,7 @@ public class Application extends JWindow {
 			public void actionPerformed(ActionEvent e) {
 				
 				model.setGameMode(true);
+				model.getDrawModel().setBoard(new Board());
 				new StartPraticeController(Application.this,model).process();
 			}
 		});

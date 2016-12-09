@@ -93,7 +93,7 @@ public class SweeperPanel extends JPanel{
 		   Point vLineNode = model.getVerticalLine(i);
 		   g.drawLine(vLineNode.x, vLineNode.y, vLineNode.x, vLineNode.y + model.getBoardSize());
 		}
-	
+		
 		for (int row = 0; row < SIZE; row++) {
 			for (int col = 0; col < SIZE; col++) {
 				
@@ -107,9 +107,13 @@ public class SweeperPanel extends JPanel{
 				
 				String ss;
 		    	ss = String.format("%d%d", row, col);
+		    	
 				
 				if(list.contains(ss)) // the cell is selected 
+				{
+					//System.out.println("paint0"+ss + "  ");
 					g.setColor(Color.yellow);
+				}
 				else                  // the cell is not selected
 				{
 					if(weight<14)
@@ -141,10 +145,11 @@ public class SweeperPanel extends JPanel{
 		
 		//total score
 		g.setFont(new Font("Yellow", Font.BOLD, 28));
-		g.drawString("Total Score: ", xStart.x, xStart.y-25-35);
+		
+		if(gameRoom.getGameMode()==false)
+		g.drawString("Total Score: "+ gameRoom.getPlayer().getScore(), xStart.x, xStart.y-25-35);
 		
 		//selected word
-		
 		g.drawString("Word: " +getLastSelectedWord()+"    Score:"+ String.format("%s",getLastSelectedScore()) , xStart.x, xStart.y-25);
 		
 		//player and room ID
@@ -167,9 +172,9 @@ public class SweeperPanel extends JPanel{
 		{
 			String isManager;
 			if(players.get(i).isManager())
-				isManager ="Yes";
+				isManager ="Manager=Yes";
 			else
-				isManager ="No";
+				isManager ="Manager=No";
 			
 		   y+=35;
 		   strPlayList=String.format("%s  %d  %s",players.get(i).getName(),players.get(i).getScore(),isManager);

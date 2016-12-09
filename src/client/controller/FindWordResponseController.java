@@ -27,6 +27,7 @@ public class FindWordResponseController extends ControllerChain {
 		if (!type.equals ("findWordResponse")) {
 			return next.process(response);
 		}
+		
 		System.out.println("find word response " + response.toString());
 		Node findWordResponse = response.contents.getFirstChild();
 		NamedNodeMap map = findWordResponse.getAttributes();

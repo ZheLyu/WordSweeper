@@ -55,6 +55,32 @@ public class Word {
         weight.put("X", 7);
         weight.put("Y", 4);
         weight.put("Z", 8);
+        weight.put("a", 2);
+        weight.put("b", 4);
+        weight.put("c", 3);
+        weight.put("d", 3);
+        weight.put("e", 1);
+        weight.put("f", 4);
+        weight.put("g", 4);
+        weight.put("h", 2);
+        weight.put("i", 2);
+        weight.put("j", 7);
+        weight.put("k", 5);
+        weight.put("l", 3);
+        weight.put("m", 3);
+        weight.put("n", 2);
+        weight.put("o", 2);
+        weight.put("p", 4);
+        weight.put("qu", 11);
+        weight.put("r", 2);
+        weight.put("s", 2);
+        weight.put("t", 1);
+        weight.put("u", 3);
+        weight.put("v", 5);
+        weight.put("w", 3);
+        weight.put("x", 7);
+        weight.put("y", 4);
+        weight.put("z", 8);
         return Collections.unmodifiableMap(weight);
     }
     

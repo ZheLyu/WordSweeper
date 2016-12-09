@@ -16,6 +16,7 @@ History:
 package client.controller;
 
 import java.awt.event.MouseEvent;
+import java.util.List;
 
 import javax.swing.event.MouseInputListener;
 
@@ -83,6 +84,14 @@ public class DragControl implements MouseInputListener{
 
 	public void mousePressed(MouseEvent arg0) {
 		// TODO Auto-generated method stub
+		List<String> list = model.getDrawModel().getSelCellList();
+		
+		/*
+		for (int i = 0; i < list.size(); i++) {
+			System.out.print(list.get(i) + " | ");
+		}
+		System.out.println();
+		*/
 		
 		model.getDrawModel().clearSelCellList();
 		panel.repaint();
@@ -94,7 +103,8 @@ public class DragControl implements MouseInputListener{
 		szSelctedWord  = model.getDrawModel().getWord(model.getDrawModel().getSelCellList2());
 		lSelectedScore = model.computeScore(model.getDrawModel().getSelCellList2());
 		
-		if(model.getGameMode()==false)
+		
+		if(model.getGameMode()==false && model.getDrawModel().getSelCellList2().size()>0)
 		{
 		  FindWordRequestController findwordrequestcontroller=new FindWordRequestController(app,model);
 		  findwordrequestcontroller.process();

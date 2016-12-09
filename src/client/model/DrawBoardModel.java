@@ -25,8 +25,8 @@ public class DrawBoardModel {
 		origin = new Point();
 		point = new Point();
 		oldSelPoint = new Point();
-		
-		board = new Board();
+	
+		board = null;
 		
 		oldSelPoint.x = -1;
 		oldSelPoint.y = -1;
@@ -42,26 +42,14 @@ public class DrawBoardModel {
 		selCellList2 = new ArrayList<Cell>();
 	}
 	
-	public DrawBoardModel(Board board) {
+	public void setBoard(Board board) { 
 		
-		origin = new Point();
-		point = new Point();
-		oldSelPoint = new Point();
-		this.board =  board;
+		this.board = board;
+	}
+	
+	public Board getBoard() {
 		
-		oldSelPoint.x = -1;
-		oldSelPoint.y = -1;
-		
-		
-		origin.x = 50;
-		origin.y = 150;
-		
-		size = 300;
-		cellSize = size / 4 - 2;
-		
-		selCellList = new ArrayList<String>();
-		selCellList2 = new ArrayList<Cell>();
-		
+		return board;
 	}
 	
     public List<String> getSelCellList() {
@@ -88,9 +76,14 @@ public class DrawBoardModel {
     public void addDragCellList(Point p) {
     	
     	String s;
+    	
     	s = String.format("%d%d", (p.y - origin.y + 1) / (size / 4), (p.x - origin.x + 1) / (size / 4));
     	int col = (p.x - origin.x + 1) / (size / 4);
     	int row = (p.y - origin.y + 1) / (size / 4);
+    	
+    	if(col>3 || row>3)
+    		return;
+    	
     	
     	//skip area out of (0.2,0.8) 
     	if((p.x - origin.x + 1)%(size / 4)<(0.2*size/4) || 
@@ -113,10 +106,8 @@ public class DrawBoardModel {
 	    	if(row!=lastRow+1 && row!=lastRow-1 && row!=lastRow)
 	    		return;
         }
-    	
-    	
-    	
-    	
+  
+          	
 		Position position = new Position(row, col);
         if(!selCellList.contains(s)) {
           	
@@ -170,10 +161,6 @@ public class DrawBoardModel {
 	
 	}
 
-
-	public void setBoard(Board board) {
-		this.board = board;
-	}
 	
 	public String getWord(List<Cell> cellList) {
 		
@@ -183,7 +170,8 @@ public class DrawBoardModel {
 			Cell cell = cellList.get(i);
 			s += cell.getLetter();
 		}
-		return s;
+		
+		return s.toLowerCase();
 	}
 	
 	

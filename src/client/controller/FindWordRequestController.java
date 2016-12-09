@@ -20,7 +20,7 @@ public class FindWordRequestController {
 
 	/** Make the request on the server and wait for response. */
 	public void process() {
-
+		
 		if (toString() != null) {
 			
 			Message m = new Message (toString());

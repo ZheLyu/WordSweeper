@@ -16,6 +16,8 @@ package client.model;
 
 import java.util.*;
 
+import client.view.SweeperPanel;
+
 /**
  * @author leizeling
  *
@@ -39,6 +41,7 @@ public class GameRoom {
 	private Map<Position, Integer> globalPositionToWeight;
 	private String managingUser;
     boolean isPracticeMode;
+    SweeperPanel panel;
 	
 	
 	public GameRoom(String gameId) {
@@ -70,7 +73,7 @@ public class GameRoom {
 		currentPlayerName = name;
 	}
 	
-	
+
 	// get current player name, used when the user first login
 	public String getCurrentPlayerName() {
 			
@@ -97,39 +100,47 @@ public class GameRoom {
 		players.clear();
 		findPlayerByName.clear();
 		globalPositionToWeight.clear();
+		getDrawModel().clearSelCellList();
+		
 		int length = names.length; // store the number in the game room
-		if (length == 1) { // execute after creating game or there is only one player in the room
+		/*if (length == 1) { // execute after creating game or there is only one player in the room
 			
 			player = new Player(names[0], board[0], positions[0], scores[0], true);
-			this.drawBoardModel = new DrawBoardModel(player.getBoard());
+			drawBoardModel.setBoard(player.getBoard());
+			
 			findPlayerByName.put(names[0], player);
 			players.add(player);
 
 			
 		} else {
+		*/
 			
-			for (int i = 0; i < length; i++) {
-				
-				if (names[i].equals(currentPlayerName)) { // update the current player
-					
-					player = new Player(names[i], board[i], positions[i], scores[i], names[i].equals(managingUser));
-					players.add(player);
-					findPlayerByName.put(names[i], player);
-				} else { // update the attribute of other players
-					
-					Player newPlayer = new Player(names[i], board[i], positions[i], scores[i], names[i].equals(managingUser));
-					players.add(newPlayer);
-					findPlayerByName.put(names[i], newPlayer);
-				}
+		for (int i = 0; i < length; i++) {
 			
+			if (names[i].equals(currentPlayerName)) { // update the current player
 				
+				player = new Player(names[i], board[i], positions[i], scores[i], names[i].equals(managingUser));
+				players.add(player);
+				drawBoardModel.setBoard(player.getBoard());
+				findPlayerByName.put(names[i], player);
+			} else { // update the attribute of other players
+				
+				Player newPlayer = new Player(names[i], board[i], positions[i], scores[i], names[i].equals(managingUser));
+				players.add(newPlayer);
+				findPlayerByName.put(names[i], newPlayer);
 			}
+		
 			
 		}
+		
+		//}
 		
 		
 		computeSharedArea(); // update shared area 
 		
+		//refresh panel
+		if (panel != null)
+		panel.repaint();
 	}
 	
 	public Player getPlayer() {
@@ -268,6 +279,12 @@ public class GameRoom {
 	public long computeScore(List<Cell> cellList) {
 		
 		long score = 0;
+		
+		if(cellList.size()==0)
+		{	System.out.println("!!compute size == 0 !!");
+			return 0;
+		}
+		
 		for (int i = 0; i < cellList.size(); i++) {
 				
 			Cell cell = cellList.get(i);
