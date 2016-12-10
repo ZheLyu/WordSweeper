@@ -123,7 +123,7 @@ public class EnterRoomDlg extends JFrame implements ActionListener {
 					   dispose();
 				   }
 					   
-				   
+
 				  //System.exit(0);
 			   }
 				   

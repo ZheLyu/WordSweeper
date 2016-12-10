@@ -42,7 +42,7 @@ public class BoardResponseController extends ControllerChain {
 		//	System.out.println("is not board response response");
 			return next.process(response);
 		}
-	//	System.out.println("!!in board response " + response.toString());
+		System.out.println(response.toString());
 		Node boardResponse = response.contents.getFirstChild();
 		NamedNodeMap map = boardResponse.getAttributes();
 	//	int size = Integer.valueOf(map.getNamedItem("size").getNodeValue());

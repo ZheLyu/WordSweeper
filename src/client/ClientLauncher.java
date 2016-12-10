@@ -51,7 +51,7 @@ public class ClientLauncher {
 		
 		// select dedicated server with '-server' options
 		String host = "localhost";
-		
+
 		if (args.length > 0 && args[0].equals("-server")) {
 			host = "cccwork3.wpi.edu";
 		}
@@ -76,6 +76,7 @@ public class ClientLauncher {
 		// try to connect to the server. Once connected, messages are going to be processed by 
 		// SampleClientMessageHandler. For now we just continue on with the initialization because
 		// no message is actually sent by the connect method.
+
 		//ServerAccess sa = new ServerAccess(host, 11425);
 		ServerAccess sa = new ServerAccess(host, 11425);
 		if (!sa.connect(handler)) {
