@@ -95,6 +95,7 @@ public class DragControl implements MouseInputListener{
 		
 		model.getDrawModel().clearSelCellList();
 		panel.repaint();
+		panel.startTimer();
 	}
 
 	public void mouseReleased(MouseEvent arg0) {
@@ -108,9 +109,12 @@ public class DragControl implements MouseInputListener{
 		{
 		  FindWordRequestController findwordrequestcontroller=new FindWordRequestController(app,model);
 		  findwordrequestcontroller.process();
+		//  model.getDrawModel().clearSelCellList();
 		}
 		
+		
 		panel.repaint();
+		
 		// sent find word request to server
 		// new FindWordRequestController(app, model)
 	

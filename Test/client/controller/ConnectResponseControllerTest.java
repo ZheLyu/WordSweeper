@@ -2,6 +2,7 @@ package client.controller;
 
 import server.Server; 
 import client.MockServerAccess;
+import client.model.Board;
 import client.model.GameRoom;
 import client.view.Application;
 import junit.framework.TestCase;
@@ -32,7 +33,7 @@ public class ConnectResponseControllerTest extends TestCase {
 			client.setVisible(true);
 				
 			mockServer = new MockServerAccess("localhost");
-				
+			
 			client.setServerAccess(mockServer);
 	}
 
@@ -41,8 +42,8 @@ public class ConnectResponseControllerTest extends TestCase {
 	}
 
 	public void testProcess() {
-		
-		
+		//fail("Not yet implemented");
+		model.getDrawModel().setBoard(new Board());
 		String xmlString = Message.responseHeader("someMessageID") + "<connectResponse id='hg12jhd'></connectResponse></response>";
 		String xmlString1 = Message.responseHeader("someMessageID") + "<lockGameResponse id='hg12jhd'></lockGameResponse></response>";
 		Message response = new Message(xmlString);

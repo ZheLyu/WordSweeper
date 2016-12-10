@@ -30,7 +30,7 @@ public class JoinGameResponseControllerTest extends TestCase {
 			client.setVisible(true);
 						
 			mockServer = new MockServerAccess("localhost");
-						
+					
 			client.setServerAccess(mockServer);
 	}
 

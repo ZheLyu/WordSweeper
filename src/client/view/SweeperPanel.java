@@ -17,12 +17,15 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Point;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
+import javax.swing.Timer;
 
 import client.controller.DragControl;
 import client.model.DrawBoardModel;
@@ -31,8 +34,9 @@ import client.model.Player;
 import client.model.Position;
 
 
-public class SweeperPanel extends JPanel{
+public class SweeperPanel extends JPanel implements ActionListener{
 	
+	Timer timer; 
 	private static final int SIZE = 4;
 	private DrawBoardModel model;
 	private GameRoom gameRoom;
@@ -47,7 +51,7 @@ public class SweeperPanel extends JPanel{
 	public SweeperPanel(Application app, GameRoom m) {
 		gameRoom = m;
 		model = m.getDrawModel();
-		positionToWeight = m.getPositionToWeight();
+		positionToWeight = null;
         control = new DragControl(this, m, app);
 		this.addMouseListener(control);
 		this.addMouseMotionListener(control);
@@ -55,6 +59,14 @@ public class SweeperPanel extends JPanel{
 		dlgWidth  =864;
 		dlgHeight =576;
 		
+		timer=new Timer(300, this);
+		
+		
+	}
+	
+	public void startTimer()
+	{
+		timer.start();
 	}
 	
 	public String getLastSelectedWord()
@@ -93,7 +105,7 @@ public class SweeperPanel extends JPanel{
 		   Point vLineNode = model.getVerticalLine(i);
 		   g.drawLine(vLineNode.x, vLineNode.y, vLineNode.x, vLineNode.y + model.getBoardSize());
 		}
-		
+		positionToWeight = gameRoom.getPositionToWeight();
 		for (int row = 0; row < SIZE; row++) {
 			for (int col = 0; col < SIZE; col++) {
 				
@@ -116,8 +128,8 @@ public class SweeperPanel extends JPanel{
 				}
 				else                  // the cell is not selected
 				{
-					if(weight<14)
-			            g.setColor(new Color(255,255-(weight-1)*20,255-(weight-1)*20));
+					if(weight<10)
+			            g.setColor(new Color(255, 255-(weight-1)*50,255-(weight-1)*50));
 					else
 						g.setColor(new Color(255,10,10));
 				}
@@ -186,6 +198,19 @@ public class SweeperPanel extends JPanel{
 		
 		
 	}
+	
+	
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		// TODO Auto-generated method stub
+		if(arg0.getSource() == timer)
+		{
+			
+			this.repaint();
+			
+		}
+	}
+		
 	
 
 }

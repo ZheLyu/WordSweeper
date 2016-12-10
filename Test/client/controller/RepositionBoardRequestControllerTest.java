@@ -31,6 +31,7 @@ public class RepositionBoardRequestControllerTest extends TestCase {
 		client.setVisible(true);
 		
 		mockServer = new MockServerAccess("localhost");
+	
 		client.setServerAccess(mockServer);
 		
 		String[] names1 = {"george"};
@@ -39,7 +40,7 @@ public class RepositionBoardRequestControllerTest extends TestCase {
 		long[] scores1 = {0};
 		String bonus = "4,3";
 		
-		model.setCurrentPlayerName("geroge");
+		model.setCurrentPlayerName("george");
 		model.boardResponseHandler("george", bonus, names1, positions1, board1, scores1);
 		
 	}
@@ -66,7 +67,7 @@ public class RepositionBoardRequestControllerTest extends TestCase {
 //		<repositionBoardRequest gameId='somePlace' name='nextOne' rowChange='-1' /></request>";
 		assertEquals("somePlace", r.contents.getFirstChild().getAttributes().getNamedItem("gameId").getNodeValue());
 		assertEquals("george", r.contents.getFirstChild().getAttributes().getNamedItem("name").getNodeValue());
-		assertEquals("-1", r.contents.getFirstChild().getAttributes().getNamedItem("rowChange").getNodeValue());
+		assertEquals("0", r.contents.getFirstChild().getAttributes().getNamedItem("rowChange").getNodeValue());
 	
 	}
 	
@@ -85,7 +86,7 @@ public class RepositionBoardRequestControllerTest extends TestCase {
 //		<repositionBoardRequest gameId='somePlace' name='nextOne' rowChange='-1' /></request>";
 		assertEquals("somePlace", r.contents.getFirstChild().getAttributes().getNamedItem("gameId").getNodeValue());
 		assertEquals("george", r.contents.getFirstChild().getAttributes().getNamedItem("name").getNodeValue());
-		assertEquals("1", r.contents.getFirstChild().getAttributes().getNamedItem("rowChange").getNodeValue());
+		assertEquals("0", r.contents.getFirstChild().getAttributes().getNamedItem("rowChange").getNodeValue());
 
 	}
 	
@@ -104,7 +105,7 @@ public class RepositionBoardRequestControllerTest extends TestCase {
 //		<repositionBoardRequest gameId='somePlace' name='nextOne' rowChange='-1' /></request>";
 		assertEquals("somePlace", r.contents.getFirstChild().getAttributes().getNamedItem("gameId").getNodeValue());
 		assertEquals("george", r.contents.getFirstChild().getAttributes().getNamedItem("name").getNodeValue());
-		assertEquals("1", r.contents.getFirstChild().getAttributes().getNamedItem("colChange").getNodeValue());
+		assertEquals("0", r.contents.getFirstChild().getAttributes().getNamedItem("colChange").getNodeValue());
 	//	assertEquals("somePlace", r.contents.getFirstChild().getAttributes().getNamedItem("gameId").getNodeValue());
 	}
 	
@@ -123,7 +124,7 @@ public class RepositionBoardRequestControllerTest extends TestCase {
 //		<repositionBoardRequest gameId='somePlace' name='nextOne' rowChange='-1' /></request>";
 		assertEquals("somePlace", r.contents.getFirstChild().getAttributes().getNamedItem("gameId").getNodeValue());
 		assertEquals("george", r.contents.getFirstChild().getAttributes().getNamedItem("name").getNodeValue());
-		assertEquals("-1", r.contents.getFirstChild().getAttributes().getNamedItem("colChange").getNodeValue());
+		assertEquals("0", r.contents.getFirstChild().getAttributes().getNamedItem("colChange").getNodeValue());
 	//	assertEquals("somePlace", r.contents.getFirstChild().getAttributes().getNamedItem("gameId").getNodeValue());
 	}
 }

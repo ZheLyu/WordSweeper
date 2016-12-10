@@ -88,5 +88,12 @@ public class Position {
 		
 	}
     
+	public Position switchColRow() {
+		
+		System.out.println("col = " + column + "row" + row);
+		Position p = new Position(this.column, this.row);
+		System.out.println("col = " + p.column + "row" + p.row);
+		return p;
+	}
 	
 }

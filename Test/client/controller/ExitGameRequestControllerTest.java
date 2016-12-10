@@ -46,8 +46,14 @@ public class ExitGameRequestControllerTest extends TestCase {
 		long[] scores1 = {0};
 		String bonus = "4,3";
 		
-		model.setCurrentPlayerName("geroge");
-		model.boardResponseHandler("george", bonus, names1, positions1, board1, scores1);
+		String[] names2 = {"george","somePlayer", "nextOne"};
+		String[] positions2 = {"1,1","1,1","3,3"};
+		String[] board2 = {"QuWERTYUIOPLKJHGF", "MLPOKNJIUHBVGYTF","MLPOKNJIUHBVGYTF"};
+		long[] scores2 = {0,30,0};
+		
+		//model.setCurrentPlayerName("geroge");
+		model.setCurrentPlayerName("nextOne");
+		model.boardResponseHandler("george", bonus, names2, positions2, board2, scores2);
 		
 		new ExitGameRequestController(client, model).process();
 		
@@ -61,7 +67,7 @@ public class ExitGameRequestControllerTest extends TestCase {
 		
 		assertEquals("somePlace", r.contents.getFirstChild().getAttributes().getNamedItem("gameId").getNodeValue());
 		
-		assertEquals("george", r.contents.getFirstChild().getAttributes()
+		assertEquals("nextOne", r.contents.getFirstChild().getAttributes()
 				.getNamedItem("name").getNodeValue());
 		System.out.println(r.toString());
 	}

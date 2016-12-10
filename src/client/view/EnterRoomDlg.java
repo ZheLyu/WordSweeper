@@ -14,6 +14,9 @@ import javax.swing.JTextField;
 import client.controller.CreateGameRequestController;
 import client.controller.JoinGameRequestController;
 import client.model.GameRoom;
+import javax.swing.JTextArea;
+import java.awt.Color;
+import java.awt.SystemColor;
 
 public class EnterRoomDlg extends JFrame implements ActionListener {
 
@@ -23,6 +26,7 @@ public class EnterRoomDlg extends JFrame implements ActionListener {
 	Application m_app;
 	JButton btnNewButton;
 	JButton btnCancel;
+	JTextArea textArea ;
 	
 	public EnterRoomDlg(final Application app, final GameRoom m, final int type) {
 		// TODO Auto-generated constructor stub
@@ -66,6 +70,12 @@ public class EnterRoomDlg extends JFrame implements ActionListener {
 		getContentPane().add(textField);
 		textField.setColumns(10);
 		
+		textArea = new JTextArea();
+		textArea.setForeground(Color.RED);
+		textArea.setBackground(SystemColor.control);
+		textArea.setBounds(102, 73, 310, 24);
+		getContentPane().add(textArea);
+		
 	}
 
 	@Override
@@ -85,29 +95,40 @@ public class EnterRoomDlg extends JFrame implements ActionListener {
 	//		m_gameRoom.setCurrentPlayerName(textField.getText());
 			
 			  if(m_iType==0) {
-				  
-				   new CreateGameRequestController(m_app, m_gameRoom).process();
+				 
+				  BoardDisplay frame = new BoardDisplay(m_app, m_gameRoom);
+				  frame.setVisible(true); 
+				  new CreateGameRequestController(m_app, m_gameRoom).process();
 				   while (m_gameRoom.getPlayerList().size() == 0) System.out.print("");
 				   System.out.println();
 				   dispose();
+				   
 				  
 			   } else {
 				   
 				   new JoinGameRequestController(m_app, m_gameRoom).process();
 				   int count = 0; 
 				   System.out.println("ff");
-				   while (count < 65535 && m_gameRoom.getPlayerList().size() == 0) {
+				   while (count < 1000000 && m_gameRoom.getPlayerList().size() == 0) {
 					   System.out.print(""); 
 					   count++;
 				   }
+				   if(m_gameRoom.getPlayerList().size() == 0){
+					   System.out.println("out of time");
+					   textArea.setText("Wrong gameroom, please try again!");   
+				   }
+				   else{
+					   BoardDisplay frame = new BoardDisplay(m_app, m_gameRoom);
+					   frame.setVisible(true);
+					   dispose();
+				   }
 					   
-				   System.out.println();
-				   dispose();
+				   
+				  //System.exit(0);
 			   }
 				   
 				
-				BoardDisplay frame = new BoardDisplay(m_app, m_gameRoom);
-			    frame.setVisible(true);
+				
 		}
 		
 		if(arg0.getSource()==btnCancel)
@@ -116,5 +137,4 @@ public class EnterRoomDlg extends JFrame implements ActionListener {
 		}
 		
 	}
-
 }

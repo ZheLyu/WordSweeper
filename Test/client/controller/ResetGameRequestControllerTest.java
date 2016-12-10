@@ -32,6 +32,7 @@ public class ResetGameRequestControllerTest extends TestCase {
 		client.setVisible(true);
 		
 		mockServer = new MockServerAccess("localhost");
+		
 		client.setServerAccess(mockServer);
 	}
 

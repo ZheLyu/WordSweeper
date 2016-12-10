@@ -29,6 +29,7 @@ public class LockGameRequestControllerTest extends TestCase {
 		client.setVisible(true);
 		
 		mockServer = new MockServerAccess("localhost");
+		
 		client.setServerAccess(mockServer);
 	}
 

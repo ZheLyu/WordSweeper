@@ -53,7 +53,7 @@ public class CreateGameControllerTest extends TestCase {
 		long[] scores1 = {0};
 		String bonus = "4,3";
 		
-		model.setCurrentPlayerName("geroge");
+		model.setCurrentPlayerName("george");
 		model.boardResponseHandler("george", bonus, names1, positions1, board1, scores1);
 		
 		new CreateGameRequestController(client, model).process();

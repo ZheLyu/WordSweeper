@@ -31,8 +31,8 @@ public class Player {
 		
 		this.name = name; 
 		this.board = new Board(boardContents);
-		this.globalPosition = new Position (Integer.parseInt("" + globalPosition.charAt(0)), 
-				                            Integer.parseInt("" + globalPosition.charAt(2)));
+		this.globalPosition = new Position (Integer.parseInt("" + globalPosition.charAt(2)),
+											Integer.parseInt("" + globalPosition.charAt(0)));
 				                       
 		this.isManager = isManager; 
 	//	words = new ArrayList<>();
@@ -64,10 +64,6 @@ public class Player {
 		this.name = name;
 	}
 	
-	public long updateTotalScore(long score) {
-		
-		return totalScore += score; 
-	}
 	
 	public void setScore(long totalScore) { 
 		

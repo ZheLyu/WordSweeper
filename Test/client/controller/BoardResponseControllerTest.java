@@ -36,9 +36,9 @@ public class BoardResponseControllerTest extends TestCase {
 		super.tearDown();
 	}
 
-	public void testBoardResponseController() {
-		fail("Not yet implemented");
-	}
+//	public void testBoardResponseController() {
+//		fail("Not yet implemented");
+//	}
 
 	public void testProcess() {
 		//fail("Not yet implemented");

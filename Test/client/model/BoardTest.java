@@ -7,6 +7,8 @@ import junit.framework.TestCase;
 
 public class BoardTest extends TestCase {
 	
+	
+	
 	String boardContents = "QuWERTYUIOPLKJHGF";
 	
 	String s = "QJWERTYUIOPLKJHGF";

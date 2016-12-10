@@ -33,7 +33,7 @@ public class LockGameResponseControllerTest extends TestCase {
 			client.setVisible(true);
 				
 			mockServer = new MockServerAccess("localhost");
-				
+			
 			client.setServerAccess(mockServer);
 	}
 
@@ -51,6 +51,7 @@ public class LockGameResponseControllerTest extends TestCase {
 		boolean result = new LockGameResponseController(client, model).process(response);
 		
 		assertTrue("Should be true", result);
+		System.out.println(response.toString());
 	}
 
 }
