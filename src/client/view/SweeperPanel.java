@@ -51,7 +51,7 @@ public class SweeperPanel extends JPanel implements ActionListener{
 	public SweeperPanel(Application app, GameRoom m) {
 		gameRoom = m;
 		model = m.getDrawModel();
-		positionToWeight = m.getPositionToWeight();
+		positionToWeight = null;
         control = new DragControl(this, m, app);
 		this.addMouseListener(control);
 		this.addMouseMotionListener(control);
@@ -105,7 +105,7 @@ public class SweeperPanel extends JPanel implements ActionListener{
 		   Point vLineNode = model.getVerticalLine(i);
 		   g.drawLine(vLineNode.x, vLineNode.y, vLineNode.x, vLineNode.y + model.getBoardSize());
 		}
-		
+		positionToWeight = gameRoom.getPositionToWeight();
 		for (int row = 0; row < SIZE; row++) {
 			for (int col = 0; col < SIZE; col++) {
 				
