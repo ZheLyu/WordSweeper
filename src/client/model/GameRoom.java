@@ -41,7 +41,7 @@ public class GameRoom {
 	private Map<Position, Integer> globalPositionToWeight;
 	private String managingUser;
     boolean isPracticeMode;
-    SweeperPanel panel;
+  
 	
 	
 	public GameRoom(String gameId) {
@@ -138,9 +138,6 @@ public class GameRoom {
 		
 		computeSharedArea(); // update shared area 
 		
-		//refresh panel
-		if (panel != null)
-			panel.repaint();
 	}
 	
 	public Player getPlayer() {

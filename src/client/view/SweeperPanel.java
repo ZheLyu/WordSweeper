@@ -17,12 +17,15 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Point;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
+import javax.swing.Timer;
 
 import client.controller.DragControl;
 import client.model.DrawBoardModel;
@@ -31,8 +34,9 @@ import client.model.Player;
 import client.model.Position;
 
 
-public class SweeperPanel extends JPanel{
+public class SweeperPanel extends JPanel implements ActionListener{
 	
+	Timer timer; 
 	private static final int SIZE = 4;
 	private DrawBoardModel model;
 	private GameRoom gameRoom;
@@ -55,6 +59,14 @@ public class SweeperPanel extends JPanel{
 		dlgWidth  =864;
 		dlgHeight =576;
 		
+		timer=new Timer(300, this);
+		
+		
+	}
+	
+	public void startTimer()
+	{
+		timer.start();
 	}
 	
 	public String getLastSelectedWord()
@@ -186,6 +198,19 @@ public class SweeperPanel extends JPanel{
 		
 		
 	}
+	
+	
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		// TODO Auto-generated method stub
+		if(arg0.getSource() == timer)
+		{
+			
+			this.repaint();
+			
+		}
+	}
+		
 	
 
 }
