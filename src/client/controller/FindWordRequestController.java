@@ -33,14 +33,13 @@ public class FindWordRequestController {
 	}
 	
 	public String toString() {
+		
 		List<Cell> cellList = model.getDrawModel().getSelCellList2();
-	// String word = model.getWord(model.getDrawModel().getSelCellList2());
 		String word = model.getDrawModel().getWord(cellList);
 		XmlStringBuilder builder = new XmlStringBuilder("findWordRequest").add("gameId", model.getGameId()).add("name", model.getPlayer().getName()).add("word", word).closeSegment();
-		System.out.println("word size = " + word.length());
+		
 		for (int i = 0; i < word.length(); i++){
-			System.out.println("!!!!!!!!!!!!!!word " + word.charAt(i));
-		//	builder.add("cell").add("letter", model.getLetter(i, model.getDrawModel().getSelCellList2())).add("position", model.getPosition(i, model.getDrawModel().getSelCellList2())).closeElement().toString();
+			
 			builder.add("cell").add("letter", cellList.get(i).getLetter()).add("position", cellList.get(i)
 		    .getPosition().localToGlobal(model.getPlayer().getGlobalPosition()).switchColRow().toString()).closeSegment().finishTep("cell");
 		}

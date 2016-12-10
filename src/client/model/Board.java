@@ -51,29 +51,7 @@ public class Board {
 		
 		board = new HashMap<>();
 		createBoard(boardContents);
-//		int count = 0; // count should be 16 after the for loop finishes executing.
-//		
-//		for (int i = 0; i < boardContents.length(); i++) {
-//			
-//			while(boardContents.charAt(i) < 'A' || boardContents.charAt(i) > 'Z') i++;
-//			
-//			String contents = boardContents.charAt(i) + "";
-//			
-//			if (Character.toLowerCase(boardContents.charAt(i)) == 'q') { 
-//				i++;
-//				if (i == boardContents.length() || Character.toLowerCase(boardContents.charAt(i)) != 'u') { // make sure that letter u follows letter q
-//					throw new IllegalArgumentException("u should follow q");
-//				}
-//				contents += boardContents.charAt(i);  // contents = "qu", charAt(i) = 'u'
-//			}
-//		
-//			int col = count % 4;
-//			int row = count / 4;
-//			Position position = new Position(row, col);
-//			Cell cell = new Cell(position, contents);
-//			board.put(position, cell);
-//			count++;
-//		}
+
 		
 	}
 	
@@ -91,12 +69,12 @@ public class Board {
 		return board.get(position).getLetter();
 	}
 	
-	public void updateBoard(String boardContents) {
-		
-		board.clear();
-		createBoard(boardContents);
-
-	}
+//	public void updateBoard(String boardContents) {
+//		
+//		board.clear();
+//		createBoard(boardContents);
+//
+//	}
 	
 	private void createBoard(String boardContents) {
 		
@@ -125,15 +103,15 @@ public class Board {
 		}
 	}
 	
-	public String toString() {
-		
-		//String boardContent = "";
-		for (Position p: board.keySet()) {
-			
-			System.out.println(p + " " + board.get(p));
-		}
-		
-		return "true";
-		
-	}
+//	public String toString() {
+//		
+//		//String boardContent = "";
+//		for (Position p: board.keySet()) {
+//			
+//			System.out.println(p + " " + board.get(p));
+//		}
+//		
+//		return "true";
+//		
+//	}
 }

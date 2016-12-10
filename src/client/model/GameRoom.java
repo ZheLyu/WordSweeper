@@ -103,17 +103,7 @@ public class GameRoom {
 		getDrawModel().clearSelCellList();
 		
 		int length = names.length; // store the number in the game room
-		/*if (length == 1) { // execute after creating game or there is only one player in the room
-			
-			player = new Player(names[0], board[0], positions[0], scores[0], true);
-			drawBoardModel.setBoard(player.getBoard());
-			
-			findPlayerByName.put(names[0], player);
-			players.add(player);
 
-			
-		} else {
-		*/
 			
 		for (int i = 0; i < length; i++) {
 			
@@ -133,7 +123,6 @@ public class GameRoom {
 			
 		}
 		
-		//}
 		
 		
 	computeSharedArea(); // update shared area 
