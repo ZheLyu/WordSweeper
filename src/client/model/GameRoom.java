@@ -152,7 +152,7 @@ public class GameRoom {
 	
 	public void findWordResponseHandler(long score) {
 		
-		player.updateTotalScore(score);
+		//player.setScore(score);
 	}
 		
 	public DrawBoardModel getDrawModel() {

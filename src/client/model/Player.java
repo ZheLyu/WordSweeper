@@ -64,10 +64,6 @@ public class Player {
 		this.name = name;
 	}
 	
-	public long updateTotalScore(long score) {
-		
-		return totalScore += score; 
-	}
 	
 	public void setScore(long totalScore) { 
 		

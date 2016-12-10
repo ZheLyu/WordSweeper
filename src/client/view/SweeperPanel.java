@@ -128,8 +128,8 @@ public class SweeperPanel extends JPanel implements ActionListener{
 				}
 				else                  // the cell is not selected
 				{
-					if(weight<14)
-			            g.setColor(new Color(255,255-(weight-1)*20,255-(weight-1)*20));
+					if(weight<10)
+			            g.setColor(new Color(255, 255-(weight-1)*50,255-(weight-1)*50));
 					else
 						g.setColor(new Color(255,10,10));
 				}
