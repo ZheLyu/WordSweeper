@@ -50,10 +50,11 @@ public class ClientLauncher {
 		}
 		
 		// select dedicated server with '-server' options
-		//String host = "localhost";
-	    String host = "cccwork3.wpi.edu";
+		String host = "localhost";
+	   // String host = serverHost;
+	    
 		if (args.length > 0 && args[0].equals("-server")) {
-			host = serverHost;
+			host = "cccwork3.wpi.edu";
 		}
 		
 		// Initialize the client application and its corresponding model

@@ -120,9 +120,10 @@ public class EnterRoomDlg extends JFrame implements ActionListener {
 				   else{
 					   BoardDisplay frame = new BoardDisplay(m_app, m_gameRoom);
 					   frame.setVisible(true);
+					   dispose();
 				   }
 					   
-				   
+				  
 				  //System.exit(0);
 			   }
 				   
