@@ -59,7 +59,7 @@ import javax.swing.SwingConstants;
 public class Application extends JFrame {
     
 
-	static String Version ="V 1.1.0"; 
+	static String Version ="V 1.1.1"; 
 
 	
 
