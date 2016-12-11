@@ -162,7 +162,7 @@ public class SweeperPanel extends JPanel implements ActionListener{
 		g.drawString("Total Score: "+ gameRoom.getPlayer().getScore(), xStart.x, xStart.y-25-35);
 		
 		//selected word
-		g.drawString("Word: " +getLastSelectedWord()+"    Score:"+ String.format("%s",getLastSelectedScore()) , xStart.x, xStart.y-25);
+		g.drawString("Word: " +getLastSelectedWord()+"    Score:"+ String.format("%s",getLastSelectedScore()) + "   Bonus:" + String.format("%s", gameRoom.getBonus()), xStart.x, xStart.y-25);
 		
 		//player and room ID
 		g.setFont(new Font("Black", Font.BOLD, 20));

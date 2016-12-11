@@ -186,12 +186,16 @@ public class GameRoom {
 	}
 	
 	private void setBonus(String bonus) {
-		this.bonus = new Position(Integer.parseInt("" + bonus.charAt(0)), 
-				                  Integer.parseInt("" + bonus.charAt(2)));	
+		this.bonus = new Position(Integer.parseInt("" + bonus.charAt(2)),
+				                  Integer.parseInt("" + bonus.charAt(0)));	
 	}
 	
-	public Position getBonus() {
-		return bonus;
+	public String getBonus() {
+		Position newBonus = bonus.globalToLocal(player.getGlobalPosition());
+		if (newBonus.getColumn() >= 0 && newBonus.getColumn() <= 3 && newBonus.getRow() >= 0 && newBonus.getRow() <= 3)
+			return " row: " + (newBonus.getRow() + 1) + " col: " + (newBonus.getColumn() + 1);
+		else 
+			return "";
 	}
 	
 	public Map<Position, Integer> getPositionToWeight() {
@@ -267,8 +271,7 @@ public class GameRoom {
 		
 		if(cellList.size()==0)
 			return 0;
-		
-		
+		int bonusMutiply = 1;
 		for (int i = 0; i < cellList.size(); i++) {
 				
 			Cell cell = cellList.get(i);
@@ -276,7 +279,7 @@ public class GameRoom {
 			// transform the local position to global
 			
 			int sharedAreaMutiply = 0;
-			int bonusMutiply = 1;
+			
 			if (!isPracticeMode) { // the player is playing on line
 				
 				Position globalPosition = cell.getPosition().localToGlobal(player.getGlobalPosition());
@@ -291,13 +294,13 @@ public class GameRoom {
 					bonusMutiply = 10;
 				}
 			}
-			score += Word.WEIGHT.get(letter) * Math.pow(2, sharedAreaMutiply) * bonusMutiply;
+			score += Word.WEIGHT.get(letter) * Math.pow(2, sharedAreaMutiply);
 		}
+			score *=  bonusMutiply;
 		
 		// if the length of the letter is larger than 3, then multiply the total score by POW(2, wordLength) * 10
-		if (cellList.size() >= 3) {
-			score *= 10 * Math.pow(2, cellList.size());
-		}
+		
+		score *= 10 * Math.pow(2, cellList.size());
 		
 		return score;
 	
