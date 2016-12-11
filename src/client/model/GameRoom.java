@@ -191,11 +191,17 @@ public class GameRoom {
 	}
 	
 	public String getBonus() {
-		Position newBonus = bonus.globalToLocal(player.getGlobalPosition());
-		if (newBonus.getColumn() >= 0 && newBonus.getColumn() <= 3 && newBonus.getRow() >= 0 && newBonus.getRow() <= 3)
-			return " row: " + (newBonus.getRow() + 1) + " col: " + (newBonus.getColumn() + 1);
-		else 
+		if (!isPracticeMode) {
+			Position newBonus = bonus.globalToLocal(player.getGlobalPosition());
+			if (newBonus.getColumn() >= 0 && newBonus.getColumn() <= 3 && newBonus.getRow() >= 0 && newBonus.getRow() <= 3)
+				return " row: " + (newBonus.getRow() + 1) + " col: " + (newBonus.getColumn() + 1);
+			else 
+				return "";
+			
+		} else {
 			return "";
+		}
+
 	}
 	
 	public Map<Position, Integer> getPositionToWeight() {
