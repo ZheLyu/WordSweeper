@@ -7,6 +7,11 @@ This is a controller class for sending request to server.
 If the client creates a game the system will make sure that the client has gotten touch with the server                  
 
 History:
+1 Oct, 2016	--- George Heineman @1
+- Created.
+
+7 Oct, 2016 --- Zhe Lyu @2
+-Modify.
 
 *****************************************************************/
 package client.controller;
@@ -28,7 +33,7 @@ public class CreateGameRequestController {
 		this.model = model;
 	}
 
-	/** Make the request on the server and wait for response. */
+	/** Make the request to create game on the server and wait for response. */
 	public void process() {
 		// send the request to create the game.
 	//	String xmlString = Message.requestHeader() + "<createGameRequest name='samplePlayer'/></request>";

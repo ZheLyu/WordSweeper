@@ -6,6 +6,8 @@ SampleClientMessageHandler.java : implementation file
 This is a controller class template for message handler.              
 
 History:
+1 Oct, 2016	--- George Heineman @1
+- Created.
 
 *****************************************************************/
 

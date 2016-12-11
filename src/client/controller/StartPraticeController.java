@@ -27,7 +27,9 @@ public class StartPraticeController {
 		
 	}
 	
-	// Creates a flame when user press practice button 
+	/**
+	 *  Creates a flame when user press practice button 
+	 */
 	public void process() {
 		
 		BoardDisplay frame = new BoardDisplay(app, model);
