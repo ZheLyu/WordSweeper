@@ -12,6 +12,10 @@ History:
 
 7 Oct, 2016 --- Zhe Lyu @2
 -Modify.
+
+10 Dec, 2016 -- Bing Zhao@3
+This class is the main page of the word sweeper
+Every containers will be initialized here 
 *****************************************************************/
 
 
@@ -56,16 +60,17 @@ import java.awt.Toolkit;
 
 import javax.swing.SwingConstants;
 
+
+/*this is the class of main page of word sweeper, user can enter 
+ * different play mode:on-line create and join a game or practice 
+ * mode from this page*/
 public class Application extends JFrame {
     
 
-	static String Version ="V 1.1.1"; 
-
-	
+	static String Version ="V 1.1.2"; 
 
 	/** GUI application maintains reference to Model for ease of navigation. */
 	public final GameRoom model;
-	
 	
 	ServerAccess serverAccess;
 	
@@ -78,7 +83,7 @@ public class Application extends JFrame {
 	JLabel lblNewLabel_1;
 	
 	int screenWidth=1024;
-    int screenHeight=576;
+    int screenHeight=620;
 	
 	static int HSTART;
 	static int VSTART = 180;
@@ -89,7 +94,8 @@ public class Application extends JFrame {
     
 	
 	/**
-	 * Create the Application frame.
+	 * Create the Application main frame.
+	 * Initialize containers and child pages.
 	 */
 	public Application(final GameRoom model) {
 		
@@ -219,7 +225,7 @@ public class Application extends JFrame {
 		
 	}
 
-
+	/** Set the server access object. */
 	public void setServerAccess(ServerAccess access) {
 		this.serverAccess = access;
 	}

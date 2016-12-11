@@ -8,7 +8,9 @@ This is a control class for handling the mouse event on the board panel
 History:
 7 Oct, 2016	--- Bing Zhao @1
 - Created.
-
+10 Dec, 2016 --- Bing Zhao @2
+- Connect event to server request controller
+- Adjust the event handling to improve user's playing experience.
 *****************************************************************/
 
 
@@ -95,7 +97,7 @@ public class DragControl implements MouseInputListener{
 		
 		model.getDrawModel().clearSelCellList();
 		panel.repaint();
-		panel.startTimer();
+		
 	}
 
 	public void mouseReleased(MouseEvent arg0) {

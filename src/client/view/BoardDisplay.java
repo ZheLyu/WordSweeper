@@ -8,9 +8,12 @@ This is a view class for creating the game board page.
 History:
 7 Oct, 2016	--- Bing Zhao @1
 - Created.
-
+10 Dec 2016 --- Bing Zhao @2
+-This is a view class for creating a play page. 
+-User can play with the word board and view the response from server 
+-A action listener is implemented for monitoring user's mouse action
+-A timer is response to trigger refresh the page and information from model 
 *****************************************************************/
-
 
 
 package client.view;
@@ -38,6 +41,10 @@ import java.awt.event.MouseListener;
 import javax.swing.JTextArea;
 
 
+/*
+ * This is a view class for creating a play page
+ * A action listener is implemented for monitoring user's mouse action
+ */
 public class BoardDisplay extends JFrame implements ActionListener{
 	
 	 
@@ -57,8 +64,8 @@ public class BoardDisplay extends JFrame implements ActionListener{
      private JButton btnExit;
      Timer timer; 
 	
-     static int DLG_W=864;
-     static int DLG_H=576;
+     static int DLG_W=870;
+     static int DLG_H=620;
      
      static int WIDTH=80;
      static int HEIGHT=80;
@@ -70,6 +77,8 @@ public class BoardDisplay extends JFrame implements ActionListener{
      
 	/**
 	 * Create the frame.
+	 * This is a view class constructor. Buttons and 
+	 * containers in this page are initialized here
 	 */
 	public BoardDisplay(final Application app, final GameRoom m) {
 		
@@ -158,7 +167,7 @@ public class BoardDisplay extends JFrame implements ActionListener{
 		btnReset.addActionListener(this);
 		
 		btnExit = new JButton("EXIT");
-		btnExit.setBounds(DLG_W-WIDTH-20, VSTATRT, 105, 79);
+		btnExit.setBounds(DLG_W-WIDTH-50, VSTATRT, 105, 79);
 		
 		btnExit.setBorderPainted(false);
 		btnExit.setContentAreaFilled(false);
@@ -195,7 +204,9 @@ public class BoardDisplay extends JFrame implements ActionListener{
 			         
 	}
 
-
+/*
+ * This is a method to handler the event from buttons on the page 
+ */
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub

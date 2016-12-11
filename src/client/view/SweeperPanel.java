@@ -6,8 +6,14 @@ SweeperPanel.java : implementation file
 This is a view class for creating the game board panel control
 
 History:
-7 Oct, 2016	--- Bing Zhao @1
+7 Oct, 2016	--- @Bing Zhao 
 - Created.
+
+11 Dec, 2016 ---@Bing Zhao 
+-Add the background picture for the board page
+-Support get total score, step score, selected word, player list, 
+current player name and room information from model
+-Update page depends on player action and timer cycle. 
 
 *****************************************************************/
 
@@ -33,7 +39,10 @@ import client.model.GameRoom;
 import client.model.Player;
 import client.model.Position;
 
-
+/*
+ * This is a view class for creating the game board panel control
+ * 
+ * */
 public class SweeperPanel extends JPanel implements ActionListener{
 	
 	Timer timer; 
@@ -47,7 +56,7 @@ public class SweeperPanel extends JPanel implements ActionListener{
 	int dlgHeight;
 	
 	
-	
+	/*Panel will be constructed and initialized here */
 	public SweeperPanel(Application app, GameRoom m) {
 		gameRoom = m;
 		model = m.getDrawModel();
@@ -60,26 +69,25 @@ public class SweeperPanel extends JPanel implements ActionListener{
 		dlgHeight =576;
 		
 		timer=new Timer(300, this);
-		
-		
-	}
-	
-	public void startTimer()
-	{
 		timer.start();
+		
 	}
 	
+
+	/*Get last selected word from event handling controller*/
 	public String getLastSelectedWord()
 	{
 		return control.getlSelectedWord();
 	}
 	
+	/*Get last selected word score from event handling controller*/
 	public long getLastSelectedScore()
 	{
 		return control.getlSelectedScore();
 	}
 	
-	
+	/*Everything will be paint here including all the game, player, 
+	 * step and statistic information*/
 	@Override
 	protected void paintComponent(Graphics g) {
 		
@@ -174,7 +182,7 @@ public class SweeperPanel extends JPanel implements ActionListener{
 		g.drawString("PLAYER LIST:", 400, xStart.y+50);
 		String strPlayList;
 		List<Player> players = gameRoom.getPlayerList();
-		g.drawLine(400-5, xStart.y+65, 600, xStart.y+70);
+		g.drawLine(400-5, xStart.y+65, 680, xStart.y+65);
 		
 
 		int y= xStart.y+50;
@@ -184,14 +192,17 @@ public class SweeperPanel extends JPanel implements ActionListener{
 		{
 			String isManager;
 			if(players.get(i).isManager())
-				isManager ="Manager=Yes";
+			{
+				isManager ="*Manager";
+				g.setFont(new Font("Black", Font.BOLD, 18));
+			}
 			else
-				isManager ="Manager=No";
+				isManager ="";
 			
 		   y+=35;
-		   strPlayList=String.format("%s  %d  %s",players.get(i).getName(),players.get(i).getScore(),isManager);
+		   strPlayList=String.format("%s  score:%d  %s",players.get(i).getName(),players.get(i).getScore(),isManager);
 		   g.drawString(strPlayList, 400, y);
-		   g.drawLine(400-5, y+10, 600, y+10);
+		   g.drawLine(400-5, y+10, 680, y+10);
 		}
 		
 	
@@ -199,7 +210,7 @@ public class SweeperPanel extends JPanel implements ActionListener{
 		
 	}
 	
-	
+	/*Handling the timer event and trigger refresh the page*/
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub

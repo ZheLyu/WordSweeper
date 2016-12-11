@@ -61,7 +61,7 @@ public class ClientLauncher {
 	//	GameRoom model = new GameRoom();
 		Application app = new Application(model);
 		
-		SimpleDateFormat df = new SimpleDateFormat("HH:mm:ss");
+		SimpleDateFormat df = new SimpleDateFormat("HHmmss");
 		model.setCurrentPlayerName("Virgo"+df.format(new Date()));
 				
 		// set up the chain of responsibility
