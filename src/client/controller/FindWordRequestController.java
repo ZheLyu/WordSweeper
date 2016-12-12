@@ -54,9 +54,13 @@ public class FindWordRequestController {
 		String word = model.getDrawModel().getWord(cellList);
 		XmlStringBuilder builder = new XmlStringBuilder("findWordRequest").add("gameId", model.getGameId()).add("name", model.getPlayer().getName()).add("word", word).closeSegment();
 		
-		for (int i = 0; i < word.length(); i++){
-			
-			builder.add("cell").add("letter", cellList.get(i).getLetter()).add("position", cellList.get(i)
+		for (int i = 0; i < cellList.size(); i++){
+			String letter = cellList.get(i).getLetter();
+			if (letter.toLowerCase().equals("q")) {
+				
+				letter += "u";
+			}
+			builder.add("cell").add("letter", letter).add("position", cellList.get(i)
 		    .getPosition().localToGlobal(model.getPlayer().getGlobalPosition()).switchColRow().toString()).closeSegment().finishTep("cell");
 		}
       
