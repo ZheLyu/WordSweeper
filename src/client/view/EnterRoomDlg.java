@@ -139,7 +139,7 @@ public class EnterRoomDlg extends JFrame implements ActionListener {
 				   }
 				   if(m_gameRoom.getPlayerList().size() == 0){
 					   System.out.println("out of time");
-					   textArea.setText("Wrong gameroom, please try again!");   
+					   textArea.setText("Wrong gameroom or password, please try again!");   
 				   }
 				   else{
 					   BoardDisplay frame = new BoardDisplay(m_app, m_gameRoom);
