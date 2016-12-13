@@ -53,7 +53,7 @@ public class ClientLauncher {
 		String host = "localhost";
 
 		if (args.length > 0 && args[0].equals("-server")) {
-			host = "cccwork3.wpi.edu";
+			//host = "cccwork3.wpi.edu";
 		}
 		
 		// Initialize the client application and its corresponding model

@@ -5,7 +5,15 @@ import client.MockServerAccess;
 import client.model.GameRoom;
 import client.view.Application;
 import junit.framework.TestCase;
-
+/**
+ * This test case is needed when the job of a controller is to get the board response from the server.
+ * <P>
+ * To make this work we need to create a "mock" Server and fabricate a board response message from server so that 
+ * the client can receive and parse the message.
+ *  
+ * @author QI WANG
+ *
+ */
 public class BoardResponseControllerTest extends TestCase {
 	
 	// Mock server object that extends (and overrides) ServerAccess for its purposes
@@ -36,10 +44,10 @@ public class BoardResponseControllerTest extends TestCase {
 		super.tearDown();
 	}
 
-//	public void testBoardResponseController() {
-//		fail("Not yet implemented");
-//	}
 
+	/**
+	 * Validates the controller can receive and parses the fabricated message correctly.  
+	 */
 	public void testProcess() {
 		//fail("Not yet implemented");
 		

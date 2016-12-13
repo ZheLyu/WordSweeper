@@ -5,7 +5,13 @@ import client.model.GameRoom;
 import client.view.Application;
 import junit.framework.TestCase;
 import client.model.*;
-
+/**
+ * This test case is needed when the program is running in the practice mode.
+ * <P>
+ * To make this work we need to create a player and its game board.
+ * @author QI WANG
+ *
+ */
 public class StartPraticeControllerTest extends TestCase {
 	// client to connect
 	Application client;

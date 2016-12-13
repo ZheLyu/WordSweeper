@@ -2,7 +2,13 @@ package client.view;
 
 import client.model.GameRoom;
 import junit.framework.TestCase;
-
+/**
+ * This test case is needed when the player needs to enter the game name to enter a game.
+ * <P>
+ * To make this we need to fabricate a player.
+ * @author QI WANG
+ *
+ */
 public class EnterRoomDlgTest extends TestCase {
 	
 	// client to connect
@@ -30,6 +36,9 @@ public class EnterRoomDlgTest extends TestCase {
 		super.tearDown();
 	}
 
+	/**
+	 * Validates the enter user interface is shown.
+	 */
 	public void testEnterRoomDlg() {
 		//fail("Not yet implemented");
 		new EnterRoomDlg(app, model, 0);

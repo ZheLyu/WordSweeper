@@ -5,6 +5,13 @@ import java.util.Map;
 
 import junit.framework.TestCase;
 
+/**
+ * This test case is needed when the board of the game is created.
+ * <P>
+ * To make this work we fabricate the content of the board and a player. 
+ * @author QI WANG
+ *
+ */
 public class BoardTest extends TestCase {
 	
 	
@@ -29,15 +36,21 @@ public class BoardTest extends TestCase {
 		new Board();
 	}
 
+	/**
+	 * Validates the board was correctly created by the giving message.
+	 */
 	public void testBoardString() {
 		//fail("Not yet implemented");
 		
 		Board board = new Board(boardContents);
 		
-		//Board board1 = new Board(s);
+		
 		
 	}
 
+	/**
+	 * Validates the content of the board can be got.
+	 */
 	public void testGetBoard() {
 		//fail("Not yet implemented");
 		
@@ -47,17 +60,11 @@ public class BoardTest extends TestCase {
 		
 	}
 
+	/**
+	 * Validates the positions of letters are correctly set.
+	 */
 	public void testGetPositionLetter() {
-		//fail("Not yet implemented");
-		
-//		String l1 = board.getPositionLetter(0,0);
-//		String l2 = board.getPositionLetter(0,1);
-//		String l3 = board.getPositionLetter(0,2);
-//		
-//		
-//		System.out.println(l1);
-//		System.out.println(l2);
-//		System.out.println(l3);
+
 		
 		for(int i = 0; i < 4; i++) {
 			for(int j = 0; j < 4; j++) {

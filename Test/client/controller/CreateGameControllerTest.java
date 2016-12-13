@@ -8,7 +8,15 @@ import client.model.Player;
 import client.view.Application;
 import client.MockServerAccess;
 import junit.framework.TestCase;
-
+/**
+ * This test case is needed when the job of a controller is to send a create game request to the server. 
+ * <P>
+ * To make this work we need to create a "mock" Server whose only purpose is to wait for requests to come
+ * from the client being pressed into server here in this test case.
+ * 
+ * @author QI WANG
+ *
+ */
 public class CreateGameControllerTest extends TestCase {
 	
 	MockServerAccess mockServer;
@@ -45,6 +53,9 @@ public class CreateGameControllerTest extends TestCase {
 	//	super.tearDown();
 	}
 
+	/**
+	 * Sends create game request and validates that the server gets the right message.
+	 */
 	public void testProcess() {
 
 		String[] names1 = {"george"};
@@ -54,6 +65,7 @@ public class CreateGameControllerTest extends TestCase {
 		String bonus = "4,3";
 		
 		model.setCurrentPlayerName("george");
+		model.setPassword("12345");
 		model.boardResponseHandler("george", bonus, names1, positions1, board1, scores1);
 		
 		new CreateGameRequestController(client, model).process();
@@ -68,9 +80,6 @@ public class CreateGameControllerTest extends TestCase {
 		assertEquals("createGameRequest", r.contents.getFirstChild()
 				.getLocalName());
 
-		// make sure "grab" attribute is there, and true
-		//Player player=new Player("sampleplayer","4,6",0);
-	
 		assertEquals("george", r.contents.getFirstChild().getAttributes()
 				.getNamedItem("name").getNodeValue());
 		System.out.println(r.toString());

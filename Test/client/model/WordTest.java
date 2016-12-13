@@ -1,9 +1,17 @@
 package client.model;
 
 import junit.framework.TestCase;
-
+/**
+ * This test is needed when calculating the score using letter frequency.
+ * <P>
+ * To make this we need to test the letters are assigned to the right coefficient.
+ * @author QI WANG
+ *
+ */
 public class WordTest extends TestCase {
-
+/**
+ * Validates the right weight for letters.
+ */
 public void testBoardWeight() {
 		
 		assertEquals((Integer) 1, Word.WEIGHT.get("E"));

@@ -8,7 +8,15 @@ import client.view.Application;
 import junit.framework.TestCase;
 //import server.model.ServerModel;
 import xml.Message;
-
+/**
+ * This test case is needed when the job of a controller is to receive the connection response from the server.
+ * <P>
+ * To make this work we need to create a "mock" Server and  fabricate a connect response message from server so that 
+ * the client can receive and parse the message.
+ *  
+ * @author QI WANG
+ *
+ */
 public class ConnectResponseControllerTest extends TestCase {
 	
 		// Mock server object that extends (and overrides) ServerAccess for its purposes
@@ -41,6 +49,9 @@ public class ConnectResponseControllerTest extends TestCase {
 		super.tearDown();
 	}
 
+	/**
+	 * Validates the controller can receive and parses the fabricated message correctly.  
+	 */
 	public void testProcess() {
 		//fail("Not yet implemented");
 		model.getDrawModel().setBoard(new Board());

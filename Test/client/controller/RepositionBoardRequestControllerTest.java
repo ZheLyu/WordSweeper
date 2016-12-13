@@ -7,7 +7,11 @@ import client.model.GameRoom;
 import client.view.Application;
 import junit.framework.TestCase;
 
-
+/**
+ * 
+ * @author QI WANG
+ *
+ */
 public class RepositionBoardRequestControllerTest extends TestCase {
 
 	// Mock server object that extends (and overrides) ServerAccess for its purposes
@@ -64,7 +68,7 @@ public class RepositionBoardRequestControllerTest extends TestCase {
 		assertEquals("repositionBoardRequest", r.contents.getFirstChild().getLocalName());
 		
 		System.out.println("left" + r.toString());
-//		<repositionBoardRequest gameId='somePlace' name='nextOne' rowChange='-1' /></request>";
+
 		assertEquals("somePlace", r.contents.getFirstChild().getAttributes().getNamedItem("gameId").getNodeValue());
 		assertEquals("george", r.contents.getFirstChild().getAttributes().getNamedItem("name").getNodeValue());
 		assertEquals("0", r.contents.getFirstChild().getAttributes().getNamedItem("rowChange").getNodeValue());
@@ -83,7 +87,7 @@ public class RepositionBoardRequestControllerTest extends TestCase {
 		assertEquals("repositionBoardRequest", r.contents.getFirstChild().getLocalName());
 		
 		System.out.println("right" + r.toString());
-//		<repositionBoardRequest gameId='somePlace' name='nextOne' rowChange='-1' /></request>";
+
 		assertEquals("somePlace", r.contents.getFirstChild().getAttributes().getNamedItem("gameId").getNodeValue());
 		assertEquals("george", r.contents.getFirstChild().getAttributes().getNamedItem("name").getNodeValue());
 		assertEquals("0", r.contents.getFirstChild().getAttributes().getNamedItem("rowChange").getNodeValue());
@@ -102,11 +106,11 @@ public class RepositionBoardRequestControllerTest extends TestCase {
 		assertEquals("repositionBoardRequest", r.contents.getFirstChild().getLocalName());
 		
 		System.out.println("up" + r.toString());
-//		<repositionBoardRequest gameId='somePlace' name='nextOne' rowChange='-1' /></request>";
+
 		assertEquals("somePlace", r.contents.getFirstChild().getAttributes().getNamedItem("gameId").getNodeValue());
 		assertEquals("george", r.contents.getFirstChild().getAttributes().getNamedItem("name").getNodeValue());
 		assertEquals("0", r.contents.getFirstChild().getAttributes().getNamedItem("colChange").getNodeValue());
-	//	assertEquals("somePlace", r.contents.getFirstChild().getAttributes().getNamedItem("gameId").getNodeValue());
+	
 	}
 	
 	public void testDownProcess() {
@@ -121,10 +125,10 @@ public class RepositionBoardRequestControllerTest extends TestCase {
 		assertEquals("repositionBoardRequest", r.contents.getFirstChild().getLocalName());
 		
 		System.out.println("down" + r.toString());
-//		<repositionBoardRequest gameId='somePlace' name='nextOne' rowChange='-1' /></request>";
+
 		assertEquals("somePlace", r.contents.getFirstChild().getAttributes().getNamedItem("gameId").getNodeValue());
 		assertEquals("george", r.contents.getFirstChild().getAttributes().getNamedItem("name").getNodeValue());
 		assertEquals("0", r.contents.getFirstChild().getAttributes().getNamedItem("colChange").getNodeValue());
-	//	assertEquals("somePlace", r.contents.getFirstChild().getAttributes().getNamedItem("gameId").getNodeValue());
+	
 	}
 }

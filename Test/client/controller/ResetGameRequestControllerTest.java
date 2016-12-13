@@ -8,7 +8,14 @@ import client.model.GameRoom;
 import client.view.Application;
 import xml.Message;
 import junit.framework.TestCase;
-
+/**
+ * This test case is needed when the job of a controller is to send reset game request to the server.
+ * <P>
+ * To make this work we need to create a "mock" Server whose only purpose is to wait for requests to come
+ * from the client being pressed into server here in this test case.
+ * @author QI WANG
+ *
+ */
 public class ResetGameRequestControllerTest extends TestCase {
 	
 		// Mock server object that extends (and overrides) ServerAccess for its purposes
@@ -42,6 +49,9 @@ public class ResetGameRequestControllerTest extends TestCase {
 		
 	}
 
+	/**
+	 * Sends reset game request and validates that the server gets the right message.
+	 */
 	public void testProcess() {
 		//fail("Not yet implemented");
 		model.setGameId("somePlace");

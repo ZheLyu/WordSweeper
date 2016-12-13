@@ -6,6 +6,15 @@ import client.view.Application;
 import junit.framework.TestCase;
 import xml.Message;
 
+/**
+ * This test case is needed when the job of a controller is to receive the join game response from the server.
+ * <P>
+ * To make this work we need to create a "mock" Server and  fabricate a join game response message from server so that 
+ * the client can receive and parse the message.
+ * 
+ * @author QI WANG
+ *
+ */
 public class JoinGameResponseControllerTest extends TestCase {
 
 				// Mock server object that extends (and overrides) ServerAccess for its purposes
@@ -38,6 +47,9 @@ public class JoinGameResponseControllerTest extends TestCase {
 		super.tearDown();
 	}
 
+	/**
+	 * Validates the controller can receive and parses the fabricated message correctly.  
+	 */
 	public void testProcess() {
 		//fail("Not yet implemented");
 		

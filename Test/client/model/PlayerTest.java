@@ -1,7 +1,13 @@
 package client.model;
 
 import junit.framework.TestCase;
-
+/**
+ * This test case is needed when a player instance are created.
+ * <P>
+ * To make this we need to fabricate a player and its information and send the message to model.
+ * @author QI WANG
+ *
+ */
 public class PlayerTest extends TestCase {
 	
 	Player player =	new Player("george", "QuWERTASDFGZXCVBN", "1,1", 10, true);
@@ -14,17 +20,20 @@ public class PlayerTest extends TestCase {
 		super.tearDown();
 	}
 
+	/**
+	 * Validates the instance of the player is created.
+	 */
 	public void testPlayer() {
 		//fail("Not yet implemented");
 		
 	Player player =	new Player("george", "QuWERTASDFGZXCVBN", "1,1", 10, true);
 	
-	//String position = player.getGlobalPosition().toString();
 	
-	//assertEquals( "[1,  1]", position);
 	
 	}
-	
+	/**
+	 * Validates the  information of the player are set correctly.
+	 */
 	public void testgetGlobalPosition() {
 		
 		String position = player.getGlobalPosition().toString();
@@ -38,6 +47,9 @@ public class PlayerTest extends TestCase {
 		
 	}
 	
+	/**
+	 * Validates the  information of the player are set correctly.
+	 */
 	
 	public void testsetGlobalPosition() {
 		
@@ -50,19 +62,7 @@ public class PlayerTest extends TestCase {
 		
 	}
 	
-//	public void testupdateTotalScore() {
-//		
-//		long score = 20;
-//		
-//		long result = player.updateTotalScore(score);
-//		
-//		assertEquals(30, result);
-//		
-//		player.setScore(score);
-//		
-//		
-//		
-//	}
+
 	
 	
 

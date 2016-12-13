@@ -3,6 +3,13 @@ package client.view;
 import client.model.GameRoom;
 import junit.framework.TestCase;
 
+/**
+ * This use case is needed when the player logging in a game.
+ * <P>
+ * To make this happen we need to fabricate a player.
+ * @author QI WANG
+ *
+ */
 public class LoginDlgTest extends TestCase {
 	
 		// client to connect
@@ -29,6 +36,9 @@ public class LoginDlgTest extends TestCase {
 		super.tearDown();
 	}
 
+	/**
+	 * Validates the log in user interface is shown.
+	 */
 	public void testLoginDlg() {
 		//fail("Not yet implemented");
 		new LoginDlg(app, model, 0);

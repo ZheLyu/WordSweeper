@@ -3,7 +3,14 @@ package client.model;
 import java.util.*;
 
 import junit.framework.TestCase;
-
+/**
+ * This test case is needed when the player joins and plays the game.
+ * <P>
+ * To make this we have to fabricate the message such as name and score of the player. 
+ * So the score of the player can be calculated.
+ * @author QI WANG
+ *
+ */
 public class GameRoomTest extends TestCase {
 
 	GameRoom GameRoom = new GameRoom("somePlace");
@@ -25,6 +32,10 @@ public class GameRoomTest extends TestCase {
 
 	
 
+	/**
+	 * Validates the information of the player and the states of the game can be correctly received.
+	 * 
+	 */
 	public void testBoardResponseHandler() {
 		//fail("Not yet implemented");
 		
@@ -57,7 +68,7 @@ public class GameRoomTest extends TestCase {
 		
 		assertEquals("george", name1);
 		System.out.println(name1);
-		//GameRoom.boardResponseHandler(managingUser, bonus, names, positions, board, scores);
+		
 		GameRoom.setCurrentPlayerName(managingUser);
 		GameRoom.boardResponseHandler(managingUser, bonus, names, positions, board, scores);
 		
@@ -76,6 +87,9 @@ public class GameRoomTest extends TestCase {
 
 	
 
+	/**
+	 * Validates the letters shared by different users are identified.
+	 */
 	public void testGetPositionToWeight() {
 		//fail("Not yet implemented");
 		
@@ -90,7 +104,9 @@ public class GameRoomTest extends TestCase {
 
 	
 
-	
+	/**
+	 * Validates the score of the selected words can be computed correctly.
+	 */
 	public void testComputeScore() {
 		//fail("Not yet implemented");
 		Position position1 = new Position(0,0);
@@ -109,7 +125,7 @@ public class GameRoomTest extends TestCase {
 		Position position14 = new Position(1,3);
 		Position position15 = new Position(2,3);
 		Position position16 = new Position(3,3);
-		//Position position17 = new Position(3,0);
+		
 		
 		
 		Cell element1 = new Cell(position1,"Qu");
@@ -157,13 +173,11 @@ public class GameRoomTest extends TestCase {
 		
 		String[] names1 = {"george"};
 		String[] positions1 = {"1,1"};
-		//String[] board1 = {"QWERTYUIOPLKJHGF"};
+		
 		String[] board1 = {"QuWERTYUIOPLKJHGF"};
 		long[] scores1 = {0};
 		String managingUser = "george";
 		String bonus = "4,3";
-		
-		//GameRoom.boardResponseHandler(managingUser, bonus, names1, positions1, board1, scores1);
 		
 		long grade = GameRoom.computeScore(cellList);
 		
@@ -175,13 +189,11 @@ public class GameRoomTest extends TestCase {
 		
 		String bonus2 = ",";
 		
-		//GameRoom.boardResponseHandler(managingUser, bonus, names1, positions1, board1, scores1);
-		//GameRoom.boardResponseHandler(managingUser, bonus1, names1, positions1, board1, scores1);
-		//GameRoom.boardResponseHandler(managingUser, bonus2, names1, positions1, board1, scores1);
+		
 		
 		GameRoom.setGameMode(false);
 		
-		//GameRoom.computeScore(cellList);
+		
 		
 		String[] names2 = {"george","somePlayer", "nextOne"};
 		String[] positions2 = {"1,1","1,1","3,3"};
@@ -195,14 +207,7 @@ public class GameRoomTest extends TestCase {
 		cellList1.add(1, element2);
 		GameRoom.computeScore(cellList1);
 		
-//		String[] names2 = {"george","somePlayer", "nextOne"};
-//		String[] positions2 = {"1,1","1,1","3,3"};
-//		String[] board2 = {"QuWERTYUIOPLKJHGF", "QuWERTYUIOPLKJHGF","MLPOKNJIUHBVGYTF"};
-//		long[] scores2 = {0,30,0};
-//		GameRoom.setCurrentPlayerName("nextOne");
-//		GameRoom.boardResponseHandler(managingUser, bonus, names2, positions2, board2, scores2);
-		
-//		GameRoom.computeScore(cellList1);
+
 		
 	}
 

@@ -7,7 +7,15 @@ import client.model.GameRoom;
 import client.view.Application;
 import junit.framework.TestCase;
 import xml.Message;
-
+/**
+ * This test case is needed when the job of a controller is to send exit game request to the server.
+ * <P>
+ * To make this work we need to create a "mock" Server whose only purpose is to wait for requests to come
+ * from the client being pressed into server here in this test case.
+ * 
+ * @author QI WANG
+ *
+ */
 public class ExitGameRequestControllerTest extends TestCase {
 	MockServerAccess mockServer;
 	
@@ -38,6 +46,9 @@ public class ExitGameRequestControllerTest extends TestCase {
 		//super.tearDown();
 	}
 
+	/**
+	 * Sends exit game request and validates that the server gets the right message.
+	 */
 	public void testProcess() {
 		//fail("Not yet implemented");
 		String[] names1 = {"george"};
@@ -51,7 +62,6 @@ public class ExitGameRequestControllerTest extends TestCase {
 		String[] board2 = {"QuWERTYUIOPLKJHGF", "MLPOKNJIUHBVGYTF","MLPOKNJIUHBVGYTF"};
 		long[] scores2 = {0,30,0};
 		
-		//model.setCurrentPlayerName("geroge");
 		model.setCurrentPlayerName("nextOne");
 		model.boardResponseHandler("george", bonus, names2, positions2, board2, scores2);
 		

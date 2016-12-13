@@ -8,6 +8,15 @@ import client.model.GameRoom;
 import client.view.Application;
 import junit.framework.TestCase;
 
+/**
+ * This test case is needed when the job of a controller is to send lock game request to the server.
+ * <P>
+ * To make this work we need to create a "mock" Server whose only purpose is to wait for requests to come
+ * from the client being pressed into server here in this test case.
+ * 
+ * @author QI WANG
+ *
+ */
 public class LockGameRequestControllerTest extends TestCase {
 
 	MockServerAccess mockServer;
@@ -33,6 +42,9 @@ public class LockGameRequestControllerTest extends TestCase {
 		client.setServerAccess(mockServer);
 	}
 
+	/**
+	 * Sends lock game request and validates that the server gets the right message.
+	 */
 	public void testProcess() {
 		
 		model.setGameId("somePlace");

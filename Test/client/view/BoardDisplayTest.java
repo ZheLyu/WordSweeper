@@ -4,7 +4,13 @@ import client.model.Board;
 import client.model.DrawBoardModel;
 import client.model.GameRoom;
 import junit.framework.TestCase;
-
+/**
+ * Thid test case is needed when the user interface are shown.
+ * <P>
+ * To make this we need to create the player to play the game. 
+ * @author QI WANG
+ *
+ */
 public class BoardDisplayTest extends TestCase {
 	
 	// client to connect
@@ -31,19 +37,16 @@ public class BoardDisplayTest extends TestCase {
 		super.tearDown();
 	}
 
+	/**
+	 * Validates the board are shown.
+	 */
 	public void testBoardDisplay() {
 		model = new GameRoom("somePlace");
 		//fail("Not yet implemented");
-		//String boardContents = "QuWERTYUIOPLKJHGF";
-		//Board board = new Board(boardContents);
- 
-		//new DrawBoardModel(board);
-		//model.setDrawBoardModel(new DrawBoardModel(board));
+		
 		new BoardDisplay(client, model);
 	}
 
-	public void testActionPerformed() {
-		//fail("Not yet implemented");
-	}
+	
 
 }
