@@ -43,7 +43,7 @@ public class FindWordRequestController {
 			app.getServerAccess().sendRequest(m);
 		}
 
-		app.setVisible(false);
+		//app.setVisible(false);
 	}
 	/**
 	 * Create the XML Message of findWordRequest.
