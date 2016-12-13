@@ -29,8 +29,14 @@ import javax.swing.JTextArea;
 import java.awt.Color;
 import java.awt.SystemColor;
 
-/*This is a view class before user enter the room.
- * User is required to enter the room name he wants to join or create*/
+
+/**
+ * This is a view class before user enter the room.
+ * <P>
+ * User is required to enter the room name he wants to join or create.
+ * @author BING ZHAO
+ *
+ */
 public class EnterRoomDlg extends JFrame implements ActionListener {
 
 	private JTextField textField;
@@ -101,7 +107,11 @@ public class EnterRoomDlg extends JFrame implements ActionListener {
 		
 	}
 
-	/*Handling the user input and save it to model*/
+	
+	
+	/**
+	 * Handling the user input and save it to model.
+	 */
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
@@ -117,7 +127,7 @@ public class EnterRoomDlg extends JFrame implements ActionListener {
 			m_gameRoom.setGameId(textField.getText());
 			m_gameRoom.setPassword(textField_1.getText());
 		
-	//		m_gameRoom.setCurrentPlayerName(textField.getText());
+	
 			
 			  if(m_iType==0) {
 				 

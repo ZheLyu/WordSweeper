@@ -41,9 +41,12 @@ import java.awt.event.MouseListener;
 import javax.swing.JTextArea;
 
 
-/*
- * This is a view class for creating a play page
- * A action listener is implemented for monitoring user's mouse action
+/**
+ * This is a view class for creating a play page.
+ * <P>
+ * A action listener is implemented for monitoring user's mouse action.
+ * @author BING ZHAO
+ *
  */
 public class BoardDisplay extends JFrame implements ActionListener{
 	
@@ -76,9 +79,9 @@ public class BoardDisplay extends JFrame implements ActionListener{
      
      
 	/**
-	 * Create the frame.
-	 * This is a view class constructor. Buttons and 
-	 * containers in this page are initialized here
+	 * This is a view class constructor to create the frame.
+	 * Buttons and containers in this page are initialized here.
+	 * 
 	 */
 	public BoardDisplay(final Application app, final GameRoom m) {
 		
@@ -192,21 +195,16 @@ public class BoardDisplay extends JFrame implements ActionListener{
 		sweeperPanel.add(btnReset);
 		sweeperPanel.add(btnExit);
 		
-		//textWordSelect = new JTextArea();
-		//textWordSelect.setBounds(100, 100, 200, 138);
-		//getContentPane().add(textWordSelect);
 		
-		
-		//timer = new Timer(500, this);
-		//timer.start();
 		
 		setVisible(true);
 			         
 	}
 
-/*
- * This is a method to handler the event from buttons on the page 
- */
+
+	/**
+	 * This is a method to handler the event from buttons on the page.
+	 */
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub

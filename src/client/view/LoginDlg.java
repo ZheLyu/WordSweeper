@@ -27,7 +27,12 @@ import client.controller.CreateGameRequestController;
 import client.controller.JoinGameRequestController;
 import client.model.GameRoom;
 
-/*This is a view class for user login.*/
+
+/**
+ * This is a view class for user login.
+ * @author BING ZHAO
+ *
+ */
 public class LoginDlg extends JFrame implements ActionListener{
 
 
@@ -38,7 +43,13 @@ public class LoginDlg extends JFrame implements ActionListener{
 	JButton btnNewButton;
 	JButton btnCancel;
 	
-	/*Login class constructor*/
+	
+	/**
+	 * Login class constructor.
+	 * @param app
+	 * @param m
+	 * @param type
+	 */
 	public LoginDlg(final Application app, final GameRoom m, final int type) {
 		// TODO Auto-generated constructor stub
 		
@@ -84,7 +95,7 @@ public class LoginDlg extends JFrame implements ActionListener{
 		
 	}
 
-	/*Handling the user input and save it to model*/
+	/** Handling the user input and save it to model. */
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub

@@ -61,9 +61,12 @@ import java.awt.Toolkit;
 import javax.swing.SwingConstants;
 
 
-/*this is the class of main page of word sweeper, user can enter 
- * different play mode:on-line create and join a game or practice 
- * mode from this page*/
+
+/**
+ * this is the class of main page of word sweeper, user can enter different play mode:on-line create and join a game or practice mode from this page. 
+ * @author BING ZHAO
+ *
+ */
 public class Application extends JFrame {
     
 
@@ -207,7 +210,7 @@ public class Application extends JFrame {
 		
 		btnExitGame.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//new ExitGameRequestController(Application.this,model).process();
+				
 				System.exit(0);
 			}
 		});

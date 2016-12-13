@@ -39,10 +39,12 @@ import client.model.GameRoom;
 import client.model.Player;
 import client.model.Position;
 
-/*
- * This is a view class for creating the game board panel control
- * 
- * */
+
+/**
+ * This is a view class for creating the game board panel control.
+ * @author BING ZHAO
+ *
+ */
 public class SweeperPanel extends JPanel implements ActionListener{
 	
 	Timer timer; 
@@ -56,7 +58,12 @@ public class SweeperPanel extends JPanel implements ActionListener{
 	int dlgHeight;
 	
 	
-	/*Panel will be constructed and initialized here */
+	
+	/**
+	 * Panel will be constructed and initialized here
+	 * @param app
+	 * @param m
+	 */
 	public SweeperPanel(Application app, GameRoom m) {
 		gameRoom = m;
 		model = m.getDrawModel();
@@ -74,20 +81,28 @@ public class SweeperPanel extends JPanel implements ActionListener{
 	}
 	
 
-	/*Get last selected word from event handling controller*/
+
+	/**
+	 * Get last selected word from event handling controller.
+	 * @return control gets the words.
+	 */
 	public String getLastSelectedWord()
 	{
 		return control.getlSelectedWord();
 	}
 	
-	/*Get last selected word score from event handling controller*/
+	
+	/**
+	 * Get last selected word score from event handling controller
+	 * @return control gets the score.
+	 */
 	public long getLastSelectedScore()
 	{
 		return control.getlSelectedScore();
 	}
 	
-	/*Everything will be paint here including all the game, player, 
-	 * step and statistic information*/
+	/** Everything will be paint here including all the game, player, step and statistic information.*/
+
 	@Override
 	protected void paintComponent(Graphics g) {
 		
@@ -148,12 +163,11 @@ public class SweeperPanel extends JPanel implements ActionListener{
 				
 				g.setColor(Color.black);
 				
-				// Set the letter's size to be cellSize - magin - 30 
+				
 				g.setFont(new Font("Arial", Font.PLAIN, model.getCellSize() - magin - 30));
 				String s = gameRoom.getDrawModel().getCellLetter(row, col);
 			    
-				// Sets the baseline of the string to be point(cellLt.x + magin + 5, 
-				// cellLt.y + model.cellSize - magin - 5)
+				
 				g.drawString(s, cellLt.x + magin + 5, cellLt.y + model.getCellSize() - magin - 5);
 			}
 		}	
@@ -210,7 +224,7 @@ public class SweeperPanel extends JPanel implements ActionListener{
 		
 	}
 	
-	/*Handling the timer event and trigger refresh the page*/
+	/** Handling the timer event and trigger refresh the page. */
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
