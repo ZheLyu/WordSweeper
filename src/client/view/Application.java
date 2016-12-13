@@ -70,7 +70,7 @@ import javax.swing.SwingConstants;
 public class Application extends JFrame {
     
 
-	static String Version ="V 1.1.3"; 
+	static String Version ="V 1.1.4"; 
 
 	/** GUI application maintains reference to Model for ease of navigation. */
 	public final GameRoom model;
@@ -106,8 +106,8 @@ public class Application extends JFrame {
 		
 		HSTART = screenWidth/2-WIDTH/2;
 		
-		//setTitle("Word Sweeper");
-		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setTitle("Word Sweeper-Virgo");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0, 0, screenWidth, screenHeight);
 		
 		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();

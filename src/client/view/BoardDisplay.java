@@ -37,6 +37,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 import javax.swing.JTextArea;
 
@@ -92,6 +94,20 @@ public class BoardDisplay extends JFrame implements ActionListener{
 		setBounds(0, 0, DLG_W, DLG_H);
 		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 		this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
+		
+		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+				
+		addWindowListener(new WindowAdapter() {
+			public void windowClosing(WindowEvent e) {
+				if(model.getGameMode()==false)
+				{
+					ExitGameRequestController reset=new ExitGameRequestController(app,model);
+					reset.process();
+				}
+				dispose();
+			}
+			});
+		
 		
 		
 		sweeperPanel = new SweeperPanel(app, m);
