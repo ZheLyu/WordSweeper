@@ -67,7 +67,7 @@ import javax.swing.SwingConstants;
 public class Application extends JFrame {
     
 
-	static String Version ="V 1.1.2"; 
+	static String Version ="V 1.1.3"; 
 
 	/** GUI application maintains reference to Model for ease of navigation. */
 	public final GameRoom model;

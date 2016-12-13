@@ -40,6 +40,7 @@ public class EnterRoomDlg extends JFrame implements ActionListener {
 	JButton btnNewButton;
 	JButton btnCancel;
 	JTextArea textArea ;
+	private JTextField textField_1;
 	
 	public EnterRoomDlg(final Application app, final GameRoom m, final int type) {
 		// TODO Auto-generated constructor stub
@@ -48,8 +49,8 @@ public class EnterRoomDlg extends JFrame implements ActionListener {
 		m_gameRoom = m;
 		m_app = app;
 		
-		setTitle("Join Game");
-		setBounds(100, 100, 464, 229);
+		setTitle("Enter Game");
+		setBounds(100, 100, 471, 263);
 		
 		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 		this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
@@ -64,7 +65,7 @@ public class EnterRoomDlg extends JFrame implements ActionListener {
 
 		
 		btnNewButton = new JButton("OK");
-		btnNewButton.setBounds(102, 107, 123, 51);
+		btnNewButton.setBounds(103, 155, 123, 51);
 		btnNewButton.addActionListener(this);
 		
 		
@@ -72,7 +73,7 @@ public class EnterRoomDlg extends JFrame implements ActionListener {
 		
 		
 		btnCancel = new JButton("Cancel");
-		btnCancel.setBounds(226, 107, 123, 51);
+		btnCancel.setBounds(252, 155, 123, 51);
 		btnCancel.addActionListener(this);
 		
 	
@@ -86,8 +87,17 @@ public class EnterRoomDlg extends JFrame implements ActionListener {
 		textArea = new JTextArea();
 		textArea.setForeground(Color.RED);
 		textArea.setBackground(SystemColor.control);
-		textArea.setBounds(102, 73, 310, 24);
+		textArea.setBounds(93, 126, 310, 24);
 		getContentPane().add(textArea);
+		
+		JLabel lblPassword = new JLabel("Password\uFF1A");
+		lblPassword.setBounds(39, 95, 91, 18);
+		getContentPane().add(lblPassword);
+		
+		textField_1 = new JTextField();
+		textField_1.setBounds(163, 84, 212, 35);
+		getContentPane().add(textField_1);
+		textField_1.setColumns(10);
 		
 	}
 
@@ -105,6 +115,7 @@ public class EnterRoomDlg extends JFrame implements ActionListener {
 			}
 				
 			m_gameRoom.setGameId(textField.getText());
+			m_gameRoom.setPassword(textField_1.getText());
 		
 	//		m_gameRoom.setCurrentPlayerName(textField.getText());
 			

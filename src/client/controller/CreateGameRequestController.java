@@ -48,8 +48,9 @@ public class CreateGameRequestController {
 	public String toString() {
 	//	String s = model.getPlayer().getName();
 		String s = model.getCurrentPlayerName();
+		String p= model.getPassword();
 		System.out.println(s);
-		return new XmlStringBuilder("createGameRequest").add("name",s).finish()
+		return new XmlStringBuilder("createGameRequest").add("name",s).add("password",p).finish()
 				.toString();
 		
 	}
